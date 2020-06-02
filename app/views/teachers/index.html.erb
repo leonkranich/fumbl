@@ -1,5 +1,5 @@
 <h1>Teachers</h1>
 
-<%= @teachers.each do |teacher| %>
+<% @teachers.each do |teacher| %>
   <%= link_to teacher.name, teacher_path(teacher) %>
 <% end %>

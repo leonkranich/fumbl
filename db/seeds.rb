@@ -8,14 +8,15 @@ require "date"
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.destroy_all if Rails.env.development?
+
 Instrument.destroy_all
 Genre.destroy_all
 Review.destroy_all
 Voucher.destroy_all
-Availability.destroy_all
-Timeslot.destroy_all
 Homework.destroy_all
+Timeslot.destroy_all
+Availability.destroy_all
+User.destroy_all if Rails.env.development?
 
 
 # #------ User seed -------
@@ -74,7 +75,7 @@ puts "Users created"
 
 name1 = "Gituar"
 experience1 = "Playing Guitar since I can think of, played in 5 bands so far and increased my knowledge being on stage in every possible moment"
-years_of_experience = 5
+years_of_experience1 = 5
 user_id1 = user1.id
 
 
@@ -116,11 +117,11 @@ review1.save
 # #------- Voucher seed --------
 
 counter1 = 5
-total_price1 = 200
+price_cents1 = 200
 teacher_id1 = user1.id
 student_id1 = user2.id
 
-voucher1 = Voucher.new(counter: counter1, teacher_id: teacher_id1, student_id: student_id1, total_price: total_price1)
+voucher1 = Voucher.new(counter: counter1, teacher_id: teacher_id1, student_id: student_id1, price_cents: price_cents1)
 voucher1.save
 
 
@@ -141,7 +142,7 @@ student_id1 = user2.id
 availability_id1 = availability1.id
 start_time1 = DateTime.new(2020,6,6,4,0,0)
 end_time1 = DateTime.new(2020,6,6,5,0,0)
-booked = false
+booked1 = false
 
 timeslot1 = Timeslot.new(student_id: student_id1, availability_id: availability_id1, start_time: start_time1, end_time: end_time1, booked: booked1)
 timeslot1.save
@@ -154,7 +155,7 @@ homework_id1 = timeslot1.id
 description1 = "Look in the music sheets, I put some notes into it, greets Eric"
 
 
-homework1 = Homework.new(timeslot_id: timeslot_id1, description_id: description_id1)
+homework1 = Homework.new(timeslot_id: timeslot1.id, description: description1)
 homework1.save
 
 
