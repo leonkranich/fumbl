@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 2020_06_02_124301) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "price_per_hours"
+    t.integer "price_per_hour"
     t.boolean "teacher"
     t.text "description"
     t.string "address"
