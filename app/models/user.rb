@@ -13,4 +13,9 @@ class User < ApplicationRecord
   has_many :timeslots_as_student, source: :timeslots, foreign_key: :student_id
   has_many :homeworks, through: :timeslots
 
+  validates :name, presence: true
+  validates :email, presence: true, uniqueness: true
+  validates :address, presence: true
+  validates :price_per_hour, presence: true, if: -> { teacher == true }
+  validates :description, length: { minimum: 50 }, if: -> { teacher == true }
 end
