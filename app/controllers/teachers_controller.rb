@@ -6,7 +6,10 @@ class TeachersController < ApplicationController
   end
 
   def show
-    set_teacher
+    @instruments = Instrument.where(user_id: params[:id])
+    @genres = Genre.where(user_id: params[:id])
+    @reviews = Review.where(teacher_id: params[:id])
+    @availabilities = Availability.where(teacher_id: params[:id])
   end
 
   # def new
