@@ -1,0 +1,14 @@
+<h1>Bookings#new</h1>
+
+<%= form_with(url:  update_associated_timeslots_path, method: "patch") do |f| %>
+  <%= hidden_field_tag 'availability_id', @availability.id %>
+  <h2> <%= @availability.day  %></h2>
+  <% @timeslots.each do |timeslot| %>
+    <div class="checkbox_items">
+      <%= f.check_box timeslot.id  %>
+      <p> <%= timeslot.availability.day %> | <%= timeslot.start_time %> | <%= timeslot.end_time %> </p>
+    </div>
+  <% end %>
+  <%= link_to "Next day", next_day_path %>
+    <%= f.submit "Book"%>
+<% end %>

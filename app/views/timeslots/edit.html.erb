@@ -1,0 +1,11 @@
+<h1>Book your slot</h1>
+
+<h6>Teacher: <%= @teacher.name %> </h6>
+<%= form_with(url:  update_associated_timeslots, method: "patch") do %>
+  <%= hidden_field_tag 'availability_id', @availability.id %>
+  <% @timeslots.each do |timeslot| %>
+    <p> <%= timeslot.availability.day %> | <%= timeslot.start_time %> | <%= timeslot.end_time %> </p>
+    <%= f.check_box timeslot %>
+  <% end %>
+    <%= f.submit %>
+<% end %>
