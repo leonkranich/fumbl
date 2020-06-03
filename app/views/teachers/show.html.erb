@@ -1,3 +1,40 @@
-<h1>Teacher show: <%= @teacher.name %></h1>
+<div class="container">
+  <div class="content">
+    <div class="card-show">
+      <%= image_tag "cartman.jpg", class: "avatar-very-large", alt: "avatar-large" %>
+      <div class="card-show-info">
+        <div>
+          <h2><%= @teacher.name %></h2>
+          <ul>
+            <% @instruments.each do |instrument| %>
+              <li><%= instrument.name %> <p>experience: <%= instrument.years_of_experience %> years</p></li>
+            <%end %>
+            <% @genres.each do |genre| %>
+              <li><%= genre.name %></li>
+            <%end %>
+          </ul>
+          <% @reviews.each do |review| %>
+              <p><%= review.content %></p>
+          <%end %>
+          <% @availabilities.each do |availability| %>
+              <p><%= availability.day %></p>
+          <%end %>
+        </div>
+      </div>
+    </div>
+    <div>
+      <ul class="list-inline tabs-underlined">
+        <li>
+          <a href="#" class="tab-underlined active">Bookings</a>
+        </li>
+        <li>
+          <a href="#" class="tab-underlined">Requests</a>
+        </li>
+        <li>
+          <a href="#" class="tab-underlined">Conversations</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
 
-<%= @voucher %>
