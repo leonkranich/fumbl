@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2020_06_03_104801) do
 
   create_table "timeslots", force: :cascade do |t|
     t.datetime "start_time"
-    t.datetime "end_date"
+    t.datetime "end_time"
     t.boolean "booked", default: false
     t.bigint "availability_id", null: false
     t.bigint "student_id"
@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 2020_06_03_104801) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "price_per_hours"
+    t.integer "price_per_hour"
     t.boolean "teacher"
     t.text "description"
     t.string "address"
