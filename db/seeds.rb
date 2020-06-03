@@ -24,7 +24,7 @@ User.destroy_all if Rails.env.development?
 email1 = "host1@test.de"
 password1 = "host123456"
 password_confirmation1 = "host123456"
-name1 = "Eric Cartman"
+name1 = "Eric"
 address1 = "Stromstraße 2, 10555 Berlin"
 teacher1 = true
 price_per_hour1 = 40
@@ -40,7 +40,7 @@ user1.save
 email2 = "host2@test.de"
 password2 = "host123456"
 password_confirmation2 = "host123456"
-name2 = "Kenny McCormick"
+name2 = "Kenny"
 address2 = "Warschauer Straße 55, 10243 Berlin"
 teacher2 = false
 # user2.photo.attach(io: photo2, filename: 'user2.png', content_type: 'image/jpg')

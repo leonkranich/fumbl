@@ -3,7 +3,7 @@ class TeachersController < ApplicationController
 
   def index
     @teachers = User.where(teacher: true)
-    @teachers = User.geocoded # returns teachers with coordinates
+    @teachers_geocoded = User.geocoded # returns teachers with coordinates
 
     @markers = @teachers.map do |teacher|
       {
