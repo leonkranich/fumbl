@@ -2,6 +2,8 @@ class Timeslot < ApplicationRecord
   belongs_to :availability
   belongs_to :student, class_name: "User"
 
+  has_many  :homeworks
+
   validates :student_id, presence: true
   validates :availability_id, presence: true
   validates :start_time, :end_time, presence: true

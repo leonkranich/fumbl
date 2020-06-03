@@ -135,6 +135,20 @@ availability1 = Availability.new(teacher_id: teacher_id1, day: day1)
 availability1.save
 
 
+teacher_id1 = user1.id
+day2 = Date.new(2020,6,7)
+
+availability2 = Availability.create(teacher_id: teacher_id1, day: day2)
+availability2.save
+
+
+teacher_id1 = user1.id
+day3 = Date.new(2020,6,8)
+
+availability3 = Availability.create(teacher_id: teacher_id1, day: day3)
+availability3.save
+
+
 
 # #------- Timeslot seed --------
 
@@ -148,134 +162,36 @@ timeslot1 = Timeslot.new(student_id: student_id1, availability_id: availability_
 timeslot1.save
 
 
+student_id1 = user2.id
+availability_id2 = availability2.id
+start_time2 = DateTime.new(2020,6,7,4,0,0)
+end_time2 = DateTime.new(2020,6,7,5,0,0)
+booked2 = false
+
+timeslot2 = Timeslot.create(student_id: student_id1, availability_id: availability_id2, start_time: start_time2, end_time: end_time2, booked: booked2)
+timeslot2.save
+
+
+student_id1 = user2.id
+availability_id3 = availability3.id
+start_time3 = DateTime.new(2020,6,8,4,0,0)
+end_time3 = DateTime.new(2020,6,8,5,0,0)
+booked3 = true
+
+timeslot3 = Timeslot.create(student_id: student_id1, availability_id: availability_id3, start_time: start_time3, end_time: end_time3, booked: booked3)
+timeslot3.save
+
+
 
 # #------- Homework seed --------
 
-homework_id1 = timeslot1.id
+homework_id1 = timeslot3.id
 description1 = "Look in the music sheets, I put some notes into it, greets Eric"
 
 
-homework1 = Homework.new(timeslot_id: timeslot1.id, description: description1)
+homework1 = Homework.new(timeslot_id: timeslot3.id, description: description1)
 homework1.save
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# instrument1 = Instrument.new(name: name1, category: category1, description: description1,
-#   price_per_day: price_per_day1, user_id: user_id1)
-# instrument1.photo.attach(io: photo1, filename: 'instrument1.png', content_type: 'image/jpg')
-# instrument1.save!
-
-# name2 = "Gibson LP 57 Black Beauty Gloss"
-# photo2 = URI.open("https://images.gibson.com/Products/Electric-Guitars/2018/Custom/57-LP-Custom/LPB57VOEBGH1_ELECTRONICS_GLAM.jpg")
-# category2 = "Guitar"
-# description2 = "1957 Black Beauty Custom Shop Model made from mahagony"
-# price_per_day2 = 170
-# user_id2 = user1.id
-
-# instrument2 = Instrument.new(name: name2, category: category2, description: description2,
-#   price_per_day: price_per_day2, user_id: user_id2)
-# instrument2.photo.attach(io: photo2, filename: 'instrument2.png', content_type: 'image/jpg')
-# instrument2.save
-
-
-# name3 = "Epi­phone Les Paul Classic Worn HC"
-# photo3 = URI.open("https://www.session.de/out/pictures/generated/product/1/665_665_75/EPIPHONE_Les_Paul_Classic_Worn_HC.jpg")
-# category3 = "Guitar"
-# description3 = "1957 Black Beauty Custom Shop Model made from mahagony"
-# price_per_day3 = 90
-# user_id3 = user3.id
-
-# instrument3 = Instrument.new(name: name3, photo: photo3, category: category3, description: description3,
-#   price_per_day: price_per_day3, user_id: user_id3)
-# instrument3.photo.attach(io: photo3, filename: 'instrument3.png', content_type: 'image/jpg')
-# instrument3.save
-
-
-# name4 = "Steinway & Sons M-170 black mat"
-# photo4 = URI.open("https://images.static-thomann.de/pics/bdb/475041/14498364_800.jpg")
-# category4 = "Piano"
-# description4 = "Made in 1949 with a unique sound"
-# price_per_day4 = 700
-# user_id4 = user4.id
-
-# instrument4 = Instrument.new(name: name4, photo: photo4, category: category4, description: description4,
-#   price_per_day: price_per_day4, user_id: user_id4)
-# instrument4.photo.attach(io: photo4, filename: 'instrument4.png', content_type: 'image/jpg')
-# instrument4.save
-
-
-# name5 = "Steinway & Sons O-180 Walnut"
-# photo5 = URI.open("https://images.static-thomann.de/pics/bdb/437491/13066621_800.jpg")
-# category5 = "Piano"
-# description5 = "Made in 1925, characterized by a precise sound"
-# price_per_day5 = 1000
-# user_id5 = user1.id
-
-# instrument5 = Instrument.new(name: name5, category: category5, photo: photo5, description: description5,
-#   price_per_day: price_per_day5, user_id: user_id5)
-# instrument5.photo.attach(io: photo5, filename: 'instrument5.png', content_type: 'image/jpg')
-# instrument5.save
-
-
-# name6 = "Franz Sandner Master de luxe Stra­di­vari"
-# photo6 = URI.open("https://images.static-thomann.de/pics/bdb/472492/14670721_800.jpg")
-# category6 = "Violin"
-# description6 = "Similar to Stra­di­vari"
-# price_per_day6 = 200
-# user_id6 = user4.id
-
-# instrument6 = Instrument.new(name: name6, photo: photo6, category: category6, description: description6,
-#   price_per_day: price_per_day6, user_id: user_id6)
-# instrument6.photo.attach(io: photo6, filename: 'instrument6.png', content_type: 'image/jpg')
-# instrument6.save
-
-
-# name7 = "Scala Vil­agio PSH07/​B Solo Violin Guar­neri"
-# photo7 = URI.open("https://images.static-thomann.de/pics/bdb/478777/14902035_800.jpg")
-# category7 = "Violin"
-# description7 = "Made in Germany out of bavarian spruce"
-# price_per_day7 = 700
-# user_id7 = user3.id
-
-# instrument7 = Instrument.new(name: name7, photo: photo7, category: category7, description: description7,
-#   price_per_day: price_per_day7, user_id: user_id7)
-# instrument7.photo.attach(io: photo7, filename: 'instrument7.png', content_type: 'image/jpg')
-# instrument7.save
-
-
-# name8 = "Bach 180-37 ML Trumpet"
-# photo8 = URI.open("https://www.thomann.de/pics/bdb/100205/6947433_800.jpg")
-# category8 = "Trumpet"
-# description8 = "Great sound because of brass quality"
-# price_per_day8 = 150
-# user_id8 = user1.id
-
-# instrument8 = Instrument.new(name: name8, category: category8, photo: photo8, description: description8,
-#   price_per_day: price_per_day8, user_id: user_id8)
-# instrument8.photo.attach(io: photo8, filename: 'instrument8.png', content_type: 'image/jpg')
-# instrument8.save
-
-# puts "Instrument created"
 
 
 # # #------ Seed bookings -------

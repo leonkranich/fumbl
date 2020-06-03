@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="left-container">
+    <div class="profile-dash">
+      <!-- cl_image_tag @user.photo.key -->
+      <h4><%= @user.name %></h4>
+      <h5>Remaining Vouchers</h5>
+      <h5>Upcoming lessons</h5>
+        <% @timeslots.each do |timeslot| %>
+        <%= link_to timeslot.start_time, dashboards_path(selected_id: timeslot.id) %>
+        <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="middle-container">
+    <div class="homework-dash">
+      <h4><%= @selected_timeslot.start_time %></h4>
+        <% @selected_timeslot.homeworks.each do |homework| %>
+        <p> <%= homework.description %> </p>
+        <!-- homework.files.each do |file|
+        end -->
+        <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="right-container">
+    <div class="Chat-dash">
+      <h4>Chat comming soon</h4>
+    </div>
+  </div>
+</div>
