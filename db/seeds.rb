@@ -24,7 +24,8 @@ User.destroy_all if Rails.env.development?
 email1 = "host1@test.de"
 password1 = "host123456"
 password_confirmation1 = "host123456"
-name1 = "Eric"
+first_name1 = "Eric"
+last_name1 = "Clapton"
 address1 = "Stromstraße 2, 10555 Berlin"
 teacher1 = true
 price_per_hour1 = 40
@@ -32,23 +33,21 @@ description1 = "Just a guy, who loves great riffs, run some giggs and teach peop
 # user1.photo.attach(io: photo1, filename: 'user1.png', content_type: 'image/jpg')
 # user1.save!
 
-
-user1 = User.new(email: email1, password: password1, password_confirmation: password_confirmation1, name: name1, address: address1, teacher: teacher1, price_per_hour: price_per_hour1, description: description1)
-user1.save
+user1 = User.create(email: email1, password: password1, password_confirmation: password_confirmation1, first_name: first_name1, last_name: last_name1, address: address1, teacher: teacher1, price_per_hour: price_per_hour1, description: description1)
 
 
 email2 = "host2@test.de"
 password2 = "host123456"
 password_confirmation2 = "host123456"
-firstname2 = "Kenny"
-lastname2 = "McCormick"
+first_name2 = "Kenny"
+last_name2 = "McCormick"
 address2 = "Warschauer Straße 55, 10243 Berlin"
 teacher2 = false
 # user2.photo.attach(io: photo2, filename: 'user2.png', content_type: 'image/jpg')
 # user2.save!
 
-user2 = User.create(email: email2, password: password2, password_confirmation: password_confirmation2, firstname: firstname2,name: name2, address: address2, teacher: teacher2)
-user2.save
+user2 = User.create(email: email2, password: password2, password_confirmation: password_confirmation2, first_name: first_name2, last_name: last_name2, address: address2, teacher: teacher2)
+
 
 
 # email3 = "host3@test.de"
@@ -154,16 +153,16 @@ availability3.save
 # #------- Timeslot seed --------
 
 availability_id1 = availability1.id
-start_time1 = Time.new(3,0,0)
-end_time1 = Time.new(4,0,0)
+start_time1 = Time.new(2020,6,6,3,0,0)
+end_time1 = Time.new(2020,6,6,4,0,0)
 booked1 = false
 
 timeslot1 = Timeslot.new(student_id: student_id1, availability_id: availability_id1, start_time: start_time1, end_time: end_time1, booked: booked1)
 timeslot1.save
 
 availability_id1 = availability1.id
-start_time1 = Time.new(4,0,0)
-end_time1 = Time.new(5,0,0)
+start_time1 = Time.new(2020,6,6,4,0,0)
+end_time1 = Time.new(2020,6,6,5,0,0)
 booked1 = false
 
 timeslot1 = Timeslot.new(student_id: student_id1, availability_id: availability_id1, start_time: start_time1, end_time: end_time1, booked: booked1)
@@ -172,8 +171,8 @@ timeslot1.save
 
 student_id1 = user2.id
 availability_id2 = availability2.id
-start_time2 = Time.new(4,0,0)
-end_time2 = Time.new(5,0,0)
+start_time2 = Time.new(2020,6,7,4,0,0)
+end_time2 = Time.new(2020,6,7,5,0,0)
 booked2 = true
 
 timeslot2 = Timeslot.create(student_id: student_id1, availability_id: availability_id2, start_time: start_time2, end_time: end_time2, booked: booked2)
@@ -182,8 +181,8 @@ timeslot2.save
 
 student_id1 = user2.id
 availability_id3 = availability3.id
-start_time3 = Time.new(4,0,0)
-end_time3 = Time.new(5,0,0)
+start_time3 = Time.new(2020,6,8,4,0,0)
+end_time3 = Time.new(2020,6,8,5,0,0)
 booked3 = true
 
 timeslot3 = Timeslot.create(student_id: student_id1, availability_id: availability_id3, start_time: start_time3, end_time: end_time3, booked: booked3)

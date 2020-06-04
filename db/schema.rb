@@ -60,8 +60,8 @@ ActiveRecord::Schema.define(version: 2020_06_03_104801) do
   end
 
   create_table "timeslots", force: :cascade do |t|
-    t.datetime "start_time"
-    t.datetime "end_time"
+    t.time "start_time"
+    t.time "end_time"
     t.boolean "booked", default: false
     t.bigint "availability_id", null: false
     t.bigint "student_id"
@@ -83,7 +83,8 @@ ActiveRecord::Schema.define(version: 2020_06_03_104801) do
     t.boolean "teacher"
     t.text "description"
     t.string "address"
-    t.string "name"
+    t.string "first_name"
+    t.string "last_name"
     t.float "latitude"
     t.float "longitude"
     t.index ["email"], name: "index_users_on_email", unique: true
