@@ -1,34 +1,46 @@
 <div class="container">
-  <div class="left-container">
-    <div class="profile-dash">
-      <!-- cl_image_tag @user.photo.key -->
-      <h4><%= @user.first_name %></h4>
-      <h5>Remaining Vouchers</h5>
-      <h5>Upcoming lessons</h5>
-        <% @timeslots.each do |timeslot| %>
-        <%= link_to timeslot.start_time, dashboards_path(selected_id: timeslot.id) %>
-        <% end %>
+  <div class="row">
+    <div class="col-sm">
+      <div class="cards-index">
+        <div id="login-container">
+            <%= image_tag "cartman.jpg", class: "avatar-large", alt: "avatar-large" %>
+            <h4><%= @user.first_name %></h4>
+            <h5>Remaining Vouchers</h5>
+            <h5>Upcoming lessons</h5>
+              <% @timeslots.each do |timeslot| %>
+              <%= link_to timeslot.availability.day.strftime("%B %d") + timeslot.start_time.in_time_zone("Berlin").strftime("%H:%M"), dashboards_path(selected_id: timeslot.id) %>
+            <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm">
+      <div class="cards-index">
+        <div id="login-container">
+          <h4> Homework for <%= @selected_timeslot.availability.day.strftime("%B %d") %></h4>
+          <% @selected_timeslot.homeworks.each do |homework| %>
+          <p> <%= homework.description %> </p>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="cards-index">
+          <div id="login-container">
+            <h4>Sheets</h4>
+            <!-- homework.files.each do |file|
+            end -->
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="container">
-  <div class="middle-container">
-    <div class="homework-dash">
-      <h4><%= @selected_timeslot.start_time %></h4>
-        <% @selected_timeslot.homeworks.each do |homework| %>
-        <p> <%= homework.description %> </p>
-        <!-- homework.files.each do |file|
-        end -->
-        <% end %>
-    </div>
-  </div>
-</div>
-
-<div class="container">
-  <div class="right-container">
-    <div class="Chat-dash">
-      <h4>Chat comming soon</h4>
+  <div class="col-sm">
+    <div class="cards-index">
+      <div id="login-container">
+        <h4>Chat comming soon</h4>
+      </div>
     </div>
   </div>
 </div>
