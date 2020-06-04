@@ -24,7 +24,7 @@ User.destroy_all if Rails.env.development?
 email1 = "host1@test.de"
 password1 = "host123456"
 password_confirmation1 = "host123456"
-name1 = "Eric Cartman"
+name1 = "Eric"
 address1 = "Stromstraße 2, 10555 Berlin"
 teacher1 = true
 price_per_hour1 = 40
