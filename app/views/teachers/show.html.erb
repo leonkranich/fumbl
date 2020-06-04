@@ -4,6 +4,7 @@
       <%= image_tag "cartman.jpg", class: "avatar-very-large", alt: "avatar-large" %>
       <div class="card-show-info">
         <div>
+
           <h2><%= @teacher.first_name %></h2>
           <ul>
             <% @instruments.each do |instrument| %>
@@ -54,5 +55,6 @@
         </div>
       </div>
   </div>
+  <%= link_to "Booking", new_availability_booking_path, class: "btn-ghost" %>
 </div>
 
