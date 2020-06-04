@@ -1,0 +1,27 @@
+.footer {
+  background: $onyx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  padding: 0px 50px;
+  color: $aqua;
+}
+.footer-links {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: auto;
+}
+.footer-links a {
+  color: $aqua;
+  opacity: 0.15;
+  text-decoration: none;
+  font-size: 24px;
+  padding: 0px 10px;
+  text-align: center;
+  align-items: center;
+}
+.footer-links a:hover {
+  opacity: 1;
+}

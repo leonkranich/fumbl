@@ -17,8 +17,8 @@
           <% @reviews.each do |review| %>
               <p><%= review.content %></p>
           <%end %>
-          <% @availabilities.each do |availability| %>
-              <p><%= availability.day %></p>
+          <% @timeslots.each do |timeslot| %>
+              <p><%= timeslot.availability.day %></p>
           <%end %>
         </div>
       </div>
