@@ -12,7 +12,7 @@ const buildMap = () => {
 
 const addMarkersToMap = (map, markers) => {
   markers.forEach((marker) => {
-    new mapboxgl.Marker()
+    new mapboxgl.Marker(({ "color": "#86E7B8" }))
       .setLngLat([ marker.lng, marker.lat ])
       .addTo(map);
   });
@@ -30,6 +30,8 @@ const initMapbox = () => {
     const markers = JSON.parse(mapElement.dataset.markers);
     addMarkersToMap(map, markers);
     fitMapToMarkers(map, markers);
+    map.addControl(new mapboxgl.NavigationControl());
+    map.scrollZoom.disable()
   }
 };
 
