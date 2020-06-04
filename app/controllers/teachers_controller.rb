@@ -18,6 +18,7 @@ class TeachersController < ApplicationController
     @genres = Genre.where(user_id: params[:id])
     @reviews = Review.where(teacher_id: params[:id])
     @availabilities = Availability.where(teacher_id: params[:id])
+    @timeslots = Timeslot.where(availability_id: params[:id])
   end
 
   # def new

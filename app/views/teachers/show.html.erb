@@ -4,7 +4,8 @@
       <%= image_tag "cartman.jpg", class: "avatar-very-large", alt: "avatar-large" %>
       <div class="card-show-info">
         <div>
-          <h2><%= @teacher.name %></h2>
+
+          <h2><%= @teacher.first_name %></h2>
           <ul>
             <% @instruments.each do |instrument| %>
               <li><%= instrument.name %> <p>experience: <%= instrument.years_of_experience %> years</p></li>
@@ -16,8 +17,8 @@
           <% @reviews.each do |review| %>
               <p><%= review.content %></p>
           <%end %>
-          <% @availabilities.each do |availability| %>
-              <p><%= availability.day %></p>
+          <% @timeslots.each do |timeslot| %>
+              <p><%= timeslot.availability.day %></p>
           <%end %>
         </div>
       </div>
@@ -52,7 +53,8 @@
         <div class="tab__content">
           <p>Praesent nonummy mi in odio. Nullam accumsan lorem in dui. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl. Nullam accumsan lorem in dui. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
         </div>
-      </div> 
+      </div>
   </div>
+  
 </div>
 
