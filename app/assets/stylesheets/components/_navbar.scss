@@ -12,8 +12,9 @@
 .navbar-lewagon {
   // [...]
   justify-content: space-between;
-  background-color: transparent;
+  background-color: $onyx;
   transition: 0.5s background-color ease;
+  color: $aqua;
 }
 
 .navbar-lewagon-white {
@@ -27,4 +28,21 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+  
+.navbar-light .navbar-nav .nav-link {
+  color: $aqua;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+  color: rgb(102, 192, 149);
+}
+
+.navbar a {
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  text-decoration: none;
+  color: rgb(102, 192, 149);
 }
