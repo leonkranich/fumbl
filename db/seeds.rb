@@ -140,16 +140,16 @@ availability1.save
 # #------- Timeslot seed --------
 
 availability_id1 = availability1.id
-start_time1 = DateTime.new(2020,6,6,3,0,0)
-end_time1 = DateTime.new(2020,6,6,4,0,0)
+start_time1 = Time.new(3,0,0)
+end_time1 = Time.new(4,0,0)
 booked1 = false
 
 timeslot1 = Timeslot.new(student_id: student_id1, availability_id: availability_id1, start_time: start_time1, end_time: end_time1, booked: booked1)
 timeslot1.save
 
 availability_id1 = availability1.id
-start_time1 = DateTime.new(2020,6,6,4,0,0)
-end_time1 = DateTime.new(2020,6,6,5,0,0)
+start_time1 = Time.new(4,0,0)
+end_time1 = Time.new(5,0,0)
 booked1 = false
 
 timeslot1 = Timeslot.new(student_id: student_id1, availability_id: availability_id1, start_time: start_time1, end_time: end_time1, booked: booked1)
