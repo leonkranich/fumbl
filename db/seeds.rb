@@ -154,16 +154,16 @@ availability3.save
 # #------- Timeslot seed --------
 
 availability_id1 = availability1.id
-start_time1 = DateTime.new(2020,6,6,3,0,0)
-end_time1 = DateTime.new(2020,6,6,4,0,0)
+start_time1 = Time.new(3,0,0)
+end_time1 = Time.new(4,0,0)
 booked1 = false
 
 timeslot1 = Timeslot.new(student_id: student_id1, availability_id: availability_id1, start_time: start_time1, end_time: end_time1, booked: booked1)
 timeslot1.save
 
 availability_id1 = availability1.id
-start_time1 = DateTime.new(2020,6,6,4,0,0)
-end_time1 = DateTime.new(2020,6,6,5,0,0)
+start_time1 = Time.new(4,0,0)
+end_time1 = Time.new(5,0,0)
 booked1 = false
 
 timeslot1 = Timeslot.new(student_id: student_id1, availability_id: availability_id1, start_time: start_time1, end_time: end_time1, booked: booked1)
@@ -172,9 +172,9 @@ timeslot1.save
 
 student_id1 = user2.id
 availability_id2 = availability2.id
-start_time2 = DateTime.new(2020,6,7,4,0,0)
-end_time2 = DateTime.new(2020,6,7,5,0,0)
-booked2 = false
+start_time2 = Time.new(4,0,0)
+end_time2 = Time.new(5,0,0)
+booked2 = true
 
 timeslot2 = Timeslot.create(student_id: student_id1, availability_id: availability_id2, start_time: start_time2, end_time: end_time2, booked: booked2)
 timeslot2.save
@@ -182,8 +182,8 @@ timeslot2.save
 
 student_id1 = user2.id
 availability_id3 = availability3.id
-start_time3 = DateTime.new(2020,6,8,4,0,0)
-end_time3 = DateTime.new(2020,6,8,5,0,0)
+start_time3 = Time.new(4,0,0)
+end_time3 = Time.new(5,0,0)
 booked3 = true
 
 timeslot3 = Timeslot.create(student_id: student_id1, availability_id: availability_id3, start_time: start_time3, end_time: end_time3, booked: booked3)
