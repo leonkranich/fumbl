@@ -1,14 +1,31 @@
 class VouchersController < ApplicationController
-
+  require 'date'
   def new
-    @teacher = Teacher.find(params[:teacher_id])
+    @teacher = User.find(params[:teacher_id])
     @voucher = Voucher.new
   end
 
   def create
     @voucher = Voucher.new(voucher_params)
-    @teacher = Teacher.find(params[:teacher_id])
+    @teacher = User.find(params[:teacher_id])
     @voucher.teacher = @teacher
-    # Please finish
+    @voucher.student = current_user
+    @next_day = set_availability
+    if @voucher.save
+      flash[:notice] = "Booking Confirmed"
+     redirect_to new_availability_booking_path(@next_day)
+   else
+     redirect_to teacher_path(teacher)
+   end
+  end
+
+  private
+
+  def voucher_params
+    params.require(:voucher).permit(:counter)
+  end
+
+  def set_availability
+    @teacher.availabilities.find {p "hey"}
   end
 end

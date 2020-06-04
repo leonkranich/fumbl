@@ -17,9 +17,7 @@
           <% @reviews.each do |review| %>
               <p><%= review.content %></p>
           <%end %>
-          <% @timeslots.each do |timeslot| %>
-              <p><%= timeslot.availability.day %></p>
-          <%end %>
+          
         </div>
       </div>
     </div>
@@ -27,16 +25,33 @@
 
         <!-- active tab on page load gets checked attribute -->
         <input type="radio" id="tab1" name="tabGroup1" class="tab" checked>
-        <label for="tab1">Map</label>
+        <label for="tab1">Availability</label>
 
         <input type="radio" id="tab2" name="tabGroup1" class="tab">
-        <label for="tab2">Availability</label>
+        <label for="tab2">Map</label>
 
         <input type="radio" id="tab3" name="tabGroup1" class="tab">
         <label for="tab3">Experience</label>
 
         <input type="radio" id="tab4" name="tabGroup1" class="tab">
         <label for="tab4">Media</label>
+
+        <input type="radio" id="tab5" name="tabGroup1" class="tab">
+        <label for="tab5">Reviews</label>
+
+        <div class="tab__content">
+          <h4>Available days:</h4>
+          <% @timeslots.each do |timeslot| %>
+              <p><%= timeslot.availability.day %></p>
+          <%end %>
+          <h4>Buy Lessons</h4>
+        
+          <%= simple_form_for(:voucher, url:"/teachers/#{@teacher.id}/vouchers", method:"post") do |f| %>
+            <%= f.input :counter, collection: 1..20 %>
+            <%= f.submit "Book now", class: "btn btn-ghost" %>
+          <% end %>
+          
+        </div>
 
         <div class="tab__content">
           <p>Praesent nonummy mi in odio. Nullam accumsan lorem in dui. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl. Nullam accumsan lorem in dui. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
