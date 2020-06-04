@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :vouchers_as_student, source: :vouchers, foreign_key: :student_id
   has_many :availabilities
   has_many :timeslots, through: :availabilities
-  has_many :timeslots_as_student, source: :timeslots, foreign_key: :student_id
+  has_many :timeslots_as_student, class_name: "Timeslot", foreign_key: :student_id
   has_many :homeworks, through: :timeslots
 
   validates :name, presence: true
