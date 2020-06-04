@@ -12,3 +12,15 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper-big {
+  min-height: 100%;
+  margin-bottom: -70px;
+}
+.push {
+  height: 70px;
+}
