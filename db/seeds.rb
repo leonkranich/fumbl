@@ -40,13 +40,14 @@ user1.save
 email2 = "host2@test.de"
 password2 = "host123456"
 password_confirmation2 = "host123456"
-name2 = "Kenny McCormick"
+firstname2 = "Kenny"
+lastname2 = "McCormick"
 address2 = "Warschauer Straße 55, 10243 Berlin"
 teacher2 = false
 # user2.photo.attach(io: photo2, filename: 'user2.png', content_type: 'image/jpg')
 # user2.save!
 
-user2 = User.create(email: email2, password: password2, password_confirmation: password_confirmation2, name: name2, address: address2, teacher: teacher2)
+user2 = User.create(email: email2, password: password2, password_confirmation: password_confirmation2, firstname: firstname2,name: name2, address: address2, teacher: teacher2)
 user2.save
 
 
@@ -138,7 +139,14 @@ availability1.save
 
 # #------- Timeslot seed --------
 
-student_id1 = user2.id
+availability_id1 = availability1.id
+start_time1 = DateTime.new(2020,6,6,3,0,0)
+end_time1 = DateTime.new(2020,6,6,4,0,0)
+booked1 = false
+
+timeslot1 = Timeslot.new(student_id: student_id1, availability_id: availability_id1, start_time: start_time1, end_time: end_time1, booked: booked1)
+timeslot1.save
+
 availability_id1 = availability1.id
 start_time1 = DateTime.new(2020,6,6,4,0,0)
 end_time1 = DateTime.new(2020,6,6,5,0,0)
