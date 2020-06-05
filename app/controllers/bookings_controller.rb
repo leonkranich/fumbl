@@ -1,15 +1,28 @@
 class BookingsController < ApplicationController
+  before_action :set_availability, only: [:new, :create]
+  before_action :set_teacher, only: [:new, :create]
+  before_action :set_timeslots, only: [:new, :create]
+
   def new
-    @availability = Availability.find(params[:availability_id])
-    @teacher = User.find(@availability.teacher_id)
-    @timeslots = @availability.timeslots
     @next_day = next_day
     @previous_day = previous_day
   end
 
   def create
-    @availability = Availability.find(params[:availability_id])
+    raise
+  end
+
+  private
+
+  def set_teacher
     @teacher = User.find(@availability.teacher_id)
+  end
+
+  def set_availability
+    @availability = Availability.find(params[:availability_id])
+  end
+
+  def set_timeslots
     @timeslots = @availability.timeslots
   end
 

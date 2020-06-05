@@ -4,7 +4,7 @@ class Timeslot < ApplicationRecord
 
   has_many  :homeworks
 
-  validates :student_id, presence: true
+  #validates :student_id, presence: true
   validates :availability_id, presence: true
   validates :start_time, :end_time, presence: true
   # validates :end_time_after_start_time
