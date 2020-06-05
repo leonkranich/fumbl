@@ -4,7 +4,8 @@
     <div class="form">
       <%= form_with(url:  update_associated_timeslots_path, method: "patch") do |f| %>
         <%= hidden_field_tag 'availability_id', @availability.id %>
-        <h2> <%= @availability.day.strftime "%d.%m.%Y" %></h2>
+        <h5> Please select up to <%= @vouchers_as_a_student %> appointments</h5>
+        <h3> <%= @availability.day.strftime "%d.%m.%Y" %></h3>
         <% @availability.timeslots.each do |timeslot| %>
           <div class="checkbox_items">
             <input name="timeslots[<%= timeslot.id %>]" type="hidden" value="0">

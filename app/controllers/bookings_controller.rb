@@ -6,6 +6,7 @@ class BookingsController < ApplicationController
   def new
     @next_day = next_day
     @previous_day = previous_day
+    @vouchers_as_a_student = Voucher.find_by(student_id: current_user.id).counter
   end
 
   private
