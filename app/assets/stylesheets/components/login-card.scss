@@ -37,11 +37,17 @@ body {
     left: 64px;
     border-radius: 50%;
   }
+
+  .social{
+    position: relative;
+    bottom: 12px;
+  }
   h1 {
-    font-family: 'Sriracha', arial, sans-serif;
+    // font-family: 'Sriracha', arial, sans-serif;
     text-align: center;
     margin-bottom: 31px;
     margin-top: 72px;
+    font-size: 30px;
     color: $onyx;
     position: relative;
   }
