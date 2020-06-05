@@ -50,22 +50,107 @@ user2 = User.create(email: email2, password: password2, password_confirmation: p
 
 
 
-# email3 = "host3@test.de"
-# password3 = "host123456"
-# password_confirmation3 = "host123456"
-# address3 = "Müllerstraße 30, 13353 Berlin"
+email3 = "host3@test.de"
+password3 = "host123456"
+password_confirmation3 = "host123456"
+first_name3 = "John"
+last_name3 = "Lennon"
+address3 = "Rudi-Dutschke-Straße 25, 10969 Berlin"
+teacher3 = true
+price_per_hour3 = 80
+description3 = "Playing Guitar  since I can imagine. Only want advanced students!"
+# user1.photo.attach(io: photo1, filename: 'user1.png', content_type: 'image/jpg')
+# user1.save!
 
-# user3 = User.create(email: email3, password: password3, address: address3, password_confirmation: password_confirmation3)
-# user3.save
+
+user3 = User.create(email: email3, password: password3, password_confirmation: password_confirmation1, first_name: first_name3,  last_name: last_name3, address: address3, teacher: teacher3, price_per_hour: price_per_hour3, description: description3)
+user3.save
 
 
-# email4 = "host4@test.de"
-# password4 = "host123456"
-# password_confirmation4 = "host123456"
-# address4 = "Manteuffelstraße 14, 10997 Berlin"
+email4 = "host4@test.de"
+password4 = "host123456"
+password_confirmation4 = "host123456"
+first_name4 = "Linda"
+last_name4 = "Mason"
+address4 = "Eckertstraße  15, 10249 Berlin"
+teacher4 = true
+price_per_hour4 = 40
+description4 = "Teaching the Violin for 5 years now. I get used to it."
+# user1.photo.attach(io: photo1, filename: 'user1.png', content_type: 'image/jpg')
+# user1.save!
 
-# user4 = User.create(email: email4, password: password4, address: address4, password_confirmation: password_confirmation4)
-# user4.save
+
+user4 = User.create(email: email4, password: password4, password_confirmation: password_confirmation4, first_name: first_name4, last_name: last_name4, address: address4, teacher: teacher4, price_per_hour: price_per_hour4, description: description4)
+user4.save
+
+
+email5 = "host5@test.de"
+password5 = "host123456"
+password_confirmation5 = "host123456"
+first_name5 = "Dan"
+last_name5 = "Brown"
+address5 = "Stromstraße 5, 10555 Berlin"
+teacher5 = true
+price_per_hour5 = 30
+description5 = "I am quite new in the business of teaching, even though I play the piano since I was 5 years old."
+# user1.photo.attach(io: photo1, filename: 'user1.png', content_type: 'image/jpg')
+# user1.save!
+
+
+user5 = User.create(email: email5, password: password5, password_confirmation: password_confirmation5, first_name: first_name5, last_name: last_name5, address: address5, teacher: teacher5, price_per_hour: price_per_hour5, description: description5)
+user5.save
+
+
+email6 = "host6@test.de"
+password6 = "host123456"
+password_confirmation6 = "host123456"
+first_name6 = "Martina"
+last_name6 = "Senorita"
+address6 = "Frankfurter Allee 12, 10247 Berlin"
+teacher6 = true
+price_per_hour6 = 50
+description6 = "I am just in love with Vocals!! Nothing more to say, I guess ;)"
+# user1.photo.attach(io: photo1, filename: 'user1.png', content_type: 'image/jpg')
+# user1.save!
+
+
+user6 = User.create(email: email6, password: password6, password_confirmation: password_confirmation6, first_name: first_name6, last_name: last_name6, address: address6, teacher: teacher6, price_per_hour: price_per_hour6, description: description6)
+user6.save
+
+
+email7 = "host7@test.de"
+password7 = "host123456"
+password_confirmation7 = "host123456"
+first_name7 = "Jeffrey"
+last_name7 = "Lebowski"
+address7 = "Unter den Linden 25, 10117 Berlin"
+teacher7 = true
+price_per_hour7 = 40
+description7 = "I am totally into classicla Music, which why I am playing the Clarinette. If you like, I can teach you, but I am very strict!"
+# user1.photo.attach(io: photo1, filename: 'user1.png', content_type: 'image/jpg')
+# user1.save!
+
+
+user7 = User.create(email: email7, password: password7, password_confirmation: password_confirmation7, first_name: first_name7, last_name: last_name7, address: address7, teacher: teacher7, price_per_hour: price_per_hour7, description: description7)
+user7.save
+
+
+email8 = "host8@test.de"
+password8 = "host123456"
+password_confirmation8 = "host123456"
+first_name8 = "Jimmy"
+last_name8 = "Hendrix"
+address8 = "Adalbertstraße 88, 10997 Berlin"
+teacher8 = true
+price_per_hour8 = 20
+description8 = "IF you like the good old Jimmy Hendrix style, then I am your man!"
+# user1.photo.attach(io: photo1, filename: 'user1.png', content_type: 'image/jpg')
+# user1.save!
+
+
+user8 = User.create(email: email8, password: password8, password_confirmation: password_confirmation8, first_name: first_name8, last_name: last_name8, address: address8, teacher: teacher8, price_per_hour: price_per_hour8, description: description8)
+user8.save
+
 
 puts "Users created"
 
@@ -152,14 +237,8 @@ availability3.save
 
 # #------- Timeslot seed --------
 
-availability_id1 = availability1.id
-start_time1 = Time.new(2020,6,6,3,0,0)
-end_time1 = Time.new(2020,6,6,4,0,0)
-booked1 = false
 
-timeslot1 = Timeslot.new(student_id: student_id1, availability_id: availability_id1, start_time: start_time1, end_time: end_time1, booked: booked1)
-timeslot1.save
-
+student_id1 = user2.id
 availability_id1 = availability1.id
 start_time1 = Time.new(2020,6,6,4,0,0)
 end_time1 = Time.new(2020,6,6,5,0,0)
@@ -201,70 +280,3 @@ homework1.save
 
 
 
-# # #------ Seed bookings -------
-
-# instrument_id1 = instrument3.id
-# user_id1 = user2.id
-# start_date1 = Date.civil(2020,7,12)
-# end_date1 = Date.civil(2020,7,20)
-# difference1 = (end_date1 - start_date1).to_i
-# total_price1 = difference1 * instrument3.price_per_day
-# status1 = "accept"
-
-# booking1 = Booking.new(instrument_id: instrument_id1, user_id: user_id1,
-#   start_date: start_date1, end_date: end_date1, total_price: total_price1, status: status1)
-# booking1.save!
-
-
-# instrument_id2 = instrument5.id
-# user_id2 = user4.id
-# start_date2 = Date.civil(2020,6,1)
-# end_date2 = Date.civil(2020,6,5)
-# difference2 = (end_date1 - start_date1).to_i
-# total_price2 = difference1 * instrument3.price_per_day
-# status2 = "pending"
-
-# booking2 = Booking.new(instrument_id: instrument_id2, user_id: user_id2,
-#   start_date: start_date2, end_date: end_date2, total_price: total_price2, status: status2)
-# booking1.save!
-
-
-# instrument_id3 = instrument6.id
-# user_id3 = user1.id
-# start_date3 = Date.civil(2020,7,1)
-# end_date3 = Date.civil(2020,7,4)
-# difference3 = (end_date1 - start_date1).to_i
-# total_price3 = difference1 * instrument3.price_per_day
-# status3 = "accept"
-
-# booking3 = Booking.new(instrument_id: instrument_id3, user_id: user_id3,
-#   start_date: start_date3, end_date: end_date3, total_price: total_price3, status: status3)
-# booking3.save!
-
-
-# instrument_id4 = instrument2.id
-# user_id4 = user2.id
-# start_date4 = Date.civil(2020,8,1)
-# end_date4 = Date.civil(2020,8,20)
-# difference4 = (end_date1 - start_date1).to_i
-# total_price4 = difference1 * instrument3.price_per_day
-# status4 = "pending"
-
-# booking4 = Booking.new(instrument_id: instrument_id4, user_id: user_id4,
-#   start_date: start_date4, end_date: end_date4, total_price: total_price4, status: status4)
-# booking4.save!
-
-
-# instrument_id5 = instrument8.id
-# user_id5 = user3.id
-# start_date5 = Date.civil(2020,7,4)
-# end_date5 = Date.civil(2020,7,7)
-# difference5 = (end_date1 - start_date1).to_i
-# total_price5 = difference1 * instrument3.price_per_day
-# status5 = "accept"
-
-# booking5 = Booking.new(instrument_id: instrument_id5, user_id: user_id5,
-#   start_date: start_date5, end_date: end_date5, total_price: total_price5, status: status5)
-# booking5.save!
-
-# puts "Bookings created"

@@ -19,13 +19,13 @@ body {
 }
 
 #login-container {
-  height: 300px;
-  width: 250px;
+  height: 250px;
+  width: 200px;
   padding: 20px;
   border-radius: 5px;
-  background: $background;
+  background: $aqua;
   position: relative;
-  box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.5);
   .profile-img {
     height: 75px;
     width: 75px;
@@ -34,16 +34,15 @@ body {
     background-position: center;
     position: absolute;
     top: 10px;
-    left: 87px;
+    left: 64px;
     border-radius: 50%;
-    box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
   }
   h1 {
     font-family: 'Sriracha', arial, sans-serif;
     text-align: center;
     margin-bottom: 31px;
     margin-top: 72px;
-    color: $otherAccent;
+    color: $onyx;
     position: relative;
   }
   // .description{
@@ -67,6 +66,7 @@ body {
   //       cursor: pointer;
   //     }
   //   }
+
   // }
   button {
     width: 70%;
@@ -74,9 +74,9 @@ body {
     font-size: 1rem;
     align-items: center;
     margin: 22px 10% 0 14%;
-    color: $background;
+    color: $aqua;
     border: none;
-    box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+    // box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
     border-radius: 5px;
     background: linear-gradient(45deg, $accent, $otherAccent, $otherAccent, $accent);
     background-size: 300% 300%;
