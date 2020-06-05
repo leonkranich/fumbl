@@ -8,7 +8,9 @@
 }
 .avatar-very-large {
   width: 210px;
+  height: 210px;
   border-radius: 50%;
+  object-fit: cover;
 }
 .avatar-bordered {
   width: 40px;

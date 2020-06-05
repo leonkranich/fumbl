@@ -22,7 +22,7 @@ class VouchersController < ApplicationController
   private
 
   def voucher_params
-    params.require(:voucher).permit(:counter, :price_per_hour)
+    params.require(:voucher).permit(:counter)
   end
 
   def set_availability
