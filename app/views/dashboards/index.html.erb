@@ -1,7 +1,7 @@
 <div class="container content">
   <div class="row">
     <div class="col-sm-3">
-      <div class="card-product" style="display: block;" >
+      <div class="card-product" style="display: block; height: 650px;" >
         <div class="text-center">
           <%= image_tag "cartman.jpg", class: "avatar-large", alt: "avatar-large" %>
           <h4><%= @user.first_name %></h4>
@@ -21,15 +21,16 @@
 
     <div class="col-sm-9 d-flex text-center" style="justify-content: space-between;">
       <div class="col-sm-6">
-        <div class="card-product" style="display: block;" >
+        <div class="card-product" style="display: block; height: 325px;" >
           <h4>Homework</h4>
           <% @selected_timeslot.homeworks.each do |homework| %>
             <p> <%= homework.description %> </p>
           <% end %>
         </div>
         <div>
-          <div class="card-product">
-            <img src="https://unsplash.com/photos/I0yLAcAetNQ" />
+          <div class="card-product" style="height: 325px;">
+            <%= image_tag "Musicsheets.jpg" %>
+            <!-- <img src="../images/Musicsheets.jpg" /> -->
             <div class="card-product-infos">
               <h4>Sheets</h4>
               <p> No sheets uploaded yet </p>
@@ -40,7 +41,7 @@
         </div>
       </div>
       <div class="col-sm-3">
-        <div class="card-product" style="display: block;" >
+        <div class="card-product" style="display: block; height: 650px;" >
         <h4>Chat comming soon</h4>
         </div>
       </div>
