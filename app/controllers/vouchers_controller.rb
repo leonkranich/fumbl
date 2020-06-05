@@ -22,10 +22,10 @@ class VouchersController < ApplicationController
   private
 
   def voucher_params
-    params.require(:voucher).permit(:counter)
+    params.require(:voucher).permit(:counter, :price_per_hour)
   end
 
   def set_availability
-    @teacher.availabilities.find {p "hey"}
+    @teacher.availabilities.find_by(day: @availability.day + 1.day, teacher_id: @teacher.id)
   end
 end

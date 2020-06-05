@@ -5,7 +5,7 @@
       <div class="card-show-info">
         <div>
 
-          <h2><%= @teacher.first_name %></h2>
+          <h2><%= @teacher.first_name %> <%= @teacher.last_name %></h2>
           <ul>
             <% @instruments.each do |instrument| %>
               <li><%= instrument.name %> <p>experience: <%= instrument.years_of_experience %> years</p></li>
@@ -14,9 +14,8 @@
               <li><%= genre.name %></li>
             <%end %>
           </ul>
-          <% @reviews.each do |review| %>
-              <p><%= review.content %></p>
-          <%end %>
+          <p><%= @teacher.description %></p>
+          <p><%= @teacher.price_per_hour %></p>
           
         </div>
       </div>
@@ -58,15 +57,21 @@
         </div>
 
         <div class="tab__content">
-          <p>Praesent nonummy mi in odio. Nullam accumsan lorem in dui. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl. Nullam accumsan lorem in dui. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
+          <h4>Experience:</h4>
+          <% @instruments.each do |instrument| %>
+            <p><%= instrument.experience %></p>
+          <% end %>
         </div>
 
         <div class="tab__content">
-          <p>Praesent nonummy mi in odio. Nullam accumsan lorem in dui. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl. Nullam accumsan lorem in dui. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/pKwQlm-wldA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
 
         <div class="tab__content">
-          <p>Praesent nonummy mi in odio. Nullam accumsan lorem in dui. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl. Nullam accumsan lorem in dui. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
+        <h4>Latest reviews:</h4>
+         <% @reviews.each do |review| %>
+              <p><%= review.content %></p>
+          <%end %>
         </div>
       </div>
   </div>
