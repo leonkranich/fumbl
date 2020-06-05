@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
   end
 
   def create
-    raise
+    redirect_to dashboards_path(current_user)
   end
 
   private

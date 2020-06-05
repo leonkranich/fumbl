@@ -7,7 +7,6 @@ class AvailabilitiesController < ApplicationController
         timeslot.booked = true
         timeslot.student = current_user
         timeslot.save!
-        binding.pry
       end
     end
   end
