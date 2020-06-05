@@ -15,10 +15,10 @@ class BookingsController < ApplicationController
 
   def next_day
     # find next day as date object
-    Availability.where(@availability.day + 1.day, user: @teacher.id).first
+    Availability.find_by(day: @availability.day + 1.day, teacher_id: @teacher.id)
   end
 
   def previous_day
-    Availability.where(@availability.day - 1.day, @teacher.id == teacher_id).first
+    Availability.find_by(day: @availability.day - 1.day, teacher_id: @teacher.id)
   end
 end
