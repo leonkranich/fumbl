@@ -1,15 +1,19 @@
 .home-banner {
   background-size: cover;
-  height: 100vh;
+  height: 50vh;
   color: #eee;
   text-align: center;
   padding-top: 40vh;
   // position: fixed;
   top: 0;
+  background-position: center center;
 }
 
-.banner h1 {
+.home-banner h1 {
   color: white;
+  position: absolute;
+  top: 30%;
+  left: 25%;
 }
 
 .banner p {
