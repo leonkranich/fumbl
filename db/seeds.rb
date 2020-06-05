@@ -156,7 +156,7 @@ puts "Users created"
 
 # #------- Instrument seed --------
 
-name1 = "Gituar"
+name1 = "Guitar"
 experience1 = "Playing Guitar since I can think of, played in 5 bands so far and increased my knowledge being on stage in every possible moment"
 years_of_experience1 = 5
 user_id1 = user1.id
@@ -221,14 +221,14 @@ availability1.save
 teacher_id2 = user1.id
 day2 = Date.new(2020,6,7)
 
-availability2 = Availability.create(teacher_id: teacher_id1, day: day2)
+availability2 = Availability.create(teacher_id: teacher_id2, day: day2)
 availability2.save
 
 
 teacher_id3 = user1.id
 day3 = Date.new(2020,6,8)
 
-availability3 = Availability.create(teacher_id: teacher_id1, day: day3)
+availability3 = Availability.create(teacher_id: teacher_id3, day: day3)
 availability3.save
 
 teacher_id4 = user1.id
@@ -269,45 +269,46 @@ timeslot3 = Timeslot.create(student_id: student_id3, availability_id: availabili
 timeslot3.save
 
 
-student_id4 = ""
+student_id4 = user2.id
 availability_id4 = availability3.id
 start_time4 = Time.new(2020,6,8,10,0,0)
 end_time4 = Time.new(2020,6,8,11,0,0)
 booked4 = false
 
-timeslot4 = Timeslot.new(student_id: student_id4, availability_id: availability_id4, start_time: start_time4, end_time: end_time4, booked: booked4)
+timeslot4 = Timeslot.create(student_id: student_id4, availability_id: availability_id4, start_time: start_time4, end_time: end_time4, booked: booked4)
 timeslot4.save
 
 
-student_id5 = ""
+student_id5 = user2.id
 availability_id5 = availability3.id
 start_time5 = Time.new(2020,6,8,3,0,0)
 end_time5 = Time.new(2020,6,8,4,0,0)
 booked5 = false
 
-timeslot5 = Timeslot.new(student_id: student_id5, availability_id: availability_id5, start_time: start_time5, end_time: end_time5, booked: booked5)
+timeslot5 = Timeslot.create(student_id: student_id5, availability_id: availability_id5, start_time: start_time5, end_time: end_time5, booked: booked5)
 timeslot5.save
 
 
-student_id6 = ""
+student_id6 = user2.id
 availability_id6 = availability3.id
 start_time6 = Time.new(2020,6,8,5,0,0)
 end_time6 = Time.new(2020,6,8,6,0,0)
 booked6 = false
 
-timeslot6 = Timeslot.new(student_id: student_id6, availability_id: availability_id6, start_time: start_time6, end_time: end_time6, booked: booked6)
+timeslot6 = Timeslot.create(student_id: student_id6, availability_id: availability_id6, start_time: start_time6, end_time: end_time6, booked: booked6)
 timeslot6.save
 
 
-student_id7 = ""
+student_id7 = user2.id
 availability_id7 = availability4.id
 start_time7 = Time.new(2020,6,9,10,0,0)
 end_time7 = Time.new(2020,6,9,11,0,0)
 booked7 = false
 
-timeslot7 = Timeslot.new(student_id: student_id7, availability_id: availability_id7, start_time: start_time7, end_time: end_time7, booked: booked7)
+timeslot7 = Timeslot.create(student_id: student_id7, availability_id: availability_id7, start_time: start_time7, end_time: end_time7, booked: booked7)
 timeslot7.save
 
+binding.pry
 
 # #------- Homework seed --------
 

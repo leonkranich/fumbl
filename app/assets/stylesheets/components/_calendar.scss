@@ -1,14 +1,30 @@
 .calendar {
   text-align: center;
   position: relative;
-  border-width: 2px;
+  border-style: solid;
+  border-width: 1px;
   border-color: black;
+  padding: 20px;
+  border-radius: 4px;
+  background-color: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
 
 }
+
+//form to book appointments
 
 .form {
   border-style: 1px;
   border-color: gray;
   position: relative;
-  background-color: red;
 }
+
+
+//styling for checkboxes of the form
+
+.checkbox_items {
+  display: flex;
+  justify-content: center;
+}
+
