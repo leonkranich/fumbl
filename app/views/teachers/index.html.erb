@@ -1,8 +1,8 @@
 <div class="row justify-content-center">
-
-<h1 style="text-align: left">There is <%= @teachers.count%> awesome music teachers next to you!</h1>
-
- </div>
+<!-- <div class="h2-box" width="200px"> -->
+<h2 style="text-align: left">There is <%= @teachers.count%> awesome music teachers next to you!</h2>
+<!-- </div> -->
+</div>
 
 <div class="container d-flex">
 
@@ -20,11 +20,21 @@
     Maddie is a front end web developer in New York. She has worked in the field for 10 years now. Check out her projects in the links below. She is available for hire as well.
   </div> -->
   <div class="social">
-    <a><%= teacher.price_per_hour %>€/hour</a>
+    <%= teacher.price_per_hour %>€/h</a>
     <!-- <a><%= teacher.price_per_hour %></a>
     <a><%= teacher.price_per_hour %></a> -->
   </div>
+  <div href="#" class="cta">
+  <span><%= link_to "See Profile", teacher_path(teacher)%></span>
+    <svg width="10px" height="7px" viewBox="0 0 13 10">
+      <path d="M1,5 L11,5"></path>
+      <polyline points="8 1 12 5 8 9"></polyline>
+    </svg>
+</div>
+
+
   <!-- <button><%= link_to "See Profile", teacher_path(teacher)%></button> -->
+
 </div>
 <% end %>
 <!-- 2  -->
