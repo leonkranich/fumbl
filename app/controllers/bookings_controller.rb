@@ -8,10 +8,6 @@ class BookingsController < ApplicationController
     @previous_day = previous_day
   end
 
-  def create
-    redirect_to dashboards_path(current_user)
-  end
-
   private
 
   def set_teacher
