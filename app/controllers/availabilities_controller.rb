@@ -9,5 +9,6 @@ class AvailabilitiesController < ApplicationController
         timeslot.save!
       end
     end
+    redirect_to dashboards_path
   end
 end

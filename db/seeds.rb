@@ -308,7 +308,6 @@ booked7 = false
 timeslot7 = Timeslot.create(student_id: student_id7, availability_id: availability_id7, start_time: start_time7, end_time: end_time7, booked: booked7)
 timeslot7.save
 
-binding.pry
 
 # #------- Homework seed --------
 
