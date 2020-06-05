@@ -19,6 +19,8 @@ class TeachersController < ApplicationController
     @reviews = Review.where(teacher_id: params[:id])
     @availabilities = Availability.where(teacher_id: params[:id])
     @timeslots = Timeslot.where(availability_id: params[:id])
+    @vouchers = Voucher.where(teacher_id: params[:id])
+    @voucher = Voucher.new
   end
 
   # def new

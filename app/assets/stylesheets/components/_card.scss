@@ -2,7 +2,11 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  &:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  }
   width: 320px;
+  border-radius: 4px;
 }
 
 .card-show .card-show-info {
@@ -12,3 +16,4 @@
   align-items: flex-end;
   position: relative;
 }
+

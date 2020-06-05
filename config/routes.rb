@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :teachers, only: [:index, :show, :new, :create]
   resources :teachers do
-    resources :vouchers, only: :create
+    resources :vouchers, only: [:new, :create]
   end
   resources :teacher do
     resources :availabilities, only: :index

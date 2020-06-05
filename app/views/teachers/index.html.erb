@@ -1,7 +1,12 @@
-<div class="container d-flex">
-  <div class="row justify-content-center">
+<div class="row justify-content-center">
 
-<h1>Teachers</h1>
+<h1 style="text-align: left">There is <%= @teachers.count%> awesome music teachers next to you!</h1>
+
+ </div>
+
+<div class="container d-flex">
+
+
 
 <div class="cards-index">
 <% @teachers.each do |teacher| %>
@@ -16,111 +21,21 @@
   </div> -->
   <div class="social">
     <a><%= teacher.price_per_hour %>€/hour</a>
-    <a><%= teacher.price_per_hour %></a>
-    <a><%= teacher.price_per_hour %></a>
+    <!-- <a><%= teacher.price_per_hour %></a>
+    <a><%= teacher.price_per_hour %></a> -->
   </div>
-  <button><%= link_to "See Profile", teacher_path(teacher)%></button>
+  <!-- <button><%= link_to "See Profile", teacher_path(teacher)%></button> -->
 </div>
 <% end %>
 <!-- 2  -->
 
-
-<% @teachers.each do |teacher| %>
-<div id="login-container">
-  <div class="profile-img"></div>
-  <h1>
-    <%= teacher.first_name%>
-  </h1>
-
-  <!-- <div class="description">
-    Maddie is a front end web developer in New York. She has worked in the field for 10 years now. Check out her projects in the links below. She is available for hire as well.
-  </div> -->
-  <div class="social">
-    <a><%= teacher.price_per_hour %>€/hour</a>
-    <a><%= teacher.price_per_hour %></a>
-    <a><%= teacher.price_per_hour %></a>
-  </div>
-  <button><%= link_to "See Profile", teacher_path(teacher)%></button>
-</div>
-<% end %>
-
-
-<!-- 3 -->
-
-<% @teachers.each do |teacher| %>
-<div id="login-container">
-  <div class="profile-img"></div>
-  <h1>
-    <%= teacher.first_name%>
-  </h1>
-
-  <!-- <div class="description">
-    Maddie is a front end web developer in New York. She has worked in the field for 10 years now. Check out her projects in the links below. She is available for hire as well.
-  </div> -->
-  <div class="social">
-    <a><%= teacher.price_per_hour %>€/hour</a>
-    <a><%= teacher.price_per_hour %></a>
-    <a><%= teacher.price_per_hour %></a>
-  </div>
-  <button><%= link_to "See Profile", teacher_path(teacher)%></button>
-</div>
-<% end %>
-
-
-<!-- 4 -->
-
-
-<% @teachers.each do |teacher| %>
-<div id="login-container">
-  <div class="profile-img"></div>
-  <h1>
-    <%= teacher.first_name%>
-  </h1>
-
-  <!-- <div class="description">
-    Maddie is a front end web developer in New York. She has worked in the field for 10 years now. Check out her projects in the links below. She is available for hire as well.
-  </div> -->
-  <div class="social">
-    <a><%= teacher.price_per_hour %>€/hour</a>
-    <a><%= teacher.price_per_hour %></a>
-    <a><%= teacher.price_per_hour %></a>
-  </div>
-  <button><%= link_to "See Profile", teacher_path(teacher)%></button>
-</div>
-<% end %>
-
-<!-- 5 -->
-
-
-<% @teachers.each do |teacher| %>
-<div id="login-container">
-  <div class="profile-img"></div>
-  <h1>
-    <%= teacher.first_name%>
-  </h1>
-
-  <!-- <div class="description">
-    Maddie is a front end web developer in New York. She has worked in the field for 10 years now. Check out her projects in the links below. She is available for hire as well.
-  </div> -->
-  <div class="social">
-    <a><%= teacher.price_per_hour %>€/hour</a>
-    <a><%= teacher.price_per_hour %></a>
-    <a><%= teacher.price_per_hour %></a>
-  </div>
-  <button><%= link_to "See Profile", teacher_path(teacher)%></button>
-</div>
-<% end %>
-
-
-
- </div>
  </div>
 <div class= "d-flex" id="map"
-     style="width: 50%; height: 600px;"
+     style="width: 80%; height: 600px;"
      data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-     marker-color= ''
-  </div>
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+     marker-color="$aqua">
+   </div>
 
 </div>
 
