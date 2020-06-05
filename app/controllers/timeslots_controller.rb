@@ -11,7 +11,4 @@ class TimeslotsController < ApplicationController
     @availability = Availability.find(params[:availability_id])
   end
 
-  private
-
-  t
 end
