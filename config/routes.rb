@@ -18,6 +18,5 @@ Rails.application.routes.draw do
   resources :dashboards, only: :index
 
 
-  patch 'availabilities_timeslots', to: 'availabilities#update_timeslots', as: "update_associated_timeslots"
-  get 'bookings_nextday', to: 'bookings#next_day', as: 'next_day'
+  patch 'availabilities_timeslots', to: 'availabilities#update_associated_timeslots', as: "update_associated_timeslots"
 end

@@ -1,14 +1,23 @@
-<h1>Bookings#new</h1>
-
-<%= form_with(url:  update_associated_timeslots_path, method: "patch") do |f| %>
-  <%= hidden_field_tag 'availability_id', @availability.id %>
-  <h2> <%= @availability.day  %></h2>
-  <% @timeslots.each do |timeslot| %>
-    <div class="checkbox_items">
-      <%= f.check_box timeslot.id  %>
-      <p> <%= timeslot.availability.day %> | <%= timeslot.start_time %> | <%= timeslot.end_time %> </p>
-    </div>
-  <% end %>
-  <%= link_to "Next day", next_day_path %>
-    <%= f.submit "Book"%>
-<% end %>
+<div class="container">
+  <h1>Book your timeslots here</h1>
+  <div class="calendar">
+      <%= form_with(url:  update_associated_timeslots_path, method: "patch") do |f| %>
+        <%= hidden_field_tag 'availability_id', @availability.id %>
+        <h2> <%= @availability.day.strftime "%d.%m.%Y" %></h2>
+        <% @availability.timeslots.each do |timeslot| %>
+          <div class="checkbox_items">
+            <input name="timeslots[<%= timeslot.id %>]" type="hidden" value="0">
+            <input type="checkbox" value="1" name="timeslots[<%= timeslot.id %>]" id="3">
+            <p> <%= timeslot.start_time.strftime "%H:%M" %> - <%= timeslot.end_time.strftime "%H:%M" %></p>
+          </div>
+        <% end %>
+        <%= f.submit "Book"%>
+      <% end %>
+      <button class="btn-calendar-previous">
+        <%= link_to "Previous day", new_availability_booking_path(@previous_day) %>
+      </button>
+      <button class="btn-calendar-next">
+        <%= link_to "Next day", new_availability_booking_path(@next_day) %>
+      </button>
+  </div>
+</div>

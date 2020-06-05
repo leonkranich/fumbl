@@ -62,7 +62,6 @@ description3 = "Playing Guitar  since I can imagine. Only want advanced students
 # user1.photo.attach(io: photo1, filename: 'user1.png', content_type: 'image/jpg')
 # user1.save!
 
-
 user3 = User.create(email: email3, password: password3, password_confirmation: password_confirmation1, first_name: first_name3,  last_name: last_name3, address: address3, teacher: teacher3, price_per_hour: price_per_hour3, description: description3)
 user3.save
 
@@ -129,7 +128,6 @@ price_per_hour7 = 40
 description7 = "I am totally into classicla Music, which why I am playing the Clarinette. If you like, I can teach you, but I am very strict!"
 # user1.photo.attach(io: photo1, filename: 'user1.png', content_type: 'image/jpg')
 # user1.save!
-
 
 user7 = User.create(email: email7, password: password7, password_confirmation: password_confirmation7, first_name: first_name7, last_name: last_name7, address: address7, teacher: teacher7, price_per_hour: price_per_hour7, description: description7)
 user7.save
@@ -220,22 +218,29 @@ availability1 = Availability.new(teacher_id: teacher_id1, day: day1)
 availability1.save
 
 
-teacher_id1 = user1.id
+teacher_id2 = user1.id
 day2 = Date.new(2020,6,7)
 
 availability2 = Availability.create(teacher_id: teacher_id1, day: day2)
 availability2.save
 
 
-teacher_id1 = user1.id
+teacher_id3 = user1.id
 day3 = Date.new(2020,6,8)
 
 availability3 = Availability.create(teacher_id: teacher_id1, day: day3)
 availability3.save
 
+teacher_id4 = user1.id
+day4 = Date.new(2020,6,9)
+
+availability4 = Availability.new(teacher_id: teacher_id4, day: day4)
+availability4.save
 
 
 # #------- Timeslot seed --------
+
+
 
 
 student_id1 = user2.id
@@ -244,29 +249,64 @@ start_time1 = Time.new(2020,6,6,4,0,0)
 end_time1 = Time.new(2020,6,6,5,0,0)
 booked1 = false
 
-timeslot1 = Timeslot.new(student_id: student_id1, availability_id: availability_id1, start_time: start_time1, end_time: end_time1, booked: booked1)
-timeslot1.save
-
-
-student_id1 = user2.id
+student_id2 = user2.id
 availability_id2 = availability2.id
 start_time2 = Time.new(2020,6,7,4,0,0)
 end_time2 = Time.new(2020,6,7,5,0,0)
-booked2 = true
+booked2 = false
 
-timeslot2 = Timeslot.create(student_id: student_id1, availability_id: availability_id2, start_time: start_time2, end_time: end_time2, booked: booked2)
+timeslot2 = Timeslot.create(student_id: student_id2, availability_id: availability_id2, start_time: start_time2, end_time: end_time2, booked: booked2)
 timeslot2.save
 
 
-student_id1 = user2.id
-availability_id3 = availability3.id
-start_time3 = Time.new(2020,6,8,4,0,0)
-end_time3 = Time.new(2020,6,8,5,0,0)
+student_id3 = user2.id
+availability_id3 = availability2.id
+start_time3 = Time.new(2020,6,7,5,0,0)
+end_time3 = Time.new(2020,6,7,6,0,0)
 booked3 = true
 
-timeslot3 = Timeslot.create(student_id: student_id1, availability_id: availability_id3, start_time: start_time3, end_time: end_time3, booked: booked3)
+timeslot3 = Timeslot.create(student_id: student_id3, availability_id: availability_id3, start_time: start_time3, end_time: end_time3, booked: booked3)
 timeslot3.save
 
+
+student_id4 = ""
+availability_id4 = availability3.id
+start_time4 = Time.new(2020,6,8,10,0,0)
+end_time4 = Time.new(2020,6,8,11,0,0)
+booked4 = false
+
+timeslot4 = Timeslot.new(student_id: student_id4, availability_id: availability_id4, start_time: start_time4, end_time: end_time4, booked: booked4)
+timeslot4.save
+
+
+student_id5 = ""
+availability_id5 = availability3.id
+start_time5 = Time.new(2020,6,8,3,0,0)
+end_time5 = Time.new(2020,6,8,4,0,0)
+booked5 = false
+
+timeslot5 = Timeslot.new(student_id: student_id5, availability_id: availability_id5, start_time: start_time5, end_time: end_time5, booked: booked5)
+timeslot5.save
+
+
+student_id6 = ""
+availability_id6 = availability3.id
+start_time6 = Time.new(2020,6,8,5,0,0)
+end_time6 = Time.new(2020,6,8,6,0,0)
+booked6 = false
+
+timeslot6 = Timeslot.new(student_id: student_id6, availability_id: availability_id6, start_time: start_time6, end_time: end_time6, booked: booked6)
+timeslot6.save
+
+
+student_id7 = ""
+availability_id7 = availability4.id
+start_time7 = Time.new(2020,6,9,10,0,0)
+end_time7 = Time.new(2020,6,9,11,0,0)
+booked7 = false
+
+timeslot7 = Timeslot.new(student_id: student_id7, availability_id: availability_id7, start_time: start_time7, end_time: end_time7, booked: booked7)
+timeslot7.save
 
 
 # #------- Homework seed --------
