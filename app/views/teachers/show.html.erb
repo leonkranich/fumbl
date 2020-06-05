@@ -1,22 +1,24 @@
 <div class="container">
   <div class="content">
     <div class="card-show">
-      <%= image_tag "cartman.jpg", class: "avatar-very-large", alt: "avatar-large" %>
+      <div class="card-avatar">
+        <%= image_tag "cartman.jpg", class: "avatar-very-large", alt: "avatar-large" %>
+      </div>
       <div class="card-show-info">
         <div>
 
           <h2><%= @teacher.first_name %> <%= @teacher.last_name %></h2>
-          <ul>
             <% @instruments.each do |instrument| %>
-              <li><%= instrument.name %> <p>experience: <%= instrument.years_of_experience %> years</p></li>
+              <p><%= instrument.name %></p>
             <%end %>
+
             <% @genres.each do |genre| %>
-              <li><%= genre.name %></li>
+              <p><%= genre.name %></p>
             <%end %>
-          </ul>
           <p><%= @teacher.description %></p>
-          <p><%= @teacher.price_per_hour %></p>
-          
+          <div class="card-show-price">
+            <h5><%= @teacher.price_per_hour %>€/h</h5>
+          </div>
         </div>
       </div>
     </div>
@@ -40,8 +42,8 @@
 
         <div class="tab__content">
           <h4>Available days:</h4>
-          <% @timeslots.each do |timeslot| %>
-              <p><%= timeslot.availability.day %></p>
+          <% @availabilities.each do |availability| %>
+              <p><%= availability.day %></p>
           <%end %>
           <h4>Buy Lessons</h4>
         
@@ -59,6 +61,7 @@
         <div class="tab__content">
           <h4>Experience:</h4>
           <% @instruments.each do |instrument| %>
+            <p>plays for: <%= instrument.years_of_experience %> years</p>
             <p><%= instrument.experience %></p>
           <% end %>
         </div>
