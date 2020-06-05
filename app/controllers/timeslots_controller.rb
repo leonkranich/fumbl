@@ -13,5 +13,5 @@ class TimeslotsController < ApplicationController
 
   private
 
-  t
+  
 end
