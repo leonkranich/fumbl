@@ -49,6 +49,7 @@
           <h4>Buy Lessons</h4>
         
           <%= simple_form_for(:voucher, url:"/teachers/#{@teacher.id}/vouchers", method:"post") do |f| %>
+          <%= hidden_field_tag "teacher_id", @teacher.id %>
             <%= f.input :counter, collection: 1..20 %>
             <%= f.submit "Book now", class: "btn btn-ghost" %>
           <% end %>
@@ -58,7 +59,7 @@
         <div class="tab__content">
           <div id="map"
             style="width: 100%; height: 600px;"
-            data-markers="<%= @markers.to_json %>"
+            data-markers="<%= @marker.to_json %>"
             data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
           </div>
         </div>
