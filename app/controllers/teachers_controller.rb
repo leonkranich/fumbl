@@ -14,6 +14,10 @@ class TeachersController < ApplicationController
   end
 
   def show
+    @marker = [
+      {lat: @teacher.latitude,
+       lng: @teacher.longitude
+    }]
     @instruments = Instrument.where(user_id: params[:id])
     @genres = Genre.where(user_id: params[:id])
     @reviews = Review.where(teacher_id: params[:id])

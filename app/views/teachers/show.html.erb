@@ -1,23 +1,25 @@
 <div class="container">
   <div class="content">
     <div class="card-show">
-      <%= image_tag "cartman.jpg", class: "avatar-very-large", alt: "avatar-large" %>
+      <div class="card-avatar">
+        <%= image_tag "clapton.jpg", class: "avatar-very-large", alt: "avatar-very-large" %>
+      </div>
       <div class="card-show-info">
         <div>
 
-          <h2><%= @teacher.first_name %></h2>
-          <ul>
+          <h2><strong><%= @teacher.first_name %> <%= @teacher.last_name %></strong></h2>
             <% @instruments.each do |instrument| %>
-              <li><%= instrument.name %> <p>experience: <%= instrument.years_of_experience %> years</p></li>
+              <p><%= instrument.name %></p>
             <%end %>
+
             <% @genres.each do |genre| %>
-              <li><%= genre.name %></li>
+              <p>Genres: <%= genre.name %></p>
             <%end %>
-          </ul>
-          <% @reviews.each do |review| %>
-              <p><%= review.content %></p>
-          <%end %>
-          
+          <h5><strong>About myself:</strong></h5>
+          <p><%= @teacher.description %></p>
+          <div class="card-show-price">
+            <h4><%= @teacher.price_per_hour %>€/h</h4>
+          </div>
         </div>
       </div>
     </div>
@@ -41,12 +43,13 @@
 
         <div class="tab__content">
           <h4>Available days:</h4>
-          <% @timeslots.each do |timeslot| %>
-              <p><%= timeslot.availability.day %></p>
+          <% @availabilities.each do |availability| %>
+              <p><%= availability.day %></p>
           <%end %>
           <h4>Buy Lessons</h4>
         
           <%= simple_form_for(:voucher, url:"/teachers/#{@teacher.id}/vouchers", method:"post") do |f| %>
+          <%= hidden_field_tag "teacher_id", @teacher.id %>
             <%= f.input :counter, collection: 1..20 %>
             <%= f.submit "Book now", class: "btn btn-ghost" %>
           <% end %>
@@ -54,19 +57,30 @@
         </div>
 
         <div class="tab__content">
-          <p>Praesent nonummy mi in odio. Nullam accumsan lorem in dui. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl. Nullam accumsan lorem in dui. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
+          <div id="map"
+            style="width: 100%; height: 600px;"
+            data-markers="<%= @marker.to_json %>"
+            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
         </div>
 
         <div class="tab__content">
-          <p>Praesent nonummy mi in odio. Nullam accumsan lorem in dui. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl. Nullam accumsan lorem in dui. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
+          <h4>Experience:</h4>
+          <% @instruments.each do |instrument| %>
+            <p>plays for: <%= instrument.years_of_experience %> years</p>
+            <p><%= instrument.experience %></p>
+          <% end %>
         </div>
 
         <div class="tab__content">
-          <p>Praesent nonummy mi in odio. Nullam accumsan lorem in dui. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl. Nullam accumsan lorem in dui. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/pKwQlm-wldA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
 
         <div class="tab__content">
-          <p>Praesent nonummy mi in odio. Nullam accumsan lorem in dui. Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl. Nullam accumsan lorem in dui. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
+        <h4>Latest reviews:</h4>
+         <% @reviews.each do |review| %>
+              <p><%= review.content %></p>
+          <%end %>
         </div>
       </div>
   </div>

@@ -60,7 +60,6 @@ $tab-wrap-border-radius: 4px;
     text-align: center;
     background-color: #f2f2f2;
     user-select: none;
-    text-align: center;
     transition: 0.3s background-color ease, 0.3s box-shadow ease;
     height: 50px;
     box-sizing: border-box;
@@ -80,5 +79,6 @@ $tab-wrap-border-radius: 4px;
     left: 0;
     transform: translateY(-3px);
     border-radius: $tab-wrap-border-radius;
+    color: $onyx;
   }
 }
