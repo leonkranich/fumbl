@@ -15,7 +15,9 @@
   background-color: $white;
   transition: 0.5s background-color ease;
   color: $aqua;
-  background-color: $onyx;
+  height: 56px;
+  box-shadow: 0 0 5px rgb(230,230,230);
+
 }
 
 .navbar-lewagon-white {
@@ -47,4 +49,8 @@
 .navbar a:hover {
   text-decoration: none;
   color: rgb(102, 192, 149);
+}
+
+#fumbl-logo {
+  margin-bottom: -3px;
 }

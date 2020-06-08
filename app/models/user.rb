@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :timeslots, through: :availabilities
   has_many :timeslots_as_student, class_name: "Timeslot", foreign_key: :student_id
   has_many :homeworks, through: :timeslots
+  has_one_attached :photo
 
   validates :first_name, presence: true
   validates :email, presence: true, uniqueness: true
