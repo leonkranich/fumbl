@@ -8,7 +8,9 @@ class TeachersController < ApplicationController
     @markers = @teachers.map do |teacher|
       {
         lat: teacher.latitude,
-        lng: teacher.longitude
+        lng: teacher.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { teacher: teacher }),
+        image_url: helpers.asset_url('guitar-solid.svg')
       }
     end
   end
@@ -16,7 +18,9 @@ class TeachersController < ApplicationController
   def show
     @marker = [
       {lat: @teacher.latitude,
-       lng: @teacher.longitude
+       lng: @teacher.longitude,
+       infoWindow: render_to_string(partial: "info_window_show", locals: { teacher: @teacher }),
+       image_url: helpers.asset_url('noten.png')
     }]
     @instruments = Instrument.where(user_id: params[:id])
     @genres = Genre.where(user_id: params[:id])
