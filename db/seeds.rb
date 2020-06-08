@@ -118,8 +118,6 @@ puts "Genres created"
 # voucher1 = Voucher.new(counter: counter1, teacher_id: teacher_id1, student_id: student_id1, price_cents: price_cents1)
 # voucher1.save
 
-
-
 # #------- Homework seed --------
 
 # homework_id1 = timeslot3.id
