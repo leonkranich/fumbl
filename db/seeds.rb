@@ -234,13 +234,11 @@ availability3.save
 teacher_id4 = user1.id
 day4 = Date.new(2020,6,9)
 
-availability4 = Availability.new(teacher_id: teacher_id4, day: day4)
+availability4 = Availability.create(teacher_id: teacher_id4, day: day4)
 availability4.save
 
 
 # #------- Timeslot seed --------
-
-
 
 
 student_id1 = user2.id
@@ -248,6 +246,9 @@ availability_id1 = availability1.id
 start_time1 = Time.new(2020,6,6,4,0,0)
 end_time1 = Time.new(2020,6,6,5,0,0)
 booked1 = false
+
+timeslot1 = Timeslot.new(student_id: student_id1, availability_id: availability_id1, start_time: start_time1, end_time: end_time1, booked: booked1)
+timeslot1.save
 
 student_id2 = user2.id
 availability_id2 = availability2.id
