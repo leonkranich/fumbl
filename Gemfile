@@ -35,11 +35,11 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'geocoder'
 gem 'faker'
+gem 'httparty'
 gem 'pg_search'
 gem 'searchkick', '~> 3.0'
-
-
 gem 'cloudinary', '~> 1.12.0'
+
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'

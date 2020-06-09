@@ -22,7 +22,7 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :address, presence: true
   validates :price_per_hour, presence: true, if: -> { teacher == true }
-  validates :description, length: { minimum: 50 }, if: -> { teacher == true }
+  validates :description, length: { minimum: 30 }, if: -> { teacher == true }
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 end
