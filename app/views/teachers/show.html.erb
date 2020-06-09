@@ -1,7 +1,7 @@
 <div class="container">
   <div class="content">
     <div class="card-show">
-        <%= image_tag "clapton2.jpg" %>
+        <%= image_tag @teacher.photo_url %>
       <div class="card-show-info">
         <div>
           <h2><strong><%= @teacher.first_name %> <%= @teacher.last_name %></strong></h2>
@@ -44,13 +44,13 @@
               <p><%= availability.day %></p>
           <%end %>
           <h4>Buy Lessons</h4>
-        
+
           <%= simple_form_for(:voucher, url:"/teachers/#{@teacher.id}/vouchers", method:"post") do |f| %>
           <%= hidden_field_tag "teacher_id", @teacher.id %>
             <%= f.input :counter, collection: 1..20 %>
             <%= f.submit "Book now", class: "btn btn-ghost" %>
           <% end %>
-          
+
         </div>
 
         <div class="tab__content">
