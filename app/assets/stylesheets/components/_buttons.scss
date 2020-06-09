@@ -9,6 +9,7 @@ div {
   margin: auto;
   padding: 16px 19px;
   transition: all 0.2s ease;
+  text-align: center;
 }
 .cta:before {
   content: "";
@@ -52,6 +53,7 @@ div {
 .cta:hover:before {
   width: 100%;
   background: #86E7B8;
+  color: $white;
 }
 .cta:hover svg {
   transform: translateX(0);
@@ -78,17 +80,32 @@ div {
 }
 
 .btn-flat {
-  color: white;
+  color: $white;
   padding: 8px 24px;
   border-radius: 4px;
-  background: #1EDD88;
+  background: $aqua;
   transition: background 0.3s ease;
 }
 
 .btn-flat:hover {
   background: #1BCB7F;
-  color: white;
+  color: $white;
 }
+
+.btn-flat-window {
+  color: $white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: $aqua;
+  transition: background 0.3s ease;
+  font-size: 14px;
+}
+
+.btn-flat-window:hover {
+  background: #1BCB7F;
+  color: $white;
+}
+
 
 .btn-gradient {
   color: white;

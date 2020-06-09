@@ -5,16 +5,13 @@ padding: 0px 50px;
 height: 60px;
 align-items: center;
 }
-
 .footer-social {
   display: flex;
   justify-content: space-between;
-
 }
 .footer-links {
   display: flex;
   text-align: left;
-  // margin: auto;
 }
 .footer-links a {
   color: $aqua;
@@ -29,11 +26,9 @@ align-items: center;
 .footer .fa-heart {
   color: #D23333;
 }
-
 .footer-copyright {
   text-align: right;
 }
-
 #footer-copyright {
   text-align: right;
 }

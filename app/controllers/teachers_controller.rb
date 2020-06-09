@@ -4,19 +4,24 @@ class TeachersController < ApplicationController
   def index
     @teachers = User.where(teacher: true)
     @teachers_geocoded = User.geocoded # returns teachers with coordinates
-
     @markers = @teachers.map do |teacher|
       {
         lat: teacher.latitude,
-        lng: teacher.longitude
+        lng: teacher.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { teacher: teacher }),
+        image_url: helpers.asset_url('guitar-solid.svg')
       }
+
     end
   end
+
 
   def show
     @marker = [
       {lat: @teacher.latitude,
-       lng: @teacher.longitude
+       lng: @teacher.longitude,
+       infoWindow: render_to_string(partial: "info_window_show", locals: { teacher: @teacher }),
+       image_url: helpers.asset_url('noten.png')
     }]
     @instruments = Instrument.where(user_id: params[:id])
     @genres = Genre.where(user_id: params[:id])
@@ -40,6 +45,8 @@ class TeachersController < ApplicationController
   def set_teacher
     @teacher = User.find(params[:id])
   end
+
+
 
   # def teacher_params
   #   params.require(teacher).permit(:name

@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   end
   resources :timeslots, only: :update
   resources :dashboards, only: :index
+  resources :search, only: [:index]
+
 
 
   patch 'availabilities_timeslots', to: 'availabilities#update_associated_timeslots', as: "update_associated_timeslots"

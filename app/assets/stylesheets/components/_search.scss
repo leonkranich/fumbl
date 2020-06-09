@@ -1,20 +1,26 @@
 .search {
   position: absolute;
   left: 16%;
-  width: 30%;
+  display: flex;
+  align-items: center;
 }
 
 .search-form-control {
   position: relative;
-  width: 800px;
+  width: 350px;
+  margin: 0px 20px 0px 0px;
 }
 
-.search-form-control .btn {
-  position: absolute;
-  top: 8px;
+.btn-flat-search {
+  height: 56px;
+  width: 120px;
   bottom: 8px;
   right: 8px;
   background-color: $aqua;
+  padding: 6px 12px;
+  color: $aqua;
+  border-radius: 4px;
+  transition: background 0.3s ease;
 }
 
 .search-form-control .form-control {
