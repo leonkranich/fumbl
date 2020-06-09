@@ -53,6 +53,7 @@ div {
 .cta:hover:before {
   width: 100%;
   background: #86E7B8;
+  color: $white;
 }
 .cta:hover svg {
   transform: translateX(0);

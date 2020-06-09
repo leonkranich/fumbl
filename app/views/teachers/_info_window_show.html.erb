@@ -1,2 +1,5 @@
-<h2><%= @teacher.first_name %> <%= @teacher.last_name %></h2>
-<p>instrumnet</p>
+<h3><%= @teacher.first_name %> <%= @teacher.last_name %></h3>
+<% @teacher.instruments.each do |instrument| %>
+  <p><%= instrument.name.capitalize %></p>
+<%end %>
+<p><%= @teacher.address %></p>
