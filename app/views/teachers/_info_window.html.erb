@@ -1,2 +1,5 @@
-<h2><%= teacher.first_name %></h2>
-<p>instrument</p>
+<h3><%= teacher.first_name %></h3>
+<% teacher.instruments.each do |instrument| %>
+  <p><%= instrument.name.capitalize %></p>
+<%end %>
+<%= link_to "See Profile", teacher_path(teacher), class: "btn btn-flat-window"%>

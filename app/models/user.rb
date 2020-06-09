@@ -1,13 +1,17 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  include PgSearch::Model
+  multisearchable against: [:address],
+                  if: :teacher
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
   has_many :instruments
   has_many :genres
   has_many :vouchers_as_teacher, source: :vouchers, foreign_key: :teacher_id
-  has_many :vouchers_as_student, source: :vouchers, foreign_key: :student_id
+  has_many :vouchers_as_student, class_name: "Voucher", foreign_key: :student_id
   has_many :availabilities
   has_many :timeslots, through: :availabilities
   has_many :timeslots_as_student, class_name: "Timeslot", foreign_key: :student_id

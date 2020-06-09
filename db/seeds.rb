@@ -95,7 +95,6 @@ end
 puts "Users created"
 
 
-
 # #------- Instrument seed --------
 
 User.all.where(teacher: true).each do |teacher|
@@ -108,8 +107,8 @@ end
 puts "Instruments created"
 
 
-
 # #------- Genre seed --------
+
 
 User.all.where(teacher: true).each do |teacher|
   genre = Genre.create(name: Faker::Music.genre, user_id: teacher.id)
@@ -117,6 +116,33 @@ end
 
 puts "Genres created"
 
+
+# ------- Availability & Timeslots seeds --------
+
+
+teachers_array = User.where(teacher: true)
+teachers_array.each do |teacher|
+  (Date.today..Date.today + 14).to_a.each do |day|
+    teacher_availability = Availability.create(teacher_id: teacher.id, day: day)
+    # start_time = Time.new(teacher_availability.day.year, teacher_availability.day.month, teacher_availability.day.day,9,00,00)
+    timeslots_array = [[Time.new(2000,1,1,9,00,00),Time.new(2000,1,1,10,00,00)], [Time.new(2000,1,1,10,00,00),Time.new(2000,1,1,11,00,00)], [Time.new(2000,1,1,11,00,00),Time.new(2000,1,1,12,00,00)], [Time.new(2000,1,1,13,00,00),Time.new(2000,1,1,14,00,00)], [Time.new(2000,1,1,14,00,00),Time.new(2000,1,1,15,00,00)], [Time.new(2000,1,1,15,00,00),Time.new(2000,1,1,16,00,00)], [Time.new(2000,1,1,16,00,00),Time.new(2000,1,1,17,00,00)], [Time.new(2000,1,1,17,00,00),Time.new(2000,1,1,18,00,00)]]
+    i = 0
+    until i == timeslots_array.length
+      timeslots_array.each do |timeslot|
+        draw = rand(1..100)
+        if draw > 50
+          start_time = timeslot[0]
+          end_time = timeslot[1]
+          new_timeslot = Timeslot.new(student_id: user2.id, availability_id: teacher_availability.id, start_time: start_time, end_time: end_time, booked: false)
+          new_timeslot.save!
+        end
+        i += 1
+      end
+    end
+  end
+end
+
+puts "Availabilities & timeslots created"
 
 
 # #------- Review seed --------
@@ -133,9 +159,11 @@ User.all.where(teacher: true).each do |teacher|
   review.save!
 end
 
+puts "Reviews created"
 
 
 # # #------- Voucher seed --------
+
 
 # counter1 = 5
 # price_cents1 = 200
@@ -144,7 +172,6 @@ end
 
 # voucher1 = Voucher.new(counter: counter1, teacher_id: teacher_id1, student_id: student_id1, price_cents: price_cents1)
 # voucher1.save
-
 
 
 # ------- Availability & Timeslots seeds --------
@@ -172,7 +199,6 @@ teachers_array.each do |teacher|
 end
 
 puts "Availabilities & timeslots created"
-
 
 
 # ------- Homework seed --------

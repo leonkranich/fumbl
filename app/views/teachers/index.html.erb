@@ -10,8 +10,12 @@
     <div id="login-container">
       <div class="profile-img"></div>
       <h2><%= teacher.first_name%></h2>
-      <p>Instrument</p>
-      <p>Genres</p>
+      <% teacher.instruments.each do |instrument| %>
+              <h6><%= instrument.name.capitalize %></h6>
+            <%end %>
+      <% teacher.genres.each do |genre| %>
+              <p><%= genre.name %></p>
+            <%end %>
       <div href="#" class="cta">
       <span><%= link_to "See Profile", teacher_path(teacher)%></span>
         <svg width="10px" height="7px" viewBox="0 0 13 10">
