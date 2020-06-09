@@ -11,8 +11,10 @@ class TeachersController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { teacher: teacher }),
         image_url: helpers.asset_url('guitar-solid.svg')
       }
+
     end
   end
+
 
   def show
     @marker = [
@@ -43,6 +45,8 @@ class TeachersController < ApplicationController
   def set_teacher
     @teacher = User.find(params[:id])
   end
+
+
 
   # def teacher_params
   #   params.require(teacher).permit(:name
