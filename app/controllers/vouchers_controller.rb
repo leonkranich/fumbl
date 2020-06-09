@@ -27,6 +27,6 @@ class VouchersController < ApplicationController
   end
 
   def set_next_day
-    Availability.find_by(teacher_id: @teacher.id, day: Date.today + 2)
+    Availability.find_by(teacher_id: @teacher.id, day: Date.today + 1)
   end
 end
