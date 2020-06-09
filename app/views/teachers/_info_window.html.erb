@@ -2,4 +2,4 @@
 <% teacher.instruments.each do |instrument| %>
   <p><%= instrument.name.capitalize %></p>
 <%end %>
-<%= link_to "See Profile", teacher_path(teacher)%>
+<%= link_to "See Profile", teacher_path(teacher), class: "btn btn-flat-window"%>
