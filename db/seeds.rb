@@ -37,10 +37,11 @@ teacher2 = false
 
 user2 = User.create(email: email2, password: password2, password_confirmation: password_confirmation2, first_name: first_name2, last_name: last_name2, address: address2, teacher: teacher2)
 
-url = "https://www.dasoertliche.de/?kgs=11000000&choose=true&page=0&context=0&action=43&buc=2239&topKw=0&form_name=search_nat&kw=apotheke&ci=Berlin"
+
+addresses_array = []
+url = "https://www.dasoertliche.de/?kgs=11000000&choose=true&page=0&context=0&action=43&buc=2239&topKw=0&form_name=search_nat&kw=supermarkt&ci=Berlin"
 html_file = open(url).read
 html_doc = Nokogiri::HTML(html_file)
-addresses_array = []
 html_doc.search('address').each do |element|
   addresses_array << element.text.strip
 end
@@ -52,6 +53,7 @@ html_doc.search('address').each do |element|
   addresses_array << element.text.strip
 end
 
+
 i = 0
 until i == 50
 email = Faker::Internet.email
@@ -62,12 +64,13 @@ last_name = Faker::Name.last_name
 address = addresses_array[i]
 teacher = true
 price_per_hour = rand(15..50)
+photo = URI.open("https://i.picsum.photos/id/237/200/300.jpg")
 description = "IF you like the good old Jimmy Hendrix style, then I am your man!"
-# user1.photo.attach(io: photo1, filename: 'user1.png', content_type: 'image/jpg')
-i += 1
 
 user = User.create(email: email, password: password, password_confirmation: password_confirmation, first_name: first_name, last_name: last_name, address: address, teacher: teacher, price_per_hour: price_per_hour, description: description)
-user.save
+user.photo.attach(io: photo, filename: 'user.png', content_type: 'image/jpg')
+user.save!
+i += 1
 
 end
 
@@ -77,9 +80,11 @@ puts "Users created"
 
 # #------- Instrument seed --------
 
+instrument_array = ["violin", "viola", "cello", "doublebass", "flute", "oboe", "clarinette", "bassoon", "trumpet", "horn", "trombone", "trumpet", "piano", "organ", "guitar", "bass", "drums", "other"]
 User.all.where(teacher: true).each do |teacher|
-  instrument_array = %w[violin viola cello doublebass flute oboe clarinette bassoon trumpet horn trombone trumpet piano organ guitar bass drums other]
-  instrument = Instrument.create(name: instrument_array.sample, experience: "Something", years_of_experience: rand(5..40), user_id: teacher.id)
+  instrument_array.sample
+  instrument = Instrument.new(name: instrument_array.sample, experience: "Something with 30 characters minimum text bla bla", years_of_experience: rand(5..40), user_id: teacher.id)
+  instrument.save!
 end
 
 puts "Instruments created"
@@ -130,26 +135,26 @@ puts "Genres created"
 
 # ------- Availability & Timeslots seeds --------
 
-teachers_array = User.where(teacher: true)
-teachers_array.each do |teacher|
-  (Date.today..Date.today + 14).to_a.each do |day|
-    teacher_availability = Availability.create(teacher_id: teacher.id, day: day)
-    # start_time = Time.new(teacher_availability.day.year, teacher_availability.day.month, teacher_availability.day.day,9,00,00)
-    timeslots_array = [[Time.new(2000,1,1,9,00,00),Time.new(2000,1,1,10,00,00)], [Time.new(2000,1,1,10,00,00),Time.new(2000,1,1,11,00,00)], [Time.new(2000,1,1,11,00,00),Time.new(2000,1,1,12,00,00)], [Time.new(2000,1,1,13,00,00),Time.new(2000,1,1,14,00,00)], [Time.new(2000,1,1,14,00,00),Time.new(2000,1,1,15,00,00)], [Time.new(2000,1,1,15,00,00),Time.new(2000,1,1,16,00,00)], [Time.new(2000,1,1,16,00,00),Time.new(2000,1,1,17,00,00)], [Time.new(2000,1,1,17,00,00),Time.new(2000,1,1,18,00,00)]]
-    i = 0
-    until i == timeslots_array.length
-      timeslots_array.each do |timeslot|
-        draw = rand(1..100)
-        if draw > 50
-          start_time = timeslot[0]
-          end_time = timeslot[1]
-          new_timeslot = Timeslot.new(student_id: user2.id, availability_id: teacher_availability.id, start_time: start_time, end_time: end_time, booked: false)
-          new_timeslot.save!
-        end
-        i += 1
-      end
-    end
-  end
-end
+# teachers_array = User.where(teacher: true)
+# teachers_array.each do |teacher|
+#   (Date.today..Date.today + 14).to_a.each do |day|
+#     teacher_availability = Availability.create(teacher_id: teacher.id, day: day)
+#     # start_time = Time.new(teacher_availability.day.year, teacher_availability.day.month, teacher_availability.day.day,9,00,00)
+#     timeslots_array = [[Time.new(2000,1,1,9,00,00),Time.new(2000,1,1,10,00,00)], [Time.new(2000,1,1,10,00,00),Time.new(2000,1,1,11,00,00)], [Time.new(2000,1,1,11,00,00),Time.new(2000,1,1,12,00,00)], [Time.new(2000,1,1,13,00,00),Time.new(2000,1,1,14,00,00)], [Time.new(2000,1,1,14,00,00),Time.new(2000,1,1,15,00,00)], [Time.new(2000,1,1,15,00,00),Time.new(2000,1,1,16,00,00)], [Time.new(2000,1,1,16,00,00),Time.new(2000,1,1,17,00,00)], [Time.new(2000,1,1,17,00,00),Time.new(2000,1,1,18,00,00)]]
+#     i = 0
+#     until i == timeslots_array.length
+#       timeslots_array.each do |timeslot|
+#         draw = rand(1..100)
+#         if draw > 50
+#           start_time = timeslot[0]
+#           end_time = timeslot[1]
+#           new_timeslot = Timeslot.new(student_id: user2.id, availability_id: teacher_availability.id, start_time: start_time, end_time: end_time, booked: false)
+#           new_timeslot.save!
+#         end
+#         i += 1
+#       end
+#     end
+#   end
+# end
 
-puts "Availabilities & timeslots created"
+# puts "Availabilities & timeslots created"
