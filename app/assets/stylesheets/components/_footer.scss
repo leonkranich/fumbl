@@ -2,9 +2,8 @@
 background: $white;
 color: $aqua;
 padding: 0px 50px;
-height: 70px;
+height: 62px;
 }
-
 .footer-social {
   border-top: 1px solid $light-gray;
   display: flex;
@@ -15,7 +14,7 @@ height: 70px;
 .footer-links {
   display: flex;
   align-items: center;
-  text-align: center;
+  // text-align: center;
   margin: auto;
 }
 .footer-links a {
@@ -24,7 +23,7 @@ height: 70px;
   text-decoration: none;
   font-size: 24px;
   padding: 0px 10px;
-  text-align: center;
+  // text-align: center;
   align-items: center;
 }
 .footer-links a:hover {
@@ -33,7 +32,6 @@ height: 70px;
 .footer .fa-heart {
   color: #D23333;
 }
-
 .footer-copyright {
   text-align: center;
 }

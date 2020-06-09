@@ -42,7 +42,7 @@ document.addEventListener('turbolinks:load', () => {
 //   // Call your JS functions here
 //   initUpdateNavbarOnScroll();
 // });
-
+import { slider } from '../components/slider';
 import { initMapbox } from '../plugins/init_mapbox';
 
 document.addEventListener('turbolinks:load', () => {
