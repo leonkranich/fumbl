@@ -174,32 +174,6 @@ puts "Reviews created"
 # voucher1.save
 
 
-# ------- Availability & Timeslots seeds --------
-
-teachers_array = User.where(teacher: true)
-teachers_array.each do |teacher|
-  (Date.today..Date.today + 14).to_a.each do |day|
-    teacher_availability = Availability.create(teacher_id: teacher.id, day: day)
-    # start_time = Time.new(teacher_availability.day.year, teacher_availability.day.month, teacher_availability.day.day,9,00,00)
-    timeslots_array = [[Time.new(2000,1,1,9,00,00),Time.new(2000,1,1,10,00,00)], [Time.new(2000,1,1,10,00,00),Time.new(2000,1,1,11,00,00)], [Time.new(2000,1,1,11,00,00),Time.new(2000,1,1,12,00,00)], [Time.new(2000,1,1,13,00,00),Time.new(2000,1,1,14,00,00)], [Time.new(2000,1,1,14,00,00),Time.new(2000,1,1,15,00,00)], [Time.new(2000,1,1,15,00,00),Time.new(2000,1,1,16,00,00)], [Time.new(2000,1,1,16,00,00),Time.new(2000,1,1,17,00,00)], [Time.new(2000,1,1,17,00,00),Time.new(2000,1,1,18,00,00)]]
-    i = 0
-    until i == timeslots_array.length
-      timeslots_array.each do |timeslot|
-        draw = rand(1..100)
-        if draw > 50
-          start_time = timeslot[0]
-          end_time = timeslot[1]
-          new_timeslot = Timeslot.new(student_id: user2.id, availability_id: teacher_availability.id, start_time: start_time, end_time: end_time, booked: false)
-          new_timeslot.save!
-        end
-        i += 1
-      end
-    end
-  end
-end
-
-puts "Availabilities & timeslots created"
-
 
 # ------- Homework seed --------
 
