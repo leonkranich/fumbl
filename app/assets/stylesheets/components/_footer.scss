@@ -2,30 +2,26 @@
 background: $white;
 color: $aqua;
 padding: 0px 50px;
-height: 70px;
+height: 60px;
+align-items: center;
 }
 
 .footer-social {
-  border-top: 1px solid $light-gray;
   display: flex;
-  align-items: center;
   justify-content: space-between;
 
 }
 .footer-links {
   display: flex;
-  align-items: center;
-  text-align: center;
-  margin: auto;
+  text-align: left;
+  // margin: auto;
 }
 .footer-links a {
   color: $aqua;
-  // opacity: 0.15;
   text-decoration: none;
   font-size: 24px;
   padding: 0px 10px;
-  text-align: center;
-  align-items: center;
+  text-align: left;
 }
 .footer-links a:hover {
   opacity: 1;
@@ -35,5 +31,9 @@ height: 70px;
 }
 
 .footer-copyright {
-  text-align: center;
+  text-align: right;
+}
+
+#footer-copyright {
+  text-align: right;
 }

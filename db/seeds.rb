@@ -74,8 +74,8 @@ end
 puts "Users created"
 
 
-
 # #------- Instrument seed --------
+
 
 User.all.where(teacher: true).each do |teacher|
   instrument_array = %w[violin viola cello doublebass flute oboe clarinette bassoon trumpet horn trombone trumpet piano organ guitar bass drums other]
@@ -85,8 +85,8 @@ end
 puts "Instruments created"
 
 
-
 # #------- Genre seed --------
+
 
 User.all.where(teacher: true).each do |teacher|
   genre = Genre.create(name: Faker::Music.genre, user_id: teacher.id)
@@ -95,40 +95,8 @@ end
 puts "Genres created"
 
 
-
-# #------- Review seed --------
-
-# content1 = "Eric is a hell of a teacher!!! I am so happy that I found him. Thank you FUMBL!"
-# teacher_id1 = user1.id
-# student_id1 = user2.id
-
-
-# review1 = Review.new(content: content1, teacher_id: teacher_id1, student_id: student_id1)
-# review1.save
-
-
-
-# # #------- Voucher seed --------
-
-# counter1 = 5
-# price_cents1 = 200
-# teacher_id1 = user1.id
-# student_id1 = user2.id
-
-# voucher1 = Voucher.new(counter: counter1, teacher_id: teacher_id1, student_id: student_id1, price_cents: price_cents1)
-# voucher1.save
-
-# #------- Homework seed --------
-
-# homework_id1 = timeslot3.id
-# description1 = "Look in the music sheets, I put some notes into it, greets Eric"
-
-
-# homework1 = Homework.new(timeslot_id: timeslot3.id, description: description1)
-# homework1.save
-
-
 # ------- Availability & Timeslots seeds --------
+
 
 teachers_array = User.where(teacher: true)
 teachers_array.each do |teacher|
@@ -153,3 +121,38 @@ teachers_array.each do |teacher|
 end
 
 puts "Availabilities & timeslots created"
+
+
+# #------- Review seed --------
+
+# content1 = "Eric is a hell of a teacher!!! I am so happy that I found him. Thank you FUMBL!"
+# teacher_id1 = user1.id
+# student_id1 = user2.id
+
+
+# review1 = Review.new(content: content1, teacher_id: teacher_id1, student_id: student_id1)
+# review1.save
+
+
+# # #------- Voucher seed --------
+
+
+# counter1 = 5
+# price_cents1 = 200
+# teacher_id1 = user1.id
+# student_id1 = user2.id
+
+# voucher1 = Voucher.new(counter: counter1, teacher_id: teacher_id1, student_id: student_id1, price_cents: price_cents1)
+# voucher1.save
+
+
+# #------- Homework seed --------
+
+
+# homework_id1 = timeslot3.id
+# description1 = "Look in the music sheets, I put some notes into it, greets Eric"
+
+
+# homework1 = Homework.new(timeslot_id: timeslot3.id, description: description1)
+# homework1.save
+

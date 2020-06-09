@@ -1,20 +1,25 @@
+.card-product-dashboard{
+  overflow: hidden;
+  max-width: 1000px;
+  height: 110px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  &:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  }
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  color: $onyx;
+  padding: 16px;
+}
+
 .content {
   background: white;
   min-height: 100%;
   min-width: 100%;
 }
 
-// .left {
-//   background: green;
-// }
-
-// .right {
-//   background: blue;
-// }
-
-// .content-row {
-//   width: 100%;
-// }
 
 .btn-appointment {
   width: 203px;
@@ -36,18 +41,4 @@
 
 .btn-appointment .active {
   color: #86E7B8;
-}
-
-.btn-book {
-  width: 100%;
-  color: white;
-  padding: 8px 24px;
-  border-radius: 4px;
-  background: #1EDD88;
-  transition: background 0.3s ease;
-}
-
-.btn-book:hover {
-  background: #1BCB7F;
-  color: white;
 }
