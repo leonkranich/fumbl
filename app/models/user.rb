@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_many :instruments
   has_many :genres
   has_many :vouchers_as_teacher, source: :vouchers, foreign_key: :teacher_id
-  has_many :vouchers_as_student, source: :vouchers, foreign_key: :student_id
+  has_many :vouchers_as_student, class_name: "Voucher", foreign_key: :student_id
   has_many :availabilities
   has_many :timeslots, through: :availabilities
   has_many :timeslots_as_student, class_name: "Timeslot", foreign_key: :student_id
