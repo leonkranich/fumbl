@@ -25,6 +25,7 @@ require("channels")
 // External imports
 import "bootstrap";
 import { initUpdateNavbarOnScroll } from '../components/navbar';
+import { toggleAppointment } from '../components/toggleAppointment';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -32,6 +33,7 @@ import { initUpdateNavbarOnScroll } from '../components/navbar';
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   initUpdateNavbarOnScroll();
+  toggleAppointment();
 });
 
 // import { initUpdateNavbarOnScroll } from '../components/navbar';

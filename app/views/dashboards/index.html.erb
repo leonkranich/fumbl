@@ -1,27 +1,35 @@
 <div class="container content">
   <div class="row">
     <div class="col-sm-3">
-      <div class="card-product" style="display: block; height: 650px;" >
+      <div class="card-product" style="display: block; height: 500px;" >
         <div class="text-center">
           <%= image_tag "cartman.jpg", class: "avatar-large", alt: "avatar-large" %>
           <h4><%= @user.first_name %></h4>
           <h5>Remaining Vouchers</h5>
+
+            <!-- 1.find current user -->
+            <!-- 2. link_to vouchers controller to display the current amount of vouchers for the current user -->
+
+
+
+
           <p> No appointment vouchers available </p>
           <h5>Upcoming lessons</h5>
-            <% @timeslots.each do |timeslot| %>
-            <%= link_to timeslot.availability.day.strftime("%B %d") %> <%= link_to timeslot.start_time.in_time_zone("Berlin").strftime("%H:%M"), dashboards_path(selected_id: timeslot.id) %>
+          <% @timeslots.each do |timeslot| %>
+            <%= link_to timeslot.availability.day.strftime("%B %d:") + timeslot.start_time.in_time_zone("Berlin").strftime("%H:%M"), dashboards_path(selected_id: timeslot.id), class: "btn-appointment" %>
           <% end %>
-          <button name="button" type="submit" class="btn btn-flat">
-              <i class="fas fa"></i> BOOK NEXT LESSON
-          </button>
+
         </div>
       </div>
+      <button name="button" type="submit" class="btn btn-book">
+        <i class="fas fa"></i> BOOK NEXT LESSON
+      </button>
     </div>
 
 
     <div class="col-sm-9 d-flex text-center" style="justify-content: space-between;">
-      <div class="col-sm-6">
-        <div class="card-product" style="display: block; height: 325px;" >
+      <div class="col-sm-5">
+        <div class="card-product" style="display: block; height: 200px;" >
           <h4>Homework</h4>
           <% @selected_timeslot.homeworks.each do |homework| %>
             <p> <%= homework.description %> </p>
@@ -41,7 +49,7 @@
         </div>
       </div>
       <div class="col-sm-3">
-        <div class="card-product" style="display: block; height: 650px;" >
+        <div class="card-product" style="display: block; height: 500px;" >
         <h4>Chat comming soon</h4>
         </div>
       </div>

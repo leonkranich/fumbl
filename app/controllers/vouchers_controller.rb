@@ -15,14 +15,17 @@ class VouchersController < ApplicationController
     if @voucher.save!
       flash[:notice] = "Booking Confirmed"
       redirect_to new_availability_booking_path(@next_day)
-   else
-     redirect_to teacher_path(teacher)
-   end
+    else
+      redirect_to teacher_path(teacher)
+    end
   end
+
   private
+
   def voucher_params
     params.require(:voucher).permit(:counter)
   end
+
   def set_next_day
     Availability.find_by(teacher_id: @teacher.id, day: Date.today + 2)
   end

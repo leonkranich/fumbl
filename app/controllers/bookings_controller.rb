@@ -4,8 +4,8 @@ class BookingsController < ApplicationController
   before_action :set_timeslots, only: [:new, :create]
 
   def new
-    @next_day = next_day
-    @previous_day = previous_day
+    next_day.nil? ? @next_day = @availability : @next_day = next_day
+    previous_day.nil? ? @previous_day = @availability : @previous_day = previous_day
     @vouchers_as_a_student = Voucher.find_by(student_id: current_user.id).counter
   end
 
