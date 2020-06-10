@@ -140,29 +140,29 @@ puts "Genres created"
 # ------- Availability & Timeslots seeds --------
 
 
-# teachers_array = User.where(teacher: true)
-# teachers_array.each do |teacher|
-#   (Date.today..Date.today + 14).to_a.each do |day|
-#     teacher_availability = Availability.create(teacher_id: teacher.id, day: day)
-#     # start_time = Time.new(teacher_availability.day.year, teacher_availability.day.month, teacher_availability.day.day,9,00,00)
-#     timeslots_array = [[Time.new(2000,1,1,9,00,00),Time.new(2000,1,1,10,00,00)], [Time.new(2000,1,1,10,00,00),Time.new(2000,1,1,11,00,00)], [Time.new(2000,1,1,11,00,00),Time.new(2000,1,1,12,00,00)], [Time.new(2000,1,1,13,00,00),Time.new(2000,1,1,14,00,00)], [Time.new(2000,1,1,14,00,00),Time.new(2000,1,1,15,00,00)], [Time.new(2000,1,1,15,00,00),Time.new(2000,1,1,16,00,00)], [Time.new(2000,1,1,16,00,00),Time.new(2000,1,1,17,00,00)], [Time.new(2000,1,1,17,00,00),Time.new(2000,1,1,18,00,00)]]
-#     i = 0
-#     until i == timeslots_array.length
-#       timeslots_array.each do |timeslot|
-#         draw = rand(1..100)
-#         if draw > 50
-#           start_time = timeslot[0]
-#           end_time = timeslot[1]
-#           new_timeslot = Timeslot.new(student_id: user2.id, availability_id: teacher_availability.id, start_time: start_time, end_time: end_time, booked: false)
-#           new_timeslot.save!
-#         end
-#         i += 1
-#       end
-#     end
-#   end
-# end
+teachers_array = User.where(teacher: true)
+teachers_array.each do |teacher|
+  (Date.today..Date.today + 14).to_a.each do |day|
+    teacher_availability = Availability.create(teacher_id: teacher.id, day: day)
+    # start_time = Time.new(teacher_availability.day.year, teacher_availability.day.month, teacher_availability.day.day,9,00,00)
+    timeslots_array = [[Time.new(2000,1,1,9,00,00),Time.new(2000,1,1,10,00,00)], [Time.new(2000,1,1,10,00,00),Time.new(2000,1,1,11,00,00)], [Time.new(2000,1,1,11,00,00),Time.new(2000,1,1,12,00,00)], [Time.new(2000,1,1,13,00,00),Time.new(2000,1,1,14,00,00)], [Time.new(2000,1,1,14,00,00),Time.new(2000,1,1,15,00,00)], [Time.new(2000,1,1,15,00,00),Time.new(2000,1,1,16,00,00)], [Time.new(2000,1,1,16,00,00),Time.new(2000,1,1,17,00,00)], [Time.new(2000,1,1,17,00,00),Time.new(2000,1,1,18,00,00)]]
+    i = 0
+    until i == timeslots_array.length
+      timeslots_array.each do |timeslot|
+        draw = rand(1..100)
+        if draw > 50
+          start_time = timeslot[0]
+          end_time = timeslot[1]
+          new_timeslot = Timeslot.new(student_id: user2.id, availability_id: teacher_availability.id, start_time: start_time, end_time: end_time, booked: false)
+          new_timeslot.save!
+        end
+        i += 1
+      end
+    end
+  end
+end
 
-# puts "Availabilities & timeslots created"
+puts "Availabilities & timeslots created"
 
 
 # #------- Review seed --------
@@ -185,8 +185,6 @@ User.all.where(teacher: true).each do |teacher|
   "Not just a great teacher but also a great person in general. His skills are unmatched." ]
   new_array = (1..content_array.length).to_a
   review_counter.sample.times do
-    #new_array2 = new_array
-
     get_random_number_unique_answer = get_random_number_unique(new_array)
     random_number = get_random_number_unique_answer[0]
     new_array = get_random_number_unique_answer[1]
@@ -215,15 +213,10 @@ puts "Reviews created"
 
 # ------- Homework seed --------
 
-# timeslot1 = Timeslot.first
-# timeslot1.booked = true
-# timeslot1.save
-# description1 = "Have a look at the music sheets. We will cover them in together in class"
-# homework1 = Homework.create(timeslot_id: timeslot1.id, description: description1)
+timeslot1 = Timeslot.first
+timeslot1.booked = true
+timeslot1.save
+description1 = "Have a look at the music sheets. We will cover them in together in class"
+homework1 = Homework.create(timeslot_id: timeslot1.id, description: description1)
 
-# content_array = [ " is one hell of a teacher!!! I am so happy that I found him. Thank you FUMBL!",
-#   "Great teacher. Could not be happier!", "Despite the short time I have already learned a lot! Amazing teacher!",
-#   "Very inspiring teacher. We had a few very nice jam sessions 🤙",
-#   " is super cool! I really enjoy our weekly sessions.",
-#   "Not just a great teacher but also a great person in general. His skills are unmatched." ]
 
