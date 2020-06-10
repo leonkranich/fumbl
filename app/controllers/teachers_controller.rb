@@ -2,7 +2,7 @@ class TeachersController < ApplicationController
   before_action :set_teacher, only: [:show, :create]
 
   def index
-    @teachers = User.where(teacher: true)
+    @teachers = User.where(teacher: true).shuffle
     @teachers_geocoded = User.geocoded # returns teachers with coordinates
     @markers = @teachers.map do |teacher|
       {

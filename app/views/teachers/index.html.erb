@@ -8,7 +8,7 @@
   <div class="cards-index">
   <% @teachers.each do |teacher| %>
     <div id="login-container">
-      <div class="profile-img"></div>
+      <%= image_tag teacher.photo_url, class: "profile-img" %>
       <h2><%= teacher.first_name%></h2>
       <% teacher.instruments.each do |instrument| %>
               <h6><%= instrument.name.capitalize %></h6>
