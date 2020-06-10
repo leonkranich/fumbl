@@ -1,3 +1,4 @@
+<%= image_tag @teacher.photo_url, class: "avatar" %>
 <h3><%= @teacher.first_name %> <%= @teacher.last_name %></h3>
 <% @teacher.instruments.each do |instrument| %>
   <p><%= instrument.name.capitalize %></p>
