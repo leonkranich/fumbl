@@ -44,7 +44,12 @@ document.addEventListener('turbolinks:load', () => {
 // });
 // import { slider } from '../components/slider';
 import { initMapbox } from '../plugins/init_mapbox';
-
+import available from '../plugins/flatpickr';
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
-})
+  available();
+});
+
+
+
+

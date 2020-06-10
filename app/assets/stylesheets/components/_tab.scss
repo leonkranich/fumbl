@@ -11,6 +11,7 @@ $tab-wrap-border-radius: 4px;
   background-color: #ffffff;
   margin-left: 40px;
   width: 720px;
+  height: 560px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   &:hover {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
@@ -23,7 +24,7 @@ $tab-wrap-border-radius: 4px;
     &:checked:nth-of-type(#{$i}) ~ .tab__content:nth-of-type(#{$i}) {
       opacity: 1;
       transition: 0.5s opacity ease-in, 0.8s transform ease;
-      position: relative;
+      margin-top: 60px;
       top: 0;
       z-index: 100;
       transform: translateY(0px);
