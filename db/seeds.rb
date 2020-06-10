@@ -28,8 +28,8 @@ User.destroy_all if Rails.env.development?
 email2 = "host2@test.de"
 password2 = "host123456"
 password_confirmation2 = "host123456"
-first_name2 = "Kenny"
-last_name2 = "McCormick"
+first_name2 = "Carina"
+last_name2 = "Meissl"
 address2 = "Warschauer Straße 55, 10243 Berlin"
 teacher2 = false
 photo_url = "https://randomuser.me/api/portraits/men/32.jpg"
