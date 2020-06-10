@@ -1,4 +1,22 @@
+
+
 <div class="row justify-content-center">
+<div class="search">
+    <div class="search-form-control form-group">
+<div class="search-form-control form-group">
+<%= form_tag teachers_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    placeholder: "city", class: "form-control string required"
+  %>
+  </div>
+  </div>
+  <%= button_tag(type: "submit", class: "btn btn-flat-search", style: "color: white;") do %>
+    Search <i class="fas fa-search"></i>
+<% end %>
+<% end %>
+  </div>
+
 <!-- <div class="h2-box" width="200px"> -->
 <h2 style="text-align: left">Here will be a search bar/filter!</h2>
 <!-- </div> -->
@@ -8,7 +26,7 @@
   <div class="cards-index">
   <% @teachers.each do |teacher| %>
     <div id="login-container">
-      <div class="profile-img"></div>
+      <%= image_tag teacher.photo_url, class: "profile-img" %>
       <h2><%= teacher.first_name%></h2>
       <% teacher.instruments.each do |instrument| %>
               <h6><%= instrument.name.capitalize %></h6>

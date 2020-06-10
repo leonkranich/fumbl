@@ -2,6 +2,7 @@ require "date"
 require "time"
 require "nokogiri"
 require 'faker'
+require "pry-byebug"
 
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
@@ -22,14 +23,14 @@ Availability.destroy_all
 User.destroy_all if Rails.env.development?
 
 
-# #------ User seed -------
+# #------ End-User seed -------
 
 
 email2 = "host2@test.de"
 password2 = "host123456"
 password_confirmation2 = "host123456"
-first_name2 = "Kenny"
-last_name2 = "McCormick"
+first_name2 = "Carina"
+last_name2 = "Meissl"
 address2 = "Warschauer Straße 55, 10243 Berlin"
 teacher2 = false
 photo_url = "https://randomuser.me/api/portraits/men/32.jpg"
@@ -38,6 +39,25 @@ photo_url = "https://randomuser.me/api/portraits/men/32.jpg"
 
 user2 = User.create(email: email2, password: password2, password_confirmation: password_confirmation2, first_name: first_name2, last_name: last_name2, address: address2, teacher: teacher2, photo_url: photo_url)
 
+
+i = 5
+until i == 10
+  email = "host#{i}@test.de"
+  password = "host123456"
+  password_confirmation = "host123456"
+  first_name = Faker::Name.first_name
+  last_name = Faker::Name.last_name
+  address = "Warschauer Straße 55, 10243 Berlin"
+  teacher = false
+  photo_url = "https://randomuser.me/api/portraits/men/32.jpg"
+
+  user = User.create(email: email, password: password, password_confirmation: password_confirmation, first_name: first_name, last_name: last_name, teacher: teacher, photo_url: photo_url, address: address)
+  i += 1
+end
+
+
+
+# ------ Teachers seed ------
 
 addresses_array = []
 url = "https://www.dasoertliche.de/?kgs=11000000&choose=true&page=0&context=0&action=43&buc=2239&topKw=0&form_name=search_nat&kw=supermarkt&ci=Berlin"
@@ -66,7 +86,7 @@ photo_array.each_with_index do |user_photo, index|
   last_name = Faker::Name.last_name
   address = addresses_array[index]
   teacher = true
-  price_per_hour = rand(15..50)
+  price_per_hour = [30, 35, 40, 45, 50].sample
   photo_url = user_photo["photo"]
   description = description_array.sample
 
@@ -84,7 +104,7 @@ photo_array.each_with_index do |user_photo, index|
   last_name = Faker::Name.last_name
   address = addresses_array[index]
   teacher = true
-  price_per_hour = rand(15..50)
+  price_per_hour = [30, 35, 40, 45, 50].sample
   photo_url = user_photo["photo"]
   description = description_array.sample
 
@@ -107,7 +127,7 @@ end
 puts "Instruments created"
 
 
-# #------- Genre seed --------
+# # #------- Genre seed --------
 
 
 User.all.where(teacher: true).each do |teacher|
@@ -148,16 +168,32 @@ puts "Availabilities & timeslots created"
 # #------- Review seed --------
 
 
+def get_random_number_unique(new_array)
+  sample = new_array.sample
+  deleted_number = new_array.delete(sample)
+  [sample, new_array]
+end
+
+
+review_counter = [1, 2, 3, 4, 5]
+review_student = User.all.where(teacher: false).sample
 User.all.where(teacher: true).each do |teacher|
   content_array = [ "#{teacher.first_name} is one hell of a teacher!!! I am so happy that I found him. Thank you FUMBL!",
   "Great teacher. Could not be happier!", "Despite the short time I have already learned a lot! Amazing teacher!",
   "Very inspiring teacher. We had a few very nice jam sessions 🤙",
   "#{teacher.first_name} is super cool! I really enjoy our weekly sessions.",
   "Not just a great teacher but also a great person in general. His skills are unmatched." ]
-  review = Review.create(content: content_array.sample, teacher_id: teacher.id, student_id: user2.id)
-  review = Review.new(content: content_array.sample, teacher_id: teacher.id, student_id: user2.id)
-  review.save!
+  new_array = (1..content_array.length).to_a
+  review_counter.sample.times do
+    get_random_number_unique_answer = get_random_number_unique(new_array)
+    random_number = get_random_number_unique_answer[0]
+    new_array = get_random_number_unique_answer[1]
+    content = content_array[random_number]
+    review = Review.create(content: content, teacher_id: teacher.id, student_id: review_student.id)
+  end
 end
+
+
 
 puts "Reviews created"
 

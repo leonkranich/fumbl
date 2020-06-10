@@ -1,10 +1,12 @@
-<div class="container content" style="padding-bottom: 45px;">
-  <div class="row" style="width: 100%">
-    <div class="col-sm-3">
-      <div class="card-product-dashboard" style="display: block; height: 650px;" >
+<div class="container">
+  <div class="row" style="display: flex; padding-top: 16px; padding-bottom: 16px;">
+    <div class="col-sm-3" style="text-align: center;">
+      <div class="card-product-dashboard">
+        <div id="avatar-dashboard" class="avatar-dashboard-align"></div>
         <div class="text-center">
-          <%= image_tag "cartman.jpg", class: "avatar-large", alt: "avatar-large" %>
-          <!-- <div class="home-banner" style="display: block; linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_path 'banner.jpg' %>');"> -->
+         <div class="banner-dashboard" style="background-image: url('<%= image_path 'banner.jpg' %>');">
+         </div>
+          <h4>Welcome back!</h4>
           <h4><%= @user.first_name %></h4>
           <hr>
           <h5>Remaining Appointment Points</h5>
@@ -14,32 +16,71 @@
           <% @timeslots.each do |timeslot| %>
             <%= link_to timeslot.availability.day.strftime("%B %d:") + timeslot.start_time.in_time_zone("Berlin").strftime("%H:%M"), dashboards_path(selected_id: timeslot.id), class: "btn-appointment" %>
           <% end %>
-        <hr>
-        <button name="button" type="submit" class="btn btn-flat">
-          <i class="fas fa"></i> BOOK NEXT LESSON
-        </button>
         </div>
       </div>
+      <button name="button" type="submit" class="btn btn-book-next" class="btn-book-next-align">
+          <i class="fas fa"></i> BOOK NEXT LESSON
+        </button>
     </div>
 
-    <div class="col-sm-9 text-center" style="justify-content: space-between;">
-      <div class="card-product-dashboard" style="height: 48%; margin-bottom: 20px;" >
-        <h4>Homework</h4>
-          <% @selected_timeslot.homeworks.each do |homework| %>
-          <p> <%= homework.description %> </p>
-        <% end %>
-      </div>
-      <div class="card-product-dashboard" style="height: 50%;">
-        <h4>Musicsheets</h4>
+    <div class="col-sm-9 text-center">
+      <div class="tab-wrap-dashboard" style="height: 650px;">
+        <!-- active tab on page load gets checked attribute -->
+        <input type="radio" id="tab1" name="tabGroup1" class="tab-dashboard" checked>
+        <label for="tab1">Peter</label>
+
+        <input type="radio" id="tab2" name="tabGroup1" class="tab-dashboard">
+        <label for="tab2">Lena</label>
+
+        <input type="radio" id="tab3" name="tabGroup1" class="tab-dashboard">
+        <label for="tab3">Gabriel</label>
+
+        <div class="tab-dashboard__content">
+          <div class="card-product-image">
+            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+            <div class="card-product-description">
+              <h4>Homework</h4>
+              <% @selected_timeslot.homeworks.each do |homework| %>
+              <p> <%= homework.description %> </p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="tab-dashboard__content">
+          <div class="card-product-description">
+          <h4>Create a Review</h4>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
-      <!-- </div> -->
-      <!-- <div class="col-sm-4"> -->
-        <!-- <div class="card-product" style="display: block; height: 560px;" >
-        <h4>Chat coming soon</h4>
-        </div> -->
-      <!-- </div> -->
-    <!-- </div> -->
+
+
+
+      <!-- <div class="tab-wrap-dashboard">
+
+        active tab on page load gets checked attribute
+        <input type="radio" id="tab1" name="tabGroup1" class="tab-dashboard" checked>
+        <label for="tab1">Peter</label>
+
+        <input type="radio" id="tab2" name="tabGroup1" class="tab-dashboard">
+        <label for="tab2">Lena</label>
+
+        <input type="radio" id="tab3" name="tabGroup1" class="tab-dashboard">
+        <label for="tab3">Gabriel</label>
+
+        <div class="tab-dashboard-content">
+
+        </div>
+        <div class="card-product-description">
+          <h4>Create a Review</h4>
+        </div>
+      </div> -->
+
+
+
+
+
 

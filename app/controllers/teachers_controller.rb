@@ -2,8 +2,10 @@ class TeachersController < ApplicationController
   before_action :set_teacher, only: [:show, :create]
 
   def index
-    @teachers = User.where(teacher: true)
-    @teachers_geocoded = User.geocoded # returns teachers with coordinates
+    @teachers = User.where(teacher: true)#.shuffle
+    @teachers_geocoded = User.geocoded
+    @teachers = @teachers.search_by_address(params[:query])
+    # @instruments = @instruments.search_by_name(params[:query]) # render_to_stringurns teachers with coordinates
     @markers = @teachers.map do |teacher|
       {
         lat: teacher.latitude,
@@ -11,7 +13,6 @@ class TeachersController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { teacher: teacher }),
         image_url: helpers.asset_url('guitar-solid.svg')
       }
-
     end
   end
 

@@ -38,13 +38,13 @@
         <input type="radio" id="tab5" name="tabGroup1" class="tab">
         <label for="tab5">Reviews</label>
 
-        <div class="tab__content">
-          <h4>Available days:</h4>
-          <% @availabilities.each do |availability| %>
-              <p><%= availability.day %></p>
-          <%end %>
-          <h4>Buy Lessons</h4>
-
+        <div class="tab__content"> 
+          <div class="form-wrapper" style="width: 400px; margin-bottom: 390px; margin-top: -30px;" data-availabilities="<%= @availabilities.to_json %>" data-santi="banana">
+            <%= simple_form_for :search, method: "get" do |f| %>
+              <%= f.input :starts_at, as: :string, required: false, label: false, input_html: {class: "datepicker invisible"} %>
+    
+            <% end %>
+          </div>
           <%= simple_form_for(:voucher, url:"/teachers/#{@teacher.id}/vouchers", method:"post") do |f| %>
           <%= hidden_field_tag "teacher_id", @teacher.id %>
             <%= f.input :counter, collection: 1..20, label: false %>
@@ -55,7 +55,7 @@
 
         <div class="tab__content">
           <div id="map"
-            style="width: 720px; height: 412px; margin: -25px; margin-right: -60px; margin-top: -33px;"
+            style="width: 720px; height: 508px; margin: -25px; margin-right: -60px; margin-top: -16px;"
             data-markers="<%= @marker.to_json %>"
             data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
           </div>
