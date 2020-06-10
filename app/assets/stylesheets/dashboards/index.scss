@@ -1,3 +1,10 @@
+.alert-dasboard {
+  //position: fixed;
+  // bottom: 16px;
+  // right: 16px;
+  z-index: 1000;
+}
+
 #avatar-dashboard {
   background-image: url('carina.jpg');
   width: 120px;
@@ -86,23 +93,6 @@
   }
 }
 
-.card-product-description {
-  align-items: center;
-  background: white;
-  border-radius: 15px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  color: $onyx;
-  display: block;
-  height: 50%;
-  margin-bottom: 20px;
-  max-width: 1000px;
-  overflow: hidden;
-  padding: 0px;
-  &:hover {
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-  }
-}
-
 .card-product-image {
   overflow: hidden;
   height: 120px;
@@ -112,17 +102,7 @@
   align-items: center;
 }
 
-.card-product-image img {
-  height: 100%;
-  width: 120px;
-  object-fit: cover;
-}
 
-.card-product-image h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-}
 
 .card-product-image p {
   font-size: 12px;
@@ -136,4 +116,19 @@
   background: white;
   min-height: 100%;
   min-width: 100%;
+}
+
+.flash-dashboard {
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  border-radius: 4px;
+  // margin: 8px;
+}
+
+.flash-success-dashboard {
+  border: 2px solid #FFC65A;
 }

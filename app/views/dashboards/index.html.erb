@@ -11,7 +11,7 @@
           <hr>
           <h5>Remaining Appointment Points</h5>
             <%= @vouchers.sum {|voucher| voucher.counter }  %>
-        <hr>
+          <hr>
           <h5>Upcoming lessons</h5>
           <% @timeslots.each do |timeslot| %>
             <%= link_to timeslot.availability.day.strftime("%B %d:") + timeslot.start_time.in_time_zone("Berlin").strftime("%H:%M"), dashboards_path(selected_id: timeslot.id), class: "btn-appointment" %>
@@ -19,12 +19,19 @@
         </div>
       </div>
       <button name="button" type="submit" class="btn btn-book-next" class="btn-book-next-align">
-          <i class="fas fa"></i> BOOK NEXT LESSON
-        </button>
+      <i class="fas fa"></i> BOOK NEXT LESSON
+      </button>
     </div>
 
-    <div class="col-sm-9 text-center">
-      <div class="tab-wrap-dashboard" style="height: 650px;">
+    <div class="col-sm-9 text-center" style="padding-left: 25px;">
+      <div class="flash-dashboard flash-success-dashboard alert-dashboard alert-dismissible fade show" role="alert-dashboard">
+        <span><strong>Yay!</strong> 🎉  You successfully signed up for a new teacher! Happy learning </span>
+        <a data-dismiss="alert-dashboard" aria-label="Close">
+        <i class="fas fa-times"></i>
+        </a>
+      </div>
+
+      <div class="tab-wrap-dashboard" style="height: 573px;">
         <!-- active tab on page load gets checked attribute -->
         <input type="radio" id="tab1" name="tabGroup1" class="tab-dashboard" checked>
         <label for="tab1">Peter</label>
@@ -35,52 +42,30 @@
         <input type="radio" id="tab3" name="tabGroup1" class="tab-dashboard">
         <label for="tab3">Gabriel</label>
 
-        <div class="tab-dashboard__content">
-          <div class="card-product-image">
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-            <div class="card-product-description">
-              <h4>Homework</h4>
-              <% @selected_timeslot.homeworks.each do |homework| %>
-              <p> <%= homework.description %> </p>
-              <% end %>
-            </div>
+        <div class="tab-dashboard__content-1">
+          <!-- <a hrf="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" download> -->
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <!-- </a> -->
+          <div class="tab-dashboard-description">
+            <h4>To-Dos</h4>
+            <% @selected_timeslot.homeworks.each do |homework| %>
+            <p> <%= homework.description %> </p>
+            <% end %>
+            <h6>And don't forget your FLASHCARDS!!! ;)</h6>
           </div>
         </div>
         <hr>
-        <div class="tab-dashboard__content">
-          <div class="card-product-description">
+        <div class="tab-dashboard__content-2">
           <h4>Create a Review</h4>
-          </div>
+          <form>
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">Example textarea</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-
-
-      <!-- <div class="tab-wrap-dashboard">
-
-        active tab on page load gets checked attribute
-        <input type="radio" id="tab1" name="tabGroup1" class="tab-dashboard" checked>
-        <label for="tab1">Peter</label>
-
-        <input type="radio" id="tab2" name="tabGroup1" class="tab-dashboard">
-        <label for="tab2">Lena</label>
-
-        <input type="radio" id="tab3" name="tabGroup1" class="tab-dashboard">
-        <label for="tab3">Gabriel</label>
-
-        <div class="tab-dashboard-content">
-
-        </div>
-        <div class="card-product-description">
-          <h4>Create a Review</h4>
-        </div>
-      </div> -->
-
-
-
-
-
 
