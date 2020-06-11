@@ -21,7 +21,7 @@ class BookingJsonBuilder
   private
 
   def build_string(timeslot)
-    %Q[<div data-timeslot-id="#{timeslot.id}" class="timeslot-selection"><p>#{timeslot.start_time.to_s}</p></div>].html_safe
+    %Q[<div data-timeslot-id="#{timeslot.id}" class="timeslot-selection"><p>#{timeslot.start_time.strftime("%H:%M").to_s} - #{timeslot.end_time.strftime("%H:%M").to_s}</p></div>].html_safe
   end
 
 end

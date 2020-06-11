@@ -22,7 +22,7 @@ const toggleTimeslots = () => {
           let TimeslotID = event.currentTarget.dataset.timeslotId;
           let BookingForm = document.querySelector('.booking-form').children[1];
           // debugger;
-          let formElement = `<div class="checkbox_items">
+          let formElement = `<div class="checked_times">
           <input name="timeslots[${TimeslotID}]" type="hidden" value="1">
           <p>${event.currentTarget.innerText}</p>
           </div>`
