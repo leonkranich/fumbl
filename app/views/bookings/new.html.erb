@@ -21,6 +21,11 @@
       <%= link_to new_availability_booking_path(@next_day), class: "btn-calendar-next" do %>
         <i class="fas fa-arrow-circle-right"></i>
       <% end %>
+      <%= simple_form_for :search, method: "get" do |f| %>
+        <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+        <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+        <%= f.button :submit, "Go", class: "btn btn-primary" %>
+      <% end %>
     </div>
   </div>
 </div>

@@ -90,8 +90,8 @@ ActiveRecord::Schema.define(version: 2020_06_09_150046) do
   end
 
   create_table "timeslots", force: :cascade do |t|
-    t.time "start_time"
-    t.time "end_time"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.boolean "booked", default: false
     t.bigint "availability_id", null: false
     t.bigint "student_id"
