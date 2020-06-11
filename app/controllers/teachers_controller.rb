@@ -4,10 +4,10 @@ class TeachersController < ApplicationController
   def index
     @teachers = User.where(teacher: true)#.shuffle
     @teachers_geocoded = User.geocoded
-      if params[:query].present? && params[:query] == "true"
-      @teachers = @teachers.search_by_address(params[:query])
-    else
-      @teachers = @teachers.all
+    if params[:instrument].present?
+      @teachers = @teachers.joins(:instruments).where("name ILIKE ?", "%#{params[:instrument]}%")
+    elsif params[:city].present?
+      @teachers = @teachers.search_by_address(params[:city])
     end
     # @instruments = @instruments.search_by_name(params[:query]) # render_to_stringurns teachers with coordinates
     @markers = @teachers.map do |teacher|
