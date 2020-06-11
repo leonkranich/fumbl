@@ -11,3 +11,50 @@ h2 {
 .display-none {
   visibility: none;
 }
+
+// booking page container
+.booking-page {
+  display: flex;
+  justify-content: center;
+  margin: 50px 0px 50px 0px;
+}
+
+// left card on bookings page
+.calendar_card {
+  margin: none;
+  width: 350px;
+  position: relative;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  text-align: center;
+  padding-top: 25px;
+}
+
+//calendar on left card
+
+.flatpickr-calendar {
+  margin-bottom: 30px;
+  margin-left: 20px;
+  box-shadow: none;
+}
+
+
+// open slots in left card
+
+.timeslot-selection p {
+  justify-content: center;
+  border: 1px solid gray;
+  width: 150px;
+  margin: 10px;
+  border-radius: 4px;
+}
+
+//selected times in right card
+
+.checked_times p {
+  justify-content: center;
+  border: 1px solid gray;
+  width: 150px;
+  margin: 10px;
+  border-radius: 4px;
+}
