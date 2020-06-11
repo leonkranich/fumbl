@@ -8,6 +8,8 @@ class TeachersController < ApplicationController
       @teachers = @teachers.joins(:instruments).where("name ILIKE ?", "%#{params[:instrument]}%")
     elsif params[:city].present?
       @teachers = @teachers.search_by_address(params[:city])
+    else
+      @teachers = @teachers.all
     end
     # @instruments = @instruments.search_by_name(params[:query]) # render_to_stringurns teachers with coordinates
     @markers = @teachers.map do |teacher|
