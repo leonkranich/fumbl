@@ -2,7 +2,7 @@ class Timeslot < ApplicationRecord
   belongs_to :availability
   belongs_to :student, class_name: "User"
 
-  has_many  :homeworks
+  has_many  :homeworks, dependent: :destroy
 
   #validates :student_id, presence: true
   validates :availability_id, presence: true
