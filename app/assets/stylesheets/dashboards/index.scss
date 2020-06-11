@@ -1,25 +1,39 @@
-.card-product-dashboard{
-  overflow: hidden;
-  max-width: 1000px;
-  height: 110px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  &:hover {
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-  }
-  display: flex;
-  align-items: center;
-  border-radius: 4px;
-  color: $onyx;
-  padding: 16px;
+.alert-dasboard {
+  //position: fixed;
+  // bottom: 16px;
+  // right: 16px;
+  z-index: 1000;
 }
 
-.content {
-  background: white;
-  min-height: 100%;
-  min-width: 100%;
+#avatar-dashboard {
+  background-image: url('carina.jpg');
+  width: 120px;
+  height: 120px;
+  background-size: cover;
+  background-position: top center;
+  border-radius: 50%;
+  border: white 3px solid;
 }
 
+.avatar-dashboard-align {
+  position: absolute;
+  top: -75px;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.banner-dashboard {
+  background-size: cover;
+  background-position: center center;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  color: #eee;
+  height: 13vh;
+  padding: 0px;
+  margin-bottom: 20px;
+  text-align: center;
+  top: 0;
+}
 
 .btn-appointment {
   width: 203px;
@@ -31,7 +45,6 @@
   opacity: 0.6;
   transition: opacity 0.3s ease;
   display: inline-block;
-
 }
 
 .btn-appointment:hover {
@@ -41,4 +54,81 @@
 
 .btn-appointment .active {
   color: #86E7B8;
+}
+
+.btn-book-next-align {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+}
+.btn-book-next {
+  color: $white;
+  padding: 12px 40px;
+  border-radius: 15px;
+  background: $aqua;
+  transition: background 0.3s ease;
+  width: 100%;
+}
+
+.btn-book-next:hover {
+  background: #1BCB7F;
+  color: $white;
+}
+
+.card-product-dashboard {
+  align-items: center;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  color: $onyx;
+  display: block;
+  height: 495px;
+  margin-top: 75px;
+  margin-bottom: 25px;
+  max-width: 1000px;
+  padding: 0px;
+  position: relative;
+  &:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.card-product-image {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+}
+
+
+
+.card-product-image p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.content {
+  background: white;
+  min-height: 100%;
+  min-width: 100%;
+}
+
+.flash-dashboard {
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  border-radius: 4px;
+  // margin: 8px;
+}
+
+.flash-success-dashboard {
+  border: 2px solid #FFC65A;
 }

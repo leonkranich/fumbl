@@ -8,6 +8,7 @@
   width: 320px;
   border-radius: 4px;
   color: $onyx;
+  height: 610px;
 }
 
 .card-show .card-show-info {
@@ -42,20 +43,26 @@ h6 {
   margin-top: 16px;
   font-size: 17px;
   font-weight: bold;
-  opacity: 0.7;
-  color: $onyx;
-}
-
-p {
-  margin-top: 0;
-  margin-bottom: 1rem;
-  font-size: 15px;
   opacity: 0.8;
   color: $onyx;
 }
 
+p {
+  margin-top: -4px;
+  margin-bottom: 1rem;
+  font-size: 15px;
+  opacity: 0.7;
+  color: $onyx;
+}
+
 h5 {
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: bold;
   color: $onyx;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-top: -24px;
+  padding-bottom: 30px;
 }

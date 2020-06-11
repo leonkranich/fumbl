@@ -6,14 +6,21 @@
         <div>
           <h2><strong><%= @teacher.first_name %> <%= @teacher.last_name %></strong></h2>
             <% @instruments.each do |instrument| %>
-              <h5><%= instrument.name.capitalize %></h5>
+              <h3><%= instrument.name.capitalize %></h3>
             <%end %>
-
+            <h5>Favorite Music:</h5>
             <% @genres.each do |genre| %>
               <p><%= genre.name %></p>
             <%end %>
           <h5>About myself:</h5>
           <p><%= @teacher.description %></p>
+          <h5>Experience:</h5>
+          <div class="buttom"> 
+            <% @instruments.each do |instrument| %>
+              <p><%= @teacher.first_name %> plays already for: <%= instrument.years_of_experience %> years!!</p>
+              <p><%=  instrument.experience %></p>
+            <% end %>
+          </div>
           <div class="card-show-price">
             <h6><%= @teacher.price_per_hour %>€/h</h6>
           </div>
@@ -30,21 +37,18 @@
         <label for="tab2">Map</label>
 
         <input type="radio" id="tab3" name="tabGroup1" class="tab">
-        <label for="tab3">Experience</label>
+        <label for="tab3">Media</label>
 
         <input type="radio" id="tab4" name="tabGroup1" class="tab">
-        <label for="tab4">Media</label>
+        <label for="tab4">Reviews</label>
 
-        <input type="radio" id="tab5" name="tabGroup1" class="tab">
-        <label for="tab5">Reviews</label>
-
-        <div class="tab__content">
-          <h4>Available days:</h4>
-          <% @availabilities.each do |availability| %>
-              <p><%= availability.day %></p>
-          <%end %>
-          <h4>Buy Lessons</h4>
-
+        <div class="tab__content"> 
+          <div class="form-wrapper" style="width: 400px; margin-bottom: 60px; margin-top: 10px;" data-availabilities="<%= @availabilities.to_json %>">
+            <%= simple_form_for :search, method: "get", html: { class: "form-show"} do |f| %>
+              <%= f.input :starts_at, as: :string, required: false, label: false, input_html: {class: "datepicker invisible"} %>
+    
+            <% end %>
+          </div>
           <%= simple_form_for(:voucher, url:"/teachers/#{@teacher.id}/vouchers", method:"post") do |f| %>
           <%= hidden_field_tag "teacher_id", @teacher.id %>
             <%= f.input :counter, collection: 1..20, label: false %>
@@ -55,19 +59,12 @@
 
         <div class="tab__content">
           <div id="map"
-            style="width: 720px; height: 412px; margin: -25px; margin-right: -60px; margin-top: -33px;"
+            style="width: 720px; height: 508px; margin: -25px; margin-right: -60px; margin-top: -16px;"
             data-markers="<%= @marker.to_json %>"
             data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
           </div>
         </div>
 
-        <div class="tab__content">
-          <h4>Experience:</h4>
-          <% @instruments.each do |instrument| %>
-            <p>plays for: <%= instrument.years_of_experience %> years</p>
-            <p><%= instrument.experience %></p>
-          <% end %>
-        </div>
 
         <div class="tab__content">
           <iframe width="560" height="315" src="https://www.youtube.com/embed/pKwQlm-wldA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

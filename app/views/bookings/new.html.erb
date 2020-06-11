@@ -1,6 +1,6 @@
 <div class="container">
   <h1>Book your timeslots here</h1>
-  <div class="calendar">
+  <div class="calendar-booking">
     <div class="form">
       <%= form_with(url:  update_associated_timeslots_path, method: "patch") do |f| %>
         <%= hidden_field_tag 'availability_id', @availability.id %>
