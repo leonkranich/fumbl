@@ -24,16 +24,22 @@ require("channels")
 
 // External imports
 import "bootstrap";
+import { initMapbox } from '../plugins/init_mapbox';
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { toggleAppointment } from '../components/toggleAppointment';
+import { toggleTimeslots } from '../components/toggle_timeslots';
+import { available } from '../plugins/flatpickr';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
+  initMapbox();
+  available();
   initUpdateNavbarOnScroll();
   toggleAppointment();
+  toggleTimeslots();
 });
 
 // import { initUpdateNavbarOnScroll } from '../components/navbar';
@@ -43,10 +49,4 @@ document.addEventListener('turbolinks:load', () => {
 //   initUpdateNavbarOnScroll();
 // });
 // import { slider } from '../components/slider';
-import { initMapbox } from '../plugins/init_mapbox';
-import available from '../plugins/flatpickr';
-document.addEventListener('turbolinks:load', () => {
-  initMapbox();
-  available();
-});
 

@@ -6,13 +6,11 @@ Rails.application.routes.draw do
   resources :teachers, only: [:index, :show, :new, :create]
   resources :teachers do
     resources :vouchers, only: [:new, :create]
+    resources :bookings, only: :new
   end
-  resources :teacher do
-    resources :availabilities, only: :index
-  end
+
   resources :availabilities do
     resources :timeslots, only: :edit
-    resources :bookings, only: :new
   end
   resources :timeslots, only: :update
   resources :dashboards, only: :index
