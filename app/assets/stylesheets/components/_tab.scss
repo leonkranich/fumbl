@@ -92,15 +92,27 @@ $tab-wrap-border-radius: 4px;
 h4 {
   font-size: 1.5rem;
   padding-top: 40px;
-  padding-bottom: 24px;
+  padding-bottom: 32px;
 }
 
 .review {
   padding-top: 12px;
   position: relative;
   display: flex;
+  opacity: 0.8;
+  font-style: italic;
 }
 
-.review .review-student {
-  margin-left: 32px;
+.review-student {
+  margin-bottom: -24px;
+  padding-top: 8px;
+}
+
+.review-student p {
+  opacity: 1;
+}
+.video {
+  margin-left: 56px;
+  margin-right: 56px;
+  margin-top: 12px;
 }

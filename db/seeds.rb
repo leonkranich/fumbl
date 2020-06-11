@@ -39,6 +39,49 @@ photo_url = "https://randomuser.me/api/portraits/men/32.jpg"
 
 user2 = User.create(email: email2, password: password2, password_confirmation: password_confirmation2, first_name: first_name2, last_name: last_name2, address: address2, teacher: teacher2, photo_url: photo_url)
 
+# email2 = "host2@test.de"
+# password2 = "host123456"
+# password_confirmation2 = "host123456"
+# first_name2 = "Paolo"
+# last_name2 = "Meissl"
+# address2 = "Warschauer Straße 55, 10243 Berlin"
+# teacher2 = false
+# photo_url = "https://randomuser.me/api/portraits/men/32.jpg"
+
+# user3 = User.create(email: email2, password: password2, password_confirmation: password_confirmation2, first_name: first_name2, last_name: last_name2, address: address2, teacher: teacher2, photo_url: photo_url)
+
+# email2 = "host2@test.de"
+# password2 = "host123456"
+# password_confirmation2 = "host123456"
+# first_name2 = "Sarah"
+# last_name2 = "Meissl"
+# address2 = "Warschauer Straße 55, 10243 Berlin"
+# teacher2 = false
+# photo_url = "https://randomuser.me/api/portraits/men/32.jpg"
+
+# user4 = User.create(email: email2, password: password2, password_confirmation: password_confirmation2, first_name: first_name2, last_name: last_name2, address: address2, teacher: teacher2, photo_url: photo_url)
+
+# email2 = "host2@test.de"
+# password2 = "host123456"
+# password_confirmation2 = "host123456"
+# first_name2 = "Melinda"
+# last_name2 = "Meissl"
+# address2 = "Warschauer Straße 55, 10243 Berlin"
+# teacher2 = false
+# photo_url = "https://randomuser.me/api/portraits/men/32.jpg"
+
+# user5 = User.create(email: email2, password: password2, password_confirmation: password_confirmation2, first_name: first_name2, last_name: last_name2, address: address2, teacher: teacher2, photo_url: photo_url)
+
+# email2 = "host2@test.de"
+# password2 = "host123456"
+# password_confirmation2 = "host123456"
+# first_name2 = "Paddy"
+# last_name2 = "Meissl"
+# address2 = "Warschauer Straße 55, 10243 Berlin"
+# teacher2 = false
+# photo_url = "https://randomuser.me/api/portraits/men/32.jpg"
+
+# user6 = User.create(email: email2, password: password2, password_confirmation: password_confirmation2, first_name: first_name2, last_name: last_name2, address: address2, teacher: teacher2, photo_url: photo_url)
 
 i = 5
 until i == 10
@@ -58,6 +101,7 @@ end
 
 
 # ------ Teachers seed ------
+  
 
 addresses_array = []
 url = "https://www.dasoertliche.de/?kgs=11000000&choose=true&page=0&context=0&action=43&buc=2239&topKw=0&form_name=search_nat&kw=supermarkt&ci=Berlin"
@@ -93,6 +137,8 @@ photo_array.each_with_index do |user_photo, index|
   user = User.create(email: email, password: password, password_confirmation: password_confirmation, first_name: first_name, last_name: last_name, address: address, teacher: teacher, price_per_hour: price_per_hour, description: description, photo_url: photo_url)
 
 end
+
+
 
 photo_array = FacesApi.fetch_faces(25, "female")
 photo_array.each_with_index do |user_photo, index|
@@ -136,8 +182,23 @@ end
 
 puts "Genres created"
 
+email = Faker::Internet.email
+  password = "host123456"
+  password_confirmation = "host123456"
+  first_name = "Eric"
+  last_name = "Clapton"
+  address = "Warschauer Straße 55, 10243 Berlin"
+  teacher = true
+  price_per_hour = [30, 35, 40, 45, 50].sample
+  photo_url = "https://www.rollingstone.de/wp-content/uploads/2019/06/05/11/eric_clapton_gettyimages-144553389-992x560.jpg"
+  description = "My friends call me slow hand and that's the shizzle... Word!"
 
-# ------- Availability & Timeslots seeds --------
+  eric = User.create(email: email, password: password, password_confirmation: password_confirmation, first_name: first_name, last_name: last_name, address: address, teacher: teacher, price_per_hour: price_per_hour, description: description, photo_url: photo_url)
+  genre = Genre.create(name: "Blues-Rock", user_id: eric.id)
+  instrument = Instrument.create(name: "Guitar", experience: "Played in different bands and some solo-gigs for some time...", years_of_experience: 40, user_id: eric.id)
+  
+  puts "Eric created"
+  # ------- Availability & Timeslots seeds --------
 
 
 teachers_array = User.where(teacher: true)
@@ -175,7 +236,7 @@ end
 
 
 review_counter = [1, 2, 3, 4, 5]
-review_student = User.all.where(teacher: false).sample
+
 User.all.where(teacher: true).each do |teacher|
   content_array = [ "#{teacher.first_name} is one hell of a teacher!!! I am so happy that I found him. Thank you FUMBL!",
   "Great teacher. Could not be happier!", "Despite the short time I have already learned a lot! Amazing teacher!",
@@ -184,6 +245,7 @@ User.all.where(teacher: true).each do |teacher|
   "Not just a great teacher but also a great person in general. His skills are unmatched." ]
   new_array = (1..content_array.length).to_a
   review_counter.sample.times do
+    review_student = User.all.where(teacher: false).sample
     get_random_number_unique_answer = get_random_number_unique(new_array)
     random_number = get_random_number_unique_answer[0]
     new_array = get_random_number_unique_answer[1]
@@ -191,6 +253,10 @@ User.all.where(teacher: true).each do |teacher|
     review = Review.create(content: content, teacher_id: teacher.id, student_id: review_student.id)
   end
 end
+# review = Review.create(content: "Thank you Eric!!! Best lesson ever!!", teacher_id: eric.id, student_id: user3.id)
+# review = Review.create(content: "Holly molly it works! Mister slow hand you`re a genius:)", teacher_id: eric.id, student_id: user4.id)
+# review = Review.create(content: "Old but gold", teacher_id: eric.id, student_id: user5.id)
+# review = Review.create(content: "What an incredible experience!! Didn't thought i could learn so much just in 3 lessons!!!!", teacher_id: eric.id, student_id: user6.id)
 
 
 
