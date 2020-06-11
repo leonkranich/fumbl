@@ -3,6 +3,10 @@
   visibility: none;
 }
 
+.display-none-booking {
+  display: none;
+}
+
 // booking page container
 .booking-page {
   display: flex;
@@ -84,5 +88,6 @@
 .booking-form.form-wrapper.btn.btn-flat {
   position: absolute;
   top: 100px;
+  width: 200px;
 }
 
