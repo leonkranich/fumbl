@@ -86,12 +86,6 @@ $tab-wrap-border-radius: 4px;
   
 }
 .form-wrapper {
-  margin-left: 100px;
-  text-align: center;
-  padding-top: 25px;
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  width: 350px;
 }
 
 h4 {
@@ -120,4 +114,11 @@ h4 {
   margin-left: 56px;
   margin-right: 56px;
   margin-top: 12px;
+}
+
+.content-info {
+  width: 400px;
+  margin-bottom: 70px;
+  margin-top: 10px;
+  margin-left: 155px;
 }

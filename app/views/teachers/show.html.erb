@@ -43,11 +43,12 @@
         <label for="tab4">Reviews</label>
 
         <div class="tab__content">
-          <div class="form-wrapper" style="width: 400px; margin-bottom: 60px; margin-top: 10px;" data-availabilities="<%= @availabilities.to_json %>">
-            <%= simple_form_for :search, method: "get", html: { class: "form-show"} do |f| %>
-              <%= f.input :starts_at, as: :string, required: false, label: false, input_html: {class: "datepicker invisible"} %>
-    
-            <% end %>
+          <div class="content-info">
+            <div class="form-wrapper", data-availabilities="<%= @availabilities.to_json %>">
+              <%= simple_form_for :search, method: "get", html: { class: "form-show"} do |f| %>
+                <%= f.input :starts_at, as: :string, required: false, label: false, input_html: {class: "datepicker invisible"} %>
+              <% end %>
+            </div>
           </div>
           <%= simple_form_for(:voucher, url:"/teachers/#{@teacher.id}/vouchers", method:"post") do |f| %>
           <%= hidden_field_tag "teacher_id", @teacher.id %>
