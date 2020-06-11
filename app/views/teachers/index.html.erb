@@ -23,9 +23,11 @@
 <% end %>
 
   </div>
+  <% if params[:instrument].present? || params[:city].present? %>
   <h2 id="h2-index" style="text-align: left">Woow, we found <%= @teachers.count%> awesome music teachers next to you! </h2>
-<%# else %>
-
+  <% else %>
+  <h2 id="h2-index" style="text-align: left">Oh no!</h2>
+  <% end %>
   </div>
 
 <!-- <div class="h2-box" width="200px"> -->
