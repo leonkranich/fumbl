@@ -28,15 +28,15 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { toggleAppointment } from '../components/toggleAppointment';
 import { toggleTimeslots } from '../components/toggle_timeslots';
-import available from '../plugins/flatpickr';
+import { available } from '../plugins/flatpickr';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
-  available();
   initMapbox();
+  available();
   initUpdateNavbarOnScroll();
   toggleAppointment();
   toggleTimeslots();

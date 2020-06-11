@@ -1,5 +1,5 @@
 const toggleTimeslots = () => {
-  document.querySelector('.datepicker.form-control').classList.add("display-none");
+  // document.querySelector('.datepicker.form-control').classList.add("display-none");
   const FlatpickerDate = document.querySelector('.flatpickr-input');
   if (FlatpickerDate) {
     const selectedTimeslotDates =  document.getElementById('selected-timeslot-dates');

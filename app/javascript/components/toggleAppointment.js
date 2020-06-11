@@ -7,6 +7,9 @@ const toggleActiveOnClick = (btn) => {
 };
 
 const toggleAppointment = () => {
+  const availbility = document.querySelector(".form-wrapper")
+  const realAvailabilities = JSON.parse(availbility.dataset.availabilities)
+  const ava = realAvailabilities.map(e => e.day)
   const btns = document.querySelectorAll(".btn-appointment");
 
   btns.forEach(toggleActiveOnClick);

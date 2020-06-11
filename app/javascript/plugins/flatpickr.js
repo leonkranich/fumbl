@@ -7,10 +7,10 @@ const available = () => {
   flatpickr(".datepicker", {
     inline: true,
     dateFormat: "Y-m-d",
-    defaultDate: ava,
+    enable: ava,
 
   });
 };
 
-export default available;
+export { available };
 
