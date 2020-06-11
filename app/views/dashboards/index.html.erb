@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row" style="display: flex; padding-top: 16px; padding-bottom: 16px;">
     <div class="col-sm-3" style="text-align: center;">
+    <!--   <div class="left"> -->
       <div class="card-product-dashboard">
         <div id="avatar-dashboard" class="avatar-dashboard-align"></div>
         <div class="text-center">
@@ -18,43 +19,39 @@
           <% end %>
         </div>
       </div>
-      <button name="button" type="submit" class="btn btn-book-next" class="btn-book-next-align">
-      <i class="fas fa"></i> BOOK NEXT LESSON
-      </button>
     </div>
+    <% if @vouchers.length == 0 %>
+      <%= link_to "BOOK MORE POINTS", teacher_path(@teacher), class: "btn btn-warning" %>
+    <% else %>
+      <%= link_to "BOOK NEW LESSON", teacher_path(@teacher), class: "btn btn-book-next btn-book-next-align" %>
+    <% end %>
+  <!-- </div> -->
 
     <div class="col-sm-9 text-center" style="padding-left: 25px;">
-      <div class="flash-dashboard flash-success-dashboard alert-dashboard alert-dismissible fade show" role="alert-dashboard">
+<!--       <div class="flash-dashboard flash-success-dashboard alert alert-dashboard alert-dismissible fade show" role="alert">
         <span><strong>Yay!</strong> 🎉  You successfully signed up for a new teacher! Happy learning </span>
-        <a data-dismiss="alert-dashboard" aria-label="Close">
+        <a data-dismiss="alert" aria-label="Close">
         <i class="fas fa-times"></i>
         </a>
-      </div>
+      </div> -->
 
       <div class="tab-wrap-dashboard" style="height: 573px;">
         <!-- active tab on page load gets checked attribute -->
-        <input type="radio" id="tab1" name="tabGroup1" class="tab-dashboard" checked>
-        <label for="tab1">Peter</label>
-
-        <input type="radio" id="tab2" name="tabGroup1" class="tab-dashboard">
-        <label for="tab2">Lena</label>
-
-        <input type="radio" id="tab3" name="tabGroup1" class="tab-dashboard">
-        <label for="tab3">Gabriel</label>
-
+        <% @teachers.each_with_index do |teacher, index| %>
+          <input type="radio" id="tab<%=index%>" name="tabGroup<%=index%>" class="tab-dashboard">
+          <label for="tab<%=index%>"><%=teacher.first_name%></label>
+        <% end %>
         <div class="tab-dashboard__content-1">
           <!-- <a hrf="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" download> -->
           <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
           <!-- </a> -->
           <div class="tab-dashboard-description">
             <h4>To-Dos</h4>
-            <% @selected_timeslot.homeworks.each do |homework| %>
-            <p> <%= homework.description %> </p>
-            <% end %>
+            <%= @selected_timeslots.homeworks.first %>
             <h6>And don't forget your FLASHCARDS!!! ;)</h6>
           </div>
         </div>
-        <hr>
+    <!--     <hr>
         <div class="tab-dashboard__content-2">
           <h4>Create a Review</h4>
           <form>
@@ -63,7 +60,7 @@
               <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
           </form>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
