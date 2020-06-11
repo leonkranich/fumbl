@@ -1,6 +1,6 @@
 <dif class="info"><%= image_tag teacher.photo_url, class: "avatar" %>
-<h3><%= teacher.first_name %></h3>
+<h2><%= teacher.first_name %></h2>
 <% teacher.instruments.each do |instrument| %>
-  <p><%= instrument.name.capitalize %></p>
+  <p><%= instrument.name.capitalize %> teacher</p>
 <%end %>
 <%= link_to "See Profile", teacher_path(teacher), class: "btn btn-flat-window"%></div>

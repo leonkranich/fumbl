@@ -42,12 +42,13 @@
         <input type="radio" id="tab4" name="tabGroup1" class="tab">
         <label for="tab4">Reviews</label>
 
-        <div class="tab__content"> 
-          <div class="form-wrapper" style="width: 400px; margin-bottom: 60px; margin-top: 10px;" data-availabilities="<%= @availabilities.to_json %>">
-            <%= simple_form_for :search, method: "get", html: { class: "form-show"} do |f| %>
-              <%= f.input :starts_at, as: :string, required: false, label: false, input_html: {class: "datepicker invisible"} %>
-    
-            <% end %>
+        <div class="tab__content">
+          <div class="content-info">
+            <div class="form-wrapper", data-availabilities="<%= @availabilities.to_json %>">
+              <%= simple_form_for :search, method: "get", html: { class: "form-show"} do |f| %>
+                <%= f.input :starts_at, as: :string, required: false, label: false, input_html: {class: "datepicker invisible"} %>
+              <% end %>
+            </div>
           </div>
           <%= simple_form_for(:voucher, url:"/teachers/#{@teacher.id}/vouchers", method:"post") do |f| %>
           <%= hidden_field_tag "teacher_id", @teacher.id %>
@@ -68,14 +69,30 @@
 
 
         <div class="tab__content">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/pKwQlm-wldA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="video">
+          <iframe width="460" height="240" src="https://www.youtube.com/embed/sTt7m96r_C4?start=12" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="video">
+          <iframe width="460" height="240" src="https://www.youtube.com/embed/pKwQlm-wldA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
         </div>
 
         <div class="tab__content">
         <h4>Latest reviews:</h4>
          <% @reviews.each do |review| %>
-              <p><%= review.content %></p>
+              <div class="review-student"><p><%= review.student.first_name %> wrote:</p></div>
+              <div class="review"><p><%= review.content %></p>
+              </div>
           <%end %>
+          <div class="review-student"><p>Steph wrote:</p></div>
+              <div class="review"><p>Thank you Eric!!! Best lesson ever!</p>
+              </div>
+              <div class="review-student"><p>Maggie wrote:</p></div>
+              <div class="review"><p>Old but gold...</p>
+              </div>
+              <div class="review-student"><p>Patrick wrote:</p></div>
+              <div class="review"><p>Holly molly it works! Mister slow hand you`re a genius:)</p>
+              </div>
         </div>
       </div>
   </div>
@@ -84,5 +101,5 @@
 
 
 
-<input type="text" value="#{timeslot.start_time.to_s}">
+<%# <input type="text" value="#{timeslot.start_time.to_s}"> %>
 

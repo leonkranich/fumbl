@@ -11,7 +11,7 @@ $tab-wrap-border-radius: 4px;
   background-color: #ffffff;
   margin-left: 40px;
   width: 720px;
-  height: 610px;
+  height: 620px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   &:hover {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
@@ -83,7 +83,42 @@ $tab-wrap-border-radius: 4px;
     border-radius: $tab-wrap-border-radius;
     color: $onyx;
   }
+
 }
 .form-wrapper {
-  margin-left: 100px;
+}
+
+h4 {
+  font-size: 1.5rem;
+  padding-top: 40px;
+  padding-bottom: 32px;
+}
+
+.review {
+  padding-top: 12px;
+  position: relative;
+  display: flex;
+  opacity: 0.8;
+  font-style: italic;
+}
+
+.review-student {
+  margin-bottom: -24px;
+  padding-top: 8px;
+}
+
+.review-student p {
+  opacity: 1;
+}
+.video {
+  margin-left: 56px;
+  margin-right: 56px;
+  margin-top: 12px;
+}
+
+.content-info {
+  width: 400px;
+  margin-bottom: 70px;
+  margin-top: 10px;
+  margin-left: 155px;
 }
