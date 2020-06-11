@@ -4,3 +4,17 @@
   display: flex;
   align-items: center;
 }
+
+#voucher_counter {
+  color: $onyx;
+
+}
+
+.form-control:focus {
+  color: $onyx;
+  background-color: #FFFFFF;
+  outline: none !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  border-color: $aqua;
+}
+
