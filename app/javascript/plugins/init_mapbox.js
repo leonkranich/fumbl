@@ -42,7 +42,7 @@ const initMapbox = () => {
     addMarkersToMap(map, markers);
     fitMapToMarkers(map, markers);
     map.addControl(new mapboxgl.NavigationControl());
-    map.scrollZoom.disable()
+    map.scrollZoom.enable()
     console.log(markers)
   }
 };
