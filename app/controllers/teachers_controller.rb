@@ -4,8 +4,8 @@ class TeachersController < ApplicationController
   def index
     @teachers = User.where(teacher: true)#.shuffle
     @teachers_geocoded = User.geocoded
-      if params[:query].present?
-    @teachers = @teachers.search_by_address(params[:query])
+      if params[:query].present? && params[:query] == "true"
+      @teachers = @teachers.search_by_address(params[:query])
     else
       @teachers = @teachers.all
     end
