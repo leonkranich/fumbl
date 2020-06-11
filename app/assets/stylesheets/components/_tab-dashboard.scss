@@ -29,16 +29,6 @@ $tab-wrap-border-radius: 4px;
       transform: translateY(0px);
       text-shadow: 0 0 0;
     }
-    &:checked:nth-of-type(#{$i}) ~ .tab-dashboard__content-2:nth-of-type(#{$i}) {
-      opacity: 1;
-      transition: 0.5s opacity ease-in, 0.8s transform ease;
-      // position: relative;
-      margin-top: 280px;
-      top: 0;
-      z-index: 100;
-      transform: translateY(0px);
-      text-shadow: 0 0 0;
-    }
   }
   &:first-of-type:not(:last-of-type) + label {
     border-top-right-radius: 0;
@@ -107,23 +97,6 @@ $tab-wrap-border-radius: 4px;
     font-size: 8px;
     font-weight: bold;
     margin: 0;
-  }
-
-  &__content-2 {
-    // align-items: center;
-    background-color: transparent;
-    color: $onyx;
-    display: flex;
-    height: 120px;
-    left: 0;
-    padding: 0px;
-    opacity: 0;
-    overflow: hidden;
-    position: absolute;
-    text-align: left;
-    transform: translateY(-3px);
-    width: 100%;
-    z-index: -1;
   }
 }
 
