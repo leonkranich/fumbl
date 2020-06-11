@@ -163,7 +163,6 @@ teachers_array.each do |teacher|
 end
 
 puts "Availabilities & timeslots created"
-binding.pry
 
 # #------- Review seed --------
 
