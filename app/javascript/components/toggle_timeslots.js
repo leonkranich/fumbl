@@ -26,7 +26,12 @@ const toggleTimeslots = () => {
           <p>${event.currentTarget.attributes.date.value}</p>
           </div>`
           let vouchCounter = document.getElementById('voucher_count')
-          let newVoucherCount = (parseInt(vouchCounter.innerText) -1).toString()
+          let newVoucherCount
+          if (parseInt(vouchCounter.innerText) > 0) {
+            newVoucherCount = (parseInt(vouchCounter.innerText) -1).toString();
+          } else {
+            newVoucherCount = "0";
+          }
           BookingForm.insertAdjacentHTML('afterbegin', formElement);
           vouchCounter.innerHTML = newVoucherCount
         });
