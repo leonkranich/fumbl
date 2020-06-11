@@ -1,12 +1,12 @@
 .alert-dashboard {
-  position: fixed;
-  top : 16px !important;
-  right: 16px;
+  //position: fixed;
+  // bottom: 16px;
+  // right: 16px;
   z-index: 1000;
 }
 
 #avatar-dashboard {
-  background-image: url('carina.jpg');
+  background-image: url('Leon.jpeg');
   width: 120px;
   height: 120px;
   background-size: cover;
@@ -36,31 +36,33 @@
 }
 
 .btn-appointment {
-  width: 203px;
-  color: $onyx;
-  border: 1px solid $onyx;
-  padding: 8px 24px;
-  border-radius: 4px;
-  font-weight: lighter;
-  opacity: 0.6;
+  background: $white;
+  border: 1px solid gray;
+  border-radius: 15px;
+  color: gray;
+  display: block;
+  margin-bottom: 10px;
+  margin-left: 22px;
+  margin-top: 10px;
+  padding: 6px 10px;
   transition: opacity 0.3s ease;
-  display: inline-block;
+  width: 80%;
+  //display: inline-block;
+  // opacity: 0.6;
 }
 
 .btn-appointment:hover {
   opacity: 1;
   border: 2px solid $aqua;
+  color: gray;
 }
 
 .btn-appointment .active {
   color: #86E7B8;
+  border: 2px solid $aqua;
+  color: $aqua;
 }
 
-.btn-book-next-align {
-  position: absolute;
-  top: 10px;
-  left: 50%;
-}
 .btn-book-next {
   color: $white;
   padding: 12px 40px;
@@ -70,9 +72,28 @@
   width: 100%;
 }
 
+.btn-book-next-align {
+  top: 10px;
+  left: 50%;
+}
+
 .btn-book-next:hover {
   background: #1BCB7F;
   color: $white;
+}
+
+.btn-book-next-warning {
+  color: $white;
+  padding: 12px 40px;
+  border-radius: 15px;
+  background: #fca311;
+  transition: background 0.3s ease;
+  width: 100%;
+}
+
+.btn-book-next-warning-align {
+  top: 10px;
+  left: 50%;
 }
 
 .card-product-dashboard {
@@ -110,6 +131,13 @@
   opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
+}
+
+.container-tabs {
+  background: transparent;
+  margin-top: 75px;
+  height: 100%;
+  width: 100%;
 }
 
 .content {

@@ -34,13 +34,16 @@ $tab-wrap-border-radius: 4px;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }
+
   &:not(:first-of-type):not(:last-of-type) + label {
     border-radius: 0;
   }
+
   &:last-of-type:not(:first-of-type) + label {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
   }
+
   &:checked + label {
     background-color: $white;
     // box-shadow: 0 -1px 0 #fff inset;
@@ -48,6 +51,7 @@ $tab-wrap-border-radius: 4px;
     opacity: 1;
     cursor: default;
   }
+
   + label {
     // box-shadow: 0 -1px 0 #eee inset;
     border-radius: $tab-wrap-border-radius;
@@ -70,6 +74,7 @@ $tab-wrap-border-radius: 4px;
       box-shadow: 0 1px 0 #f4f4f4 inset;
     }
   }
+
   &__content-1 {
     // align-items: center;
     background-color: transparent;
