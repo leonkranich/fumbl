@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :timeslots, only: :update
   resources :dashboards, only: :index
   resources :search, only: [:index]
+  get "download_homework", to: 'dashboards#download'
 
 
 

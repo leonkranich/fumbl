@@ -160,3 +160,38 @@
 .flash-success-dashboard {
   border: 2px solid #FFC65A;
 }
+
+
+
+.teacher-information {
+  display: flex;
+  width: 100%;
+  height: 50%;
+}
+
+.teacher-information-image {
+  width: 350px;
+  background-size: cover;
+}
+
+.teacher-information-text {
+  flex-grow: 1;
+  padding: 0 3% 0 3%;
+}
+.homework-information {
+  display: flex;
+  width: 100%;
+  height: 50%;
+  background-size: cover;
+}
+
+.homework-information-image {
+  width: 650px;
+  background-size: cover;
+}
+
+
+.homework-information-text {
+  padding: 3%;
+  flex-grow: 1;
+}

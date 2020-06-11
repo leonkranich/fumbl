@@ -15,7 +15,7 @@
           <h5>Upcoming lessons</h5>
           <% if @timeslots %>
             <% @timeslots[0..2].each do |timeslot| %>
-              <%= link_to timeslot.availability.day.strftime("%B %d:") + timeslot.start_time.in_time_zone("Berlin").strftime("%H:%M"), dashboards_path(selected_id: timeslot.id), class: "btn-appointment" %>
+              <%= link_to timeslot.availability.day.strftime("%B %d  |  ") + timeslot.start_time.in_time_zone("Berlin").strftime("%H:%M"), dashboards_path(selected_id: timeslot.id), class: "btn-appointment" %>
             <% end %>
           <% end %>
         </div>
@@ -35,28 +35,18 @@
         </a>
       </div>
       <div class="tab-wrap-dashboard" style="height: 573px;">
-        <div class="tab-dashboard__content-1">
-          <%#= image_tag @teacher.photo_url %>
-          <div class="tab-dashboard-description">
-            <h4><strong>Hi!</strong></h4>
-            <p>Ready to hit the tune? My name is <%= @selected_timeslot.availability.teacher.first_name %> and I'm your teacher for learning...Work hard, play hard as you say, so let's get started!🎉 </p>
+        <div class="teacher-information">
+          <div class="teacher-information-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= @teacher_avatar %>')">
+          </div>
+          <div class="teacher-information-text">
+            <div class="teacher-name">
+              <h6>Your teacher for <%= @timeslot_time %> is <%= @teacher %></h6>
+              <br>
+              <p>Ready to hit the tune? My name is <%= @selected_timeslot.availability.teacher.first_name %> and I’m your teacher for learning <%= @selected_timeslot.availability.teacher.instruments.first.name %>, play hard as you say, so let’s get started!</p>
+            </div>
           </div>
         </div>
-        <hr>
-        <div class="tab-dashboard__content-1">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" style="width: 120px; height: 120px;"/>
-          <div class="tab-dashboard-description">
-            <h4>To-Dos for the appointment</h4>
-            <h5>
-            <% if @selected_timeslot.homeworks.first %>
-              <%= @selected_timeslot.homeworks.first.description %>
-              And don't forget your FLASHCARDS!!! ;)
-            <% else %>
-              <p>No homework :)</p>
-            <% end %>
-            </h5>
-          </div>
-        </div>
+        <%= link_to "", download_homework_path,  html_options = {class:"homework-information", style: "background-image: url('#{image_path 'love-me-tender.jpg'}')" } %>
       </div>
     </div>
   </div>
