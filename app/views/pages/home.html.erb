@@ -1,7 +1,8 @@
 <div class="home-banner" style="background-image: /*linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),*/ url('<%= image_path 'banner2.jpg' %>');">
-  <h1>Find the best music teachers near you!</h1>
+  <div class="row justify-content-center">
+    <h1>Find the best music teachers near you!</h1>
    <div class="search">
-    <div class="search-form-control form-group">
+
 <div class="search-form-control form-group">
 <%= form_tag teachers_path, method: :get do %>
   <%= text_field_tag :query,
@@ -9,10 +10,10 @@
     placeholder: "city", class: "form-control string required"
   %>
   </div>
-  </div>
   <%= button_tag(type: "submit", class: "btn btn-flat-search", style: "color: white;") do %>
     Search <i class="fas fa-search"></i>
-<% end %>
+    <% end %>
+  </div>
 <% end %>
   </div>
 </div>
