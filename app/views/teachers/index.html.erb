@@ -2,25 +2,35 @@
 <div class="container">
 <div class="upper-block">
 <div class="search-index">
-    <div class="search-form-control form-group">
+    <!-- <div class="search-form-control form-group"> -->
 <div class="search-form-control form-group">
 <%= form_tag teachers_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
+  <%= text_field_tag :city,
+    params[:city],
     placeholder: "Enter your address or postcode", class: "form-control string-required"
   %>
   </div>
+<div class="search-form-control form-group">
+
+   <%= text_field_tag :instrument,
+    params[:instrument],
+    placeholder: "Enter an instrument", class: "form-control string-required"
+  %>
   </div>
   <%= button_tag(type: "submit", class: "btn btn-flat-search", style: "color: white;") do %>
     Search <i class="fas fa-search"></i>
 <% end %>
 <% end %>
+
+  </div>
+  <h2 id="h2-index" style="text-align: left">Woow, we found <%= @teachers.count%> awesome music teachers next to you! </h2>
+<%# else %>
+
   </div>
 
 <!-- <div class="h2-box" width="200px"> -->
  <%# if @teachers = @teachers.search_by_address(params[:query]) %>
-<h2 id="h2-index" style="text-align: left">Woow, we found <%= @teachers.count%> awesome music teachers next to you! </h2>
-<%# else %>
+
 <!-- <h2 id="h2-index" style="text-align: left">Oh no! We don't have any teacher in this city yet :( </h2> -->
 <%# end %>
 </div>

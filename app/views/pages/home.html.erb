@@ -5,9 +5,16 @@
 
 <div class="search-form-control form-group">
 <%= form_tag teachers_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
+  <%= text_field_tag :city,
+    params[:city],
     placeholder: "Enter your address or postcode", class: "form-control string-required"
+  %>
+  </div>
+<div class="search-form-control form-group">
+
+   <%= text_field_tag :instrument,
+    params[:instrument],
+    placeholder: "Enter an instrument", class: "form-control string-required"
   %>
   </div>
   <%= button_tag(type: "submit", class: "btn btn-flat-search", style: "color: white;") do %>
