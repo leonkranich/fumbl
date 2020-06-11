@@ -1,12 +1,13 @@
 
 <div class="container">
-<div class="search">
+<div class="upper-block">
+<div class="search-index">
     <div class="search-form-control form-group">
 <div class="search-form-control form-group">
 <%= form_tag teachers_path, method: :get do %>
   <%= text_field_tag :query,
     params[:query],
-    placeholder: "city", class: "form-control string required"
+    placeholder: "Enter your address or postcode", class: "form-control string-required"
   %>
   </div>
   </div>
@@ -17,7 +18,8 @@
   </div>
 
 <!-- <div class="h2-box" width="200px"> -->
-<h2 style="text-align: left">Here will be a search bar/filter!</h2>
+<h2 id="h2-index" style="text-align: left">Woow, we found <%= @teachers.count%> awesome music teachers next to you! </h2>
+</div>
 <!-- </div> -->
 </div>
 
