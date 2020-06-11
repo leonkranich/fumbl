@@ -18,7 +18,11 @@
   </div>
 
 <!-- <div class="h2-box" width="200px"> -->
+ <%# if @teachers = @teachers.search_by_address(params[:query]) %>
 <h2 id="h2-index" style="text-align: left">Woow, we found <%= @teachers.count%> awesome music teachers next to you! </h2>
+<%# else %>
+<!-- <h2 id="h2-index" style="text-align: left">Oh no! We don't have any teacher in this city yet :( </h2> -->
+<%# end %>
 </div>
 <!-- </div> -->
 </div>
@@ -30,10 +34,10 @@
       <%= image_tag teacher.photo_url, class: "profile-img" %>
       <h2><%= teacher.first_name%></h2>
       <% teacher.instruments.each do |instrument| %>
-              <h6><%= instrument.name.capitalize %></h6>
+              <h6><%= instrument.name.capitalize %> teacher</h6>
             <%end %>
       <% teacher.genres.each do |genre| %>
-              <p><%= genre.name %></p>
+              <p>Genre: <%= genre.name %></p>
             <%end %>
       <div href="#" class="cta">
       <span><%= link_to "See Profile", teacher_path(teacher)%></span>
