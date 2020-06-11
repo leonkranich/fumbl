@@ -74,7 +74,9 @@
         <div class="tab__content">
         <h4>Latest reviews:</h4>
          <% @reviews.each do |review| %>
-              <p><%= review.content %></p>
+              <div class="review"><p><%= review.content %></p>
+              <div class="review-student"><p>from: <%= review.student.first_name %></p></div>
+              </div>
           <%end %>
         </div>
       </div>
