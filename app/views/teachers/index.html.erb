@@ -23,22 +23,11 @@
 <% end %>
 
   </div>
-  <% if params[:instrument].present? || params[:city].present? %>
+
   <h2 id="h2-index" style="text-align: left">Woow, we found <%= @teachers.count%> awesome music teachers next to you! </h2>
-  <% else %>
-  <h2 id="h2-index" style="text-align: left">Oh no!</h2>
-  <% end %>
+
   </div>
-
-<!-- <div class="h2-box" width="200px"> -->
- <%# if @teachers = @teachers.search_by_address(params[:query]) %>
-
-<!-- <h2 id="h2-index" style="text-align: left">Oh no! We don't have any teacher in this city yet :( </h2> -->
-<%# end %>
 </div>
-<!-- </div> -->
-</div>
-<% if params[:instrument].present? || params[:city].present? %>
 <div class="container d-flex">
   <div class="cards-index">
   <% @teachers.each do |teacher| %>
@@ -70,9 +59,7 @@
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
       marker-color="$aqua">
   </div>
-<% else %>
-<h2 id="h2-index" style="text-align: left">Oh no!</h2>
-  <% end %>
+
 </div>
 
 
