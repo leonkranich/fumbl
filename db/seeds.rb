@@ -29,8 +29,8 @@ User.destroy_all if Rails.env.development?
 email2 = "host2@test.de"
 password2 = "host123456"
 password_confirmation2 = "host123456"
-first_name2 = "Kenny"
-last_name2 = "McCormick"
+first_name2 = "Carina"
+last_name2 = "Meissl"
 address2 = "Warschauer Straße 55, 10243 Berlin"
 teacher2 = false
 photo_url = "https://randomuser.me/api/portraits/men/32.jpg"
@@ -145,7 +145,7 @@ teachers_array.each do |teacher|
   (Date.today..Date.today + 14).to_a.each do |day|
     teacher_availability = Availability.create(teacher_id: teacher.id, day: day)
     # start_time = Time.new(teacher_availability.day.year, teacher_availability.day.month, teacher_availability.day.day,9,00,00)
-    timeslots_array = [[Time.new(2000,1,1,9,00,00),Time.new(2000,1,1,10,00,00)], [Time.new(2000,1,1,10,00,00),Time.new(2000,1,1,11,00,00)], [Time.new(2000,1,1,11,00,00),Time.new(2000,1,1,12,00,00)], [Time.new(2000,1,1,13,00,00),Time.new(2000,1,1,14,00,00)], [Time.new(2000,1,1,14,00,00),Time.new(2000,1,1,15,00,00)], [Time.new(2000,1,1,15,00,00),Time.new(2000,1,1,16,00,00)], [Time.new(2000,1,1,16,00,00),Time.new(2000,1,1,17,00,00)], [Time.new(2000,1,1,17,00,00),Time.new(2000,1,1,18,00,00)]]
+    timeslots_array = [[DateTime.new(day.year,day.month,day.day,9,00,00),DateTime.new(day.year,day.month,day.day,10,00,00)], [DateTime.new(day.year,day.month,day.day,10,00,00),DateTime.new(day.year,day.month,day.day,11,00,00)], [DateTime.new(day.year,day.month,day.day,11,00,00),DateTime.new(day.year,day.month,day.day,12,00,00)], [DateTime.new(day.year,day.month,day.day,13,00,00),DateTime.new(day.year,day.month,day.day,14,00,00)], [DateTime.new(day.year,day.month,day.day,14,00,00),DateTime.new(day.year,day.month,day.day,15,00,00)], [DateTime.new(day.year,day.month,day.day,15,00,00),DateTime.new(day.year,day.month,day.day,16,00,00)], [DateTime.new(day.year,day.month,day.day,16,00,00),DateTime.new(day.year,day.month,day.day,17,00,00)], [DateTime.new(day.year,day.month,day.day,17,00,00),DateTime.new(day.year,day.month,day.day,18,00,00)]]
     i = 0
     until i == timeslots_array.length
       timeslots_array.each do |timeslot|
@@ -163,7 +163,6 @@ teachers_array.each do |teacher|
 end
 
 puts "Availabilities & timeslots created"
-
 
 # #------- Review seed --------
 

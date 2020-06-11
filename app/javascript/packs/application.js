@@ -28,13 +28,14 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { toggleAppointment } from '../components/toggleAppointment';
 import { toggleTimeslots } from '../components/toggle_timeslots';
-import "../plugins/flatpickr"
+import available from '../plugins/flatpickr';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
+  available();
   initMapbox();
   initUpdateNavbarOnScroll();
   toggleAppointment();
@@ -48,5 +49,4 @@ document.addEventListener('turbolinks:load', () => {
 //   initUpdateNavbarOnScroll();
 // });
 // import { slider } from '../components/slider';
-
 

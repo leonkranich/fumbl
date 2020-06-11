@@ -1,6 +1,7 @@
-<%= image_tag @teacher.photo_url, class: "avatar" %>
+<div class="info"><%= image_tag @teacher.photo_url, class: "avatar" %>
+
 <h3><%= @teacher.first_name %> <%= @teacher.last_name %></h3>
 <% @teacher.instruments.each do |instrument| %>
   <p><%= instrument.name.capitalize %></p>
 <%end %>
-<p><%= @teacher.address %></p>
+<p><%= @teacher.address %></p></div>

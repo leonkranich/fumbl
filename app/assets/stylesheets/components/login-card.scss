@@ -19,7 +19,7 @@ body {
 }
 
 #login-container {
-  height: 284px;
+  height: 290px;
   width: 200px;
   border-radius: 5px;
   background: $white;
@@ -82,7 +82,10 @@ body {
     margin: 0;
     margin-left: 4px;
     opacity: 1;
-  }
+    margin-top: -6px;
+    margin-bottom: 11px;
+}
+  
 
   // .description{
   //   margin-bottom: 8px;
