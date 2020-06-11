@@ -76,7 +76,8 @@ div {
 
 .btn-ghost:hover {
   opacity: 1;
-  background-color: #86E7B8;
+  color: $aqua;
+  border: 1px solid $aqua;
 }
 
 .btn-flat {
