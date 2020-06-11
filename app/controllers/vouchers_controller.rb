@@ -13,8 +13,8 @@ class VouchersController < ApplicationController
     @voucher.price_cents = @teacher.price_per_hour * 100 * voucher_params[:counter].to_i
     @next_day = set_next_day
     if @voucher.save!
-      flash[:notice] = "Booking Confirmed"
-      redirect_to  new_teacher_booking_path(@teacher)
+      # flash[:notice] = "Booking Confirmed"
+      redirect_to new_teacher_booking_path(@teacher)
     else
       redirect_to teacher_path(teacher)
     end

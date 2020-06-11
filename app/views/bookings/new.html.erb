@@ -5,11 +5,13 @@
       <input type="text" class="datepicker invisible" >
       <div id="selected-timeslot-dates"></div>
     </div>
-    <div class="booking-form form-wrapper" data-availabilities="<%= @availabilities.to_json %>">
-      <h5><span id="voucher_count"><%= @vouchers_as_a_student %></span> vouchers left</h5>
-      <%= form_with(url:  update_associated_timeslots_path, method: "patch") do |f| %>
-        <%= f.submit "Book" , class: "btn btn-ghost"%>
-      <% end %>
+     <div class="right_form">
+      <div class="booking-form form-wrapper" data-availabilities="<%= @availabilities.to_json %>">
+        <h5><span id="voucher_count"><%= @vouchers_as_a_student %></span> vouchers left</h5>
+        <%= form_with(url:  update_associated_timeslots_path, method: "patch") do |f| %>
+          <%= f.submit "Book now" , class: "btn btn-flat"%>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

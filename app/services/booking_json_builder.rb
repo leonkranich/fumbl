@@ -25,7 +25,7 @@ class BookingJsonBuilder
   end
 
   def build_formatted_date(timeslot)
-    "#{timeslot.availability.day.strftime("%B %d, %Y")} | #{timeslot.start_time.hour}:00 until #{timeslot.end_time.hour}:00"
+    "#{timeslot.availability.day.strftime("%B %d, %Y")} | #{timeslot.start_time.hour}:00 - #{timeslot.end_time.hour}:00"
   end
 
 end
