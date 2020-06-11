@@ -1,12 +1,13 @@
 .home-banner {
   background-size: cover;
-  height: 50vh;
+  height: 55vh;
   color: #eee;
   text-align: center;
-  padding-top: 40vh;
-  // position: fixed;
+  // padding-top: 40vh;
+  position: relative;
   top: 0;
   background-position: bottom 0px left 20px;
+  display:block;
 }
 
 .home-banner h1 {
