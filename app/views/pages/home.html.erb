@@ -7,7 +7,7 @@
 <%= form_tag teachers_path, method: :get do %>
   <%= text_field_tag :query,
     params[:query],
-    placeholder: "city", class: "form-control string required"
+    placeholder: "Enter your address or postcode", class: "form-control string-required"
   %>
   </div>
   <%= button_tag(type: "submit", class: "btn btn-flat-search", style: "color: white;") do %>
@@ -28,7 +28,7 @@
         <div class="icon-card">
           <h2>Browse</h2>
           <div id="circle">
-            <%= image_tag "iconfinder_search.svg", class: "icons" %>
+            <%= image_tag "search2.svg", class: "icons" %>
           </div>
           <p>Browse and select the best music teachers in your area according to your criteria and own preferences</p>
           <!-- <p>test 1</p> -->
@@ -75,7 +75,7 @@
                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since theLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the
                         </p>
                         <div class="pic">
-                            <img src="http://www.webcoderskull.com/img/team1.png" alt="">
+                            <%= image_tag "carina.jpg" %>
                         </div>
                         <h3 class="title">Kundan,</h3>
                         <span class="post">Front End Developer</span>
