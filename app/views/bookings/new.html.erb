@@ -1,26 +1,19 @@
 <div class="container">
-  <h1>Book your timeslots here</h1>
-  <div class="calendar">
-    <div class="form">
-      <%= form_with(url:  update_associated_timeslots_path, method: "patch") do |f| %>
-        <%= hidden_field_tag 'availability_id', @availability.id %>
-        <h5> Please select up to <%= @vouchers_as_a_student %> appointments</h5>
-        <h3> <%= @availability.day.strftime "%d.%m.%Y" %></h3>
-        <% @availability.timeslots.each do |timeslot| %>
-          <div class="checkbox_items">
-            <input name="timeslots[<%= timeslot.id %>]" type="hidden" value="0">
-            <input type="checkbox" value="1" name="timeslots[<%= timeslot.id %>]" id="3" class="checkbox">
-            <p> <%= timeslot.start_time.strftime "%H:%M" %> - <%= timeslot.end_time.strftime "%H:%M" %></p>
-          </div>
-        <% end %>
-        <%= f.submit "Book" , class: "btn btn-ghost"%>
-      <% end %>
-      <%= link_to new_availability_booking_path(@previous_day), class: "btn-calendar-previous" do %>
-        <i class="fas fa-arrow-circle-left"></i>
-      <% end %>
-      <%= link_to new_availability_booking_path(@next_day), class: "btn-calendar-next" do %>
-        <i class="fas fa-arrow-circle-right"></i>
-      <% end %>
-    </div>
+  <input type="text" class="datepicker" style="display: none;">
+  <div id="selected-timeslot-dates"></div>
+  <div class="booking-form">
+    <h5> Please select up to <%= @vouchers_as_a_student %> appointments</h5>
+    <%= form_with(url:  update_associated_timeslots_path, method: "patch") do |f| %>
+      <%= f.submit "Book" , class: "btn btn-ghost"%>
+    <% end %>
   </div>
 </div>
+
+<div id="booking-data" style="display: none;">
+  <%= @booking_json %>
+</div>
+
+
+
+
+
