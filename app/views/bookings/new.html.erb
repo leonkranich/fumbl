@@ -1,15 +1,17 @@
 <div class="container">
   <div class="booking-page">
     <div class="calendar_card">
-      <h5> Please find <%= @vouchers_as_a_student %> that fit you</h5>
+      <h5> Please find <%= @vouchers_as_a_student %> slots that fit you</h5>
       <input type="text" class="datepicker invisible" >
       <div id="selected-timeslot-dates"></div>
     </div>
-    <div class="booking-form form-wrapper" data-availabilities="<%= @availabilities.to_json %>">
-      <h5> Please select up to <%= @vouchers_as_a_student %> appointments</h5>
-      <%= form_with(url:  update_associated_timeslots_path, method: "patch") do |f| %>
-        <%= f.submit "Book" , class: "btn btn-ghost"%>
-      <% end %>
+    <div class="right_form">
+      <div class="booking-form form-wrapper" data-availabilities="<%= @availabilities.to_json %>">
+        <h5> Please select up to <%= @vouchers_as_a_student %> appointments</h5>
+        <%= form_with(url:  update_associated_timeslots_path, method: "patch") do |f| %>
+          <%= f.submit "Book" , class: "btn btn-ghost"%>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
