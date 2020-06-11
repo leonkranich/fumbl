@@ -14,19 +14,21 @@ const toggleTimeslots = () => {
       let timeslots = BookingJSON.availabilities[AvailDate].timeslots;
       // debugger;
       timeslots.forEach((div) => {
-        selectedTimeslotDates.insertAdjacentHTML('beforeend', div);
+        selectedTimeslotDates.insertAdjacentHTML('beforeend', div["string"]);
       });
       let timeslotSections = document.querySelectorAll('.timeslot-selection');
       timeslotSections.forEach((element) => {
         element.addEventListener('click', (event) => {
           let TimeslotID = event.currentTarget.dataset.timeslotId;
           let BookingForm = document.querySelector('.booking-form').children[1];
-          // debugger;
           let formElement = `<div class="checked_times">
           <input name="timeslots[${TimeslotID}]" type="hidden" value="1">
-          <p>${event.currentTarget.innerText}</p>
+          <p>${event.currentTarget.attributes.date.value}</p>
           </div>`
+          let vouchCounter = document.getElementById('voucher_count')
+          let newVoucherCount = (parseInt(vouchCounter.innerText) -1).toString()
           BookingForm.insertAdjacentHTML('afterbegin', formElement);
+          vouchCounter.innerHTML = newVoucherCount
         });
       })
 
