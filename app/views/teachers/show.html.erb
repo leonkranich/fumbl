@@ -52,7 +52,7 @@
           </div>
           <%= simple_form_for(:voucher, url:"/teachers/#{@teacher.id}/vouchers", method:"post") do |f| %>
           <%= hidden_field_tag "teacher_id", @teacher.id %>
-            <%= f.input :counter, collection: 1..10, label: false %>
+            <%= f.input :counter, prompt: "How many lessons..?", collection: 1..10, label: false %>
             <%= f.submit "Book now", class: "btn btn-flat" %>
             <%= link_to "Back", teachers_path, class: "btn btn-ghost" %>
           <% end %>
