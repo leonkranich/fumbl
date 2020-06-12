@@ -6,48 +6,79 @@
         <div class="text-center">
          <div class="banner-dashboard" style="background-image: url('<%= image_path 'banner.jpg' %>');">
          </div>
-          <h4>Welcome back!</h4>
-          <h4><%= @user.first_name %></h4>
-          <hr>
-          <h5>Remaining Vouchers</h5>
-          <h6> <%= @vouchers.sum {|voucher| voucher.counter } %></h6>
-          <hr>
-          <h5>Upcoming lessons</h5>
-          <% if @timeslots %>
-            <% @timeslots[0..2].each do |timeslot| %>
-              <%= link_to timeslot.availability.day.strftime("%B %d  |  ") + timeslot.start_time.in_time_zone("Berlin").strftime("%H:%M"), dashboards_path(selected_id: timeslot.id), class: "btn-appointment" %>
-            <% end %>
-          <% end %>
+
+         <h4 class="m-0 py-1">Welcome back!</h4>
+         <h4 class="m-0 py-1"><%= @user.first_name %></h4>
+         <hr>
+         <h5>Remaining Vouchers</h5>
+         <h6> <%= @vouchers.sum {|voucher| voucher.counter } %></h6>
+         <hr>
+         <h5>Upcoming lessons</h5>
+         <% if @timeslots %>
+         <% @timeslots.reverse[0..2].each do |timeslot| %>
+         <%= link_to timeslot.availability.day.strftime("%B %d  |  ") + timeslot.start_time.in_time_zone("Berlin").strftime("%H:%M"), dashboards_path(selected_id: timeslot.id), class: "btn-appointment" %>
+         <% end %>
+         <% end %>
+       </div>
+     </div>
+     <% if @vouchers.length == 0 %>
+     <%= link_to "BUY MORE LESSONS", teacher_path(@selected_timeslot.availability.teacher), class: "btn btn-warning btn-book-next-warning btn-book-next-warning-align" %>
+     <% else %>
+     <%= link_to "BOOK NEW LESSON", new_teacher_booking_path(@selected_timeslot.availability.teacher), class: "btn btn-book-next btn-book-next-align" %>
+     <% end %>
+   </div>
+
+   <div class="col-sm-9 text-center" style="padding-left: 25px;">
+    <div class="flash-dashboard flash-success-dashboard alert-dashboard alert-dismissible fade show" role="alert-dashboard">
+      <span><strong>Yay!</strong> 🎉  You successfully signed up for a new lesson! Happy learning </span>
+      <a data-dismiss="alert-dashboard" aria-label="Close">
+
+        <i class="fas fa-times"></i>
+      </a>
+    </div>
+    <div class="tab-wrap-dashboard" style="height: 573px;">
+      <div class="teacher-information">
+        <div class="teacher-information-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= @teacher_avatar %>')">
+        </div>
+        <div class="teacher-information-text">
+          <div class="teacher-name">
+            <h6>Your teacher for <span style="color: #1BCB7F"><%= @timeslot_time %></span> is <%= @teacher %></h6>
+            <br>
+            <p>Ready to hit the tune? My name is <%= @selected_timeslot.availability.teacher.first_name %> and I’m your teacher for learning <%= @selected_timeslot.availability.teacher.instruments.first.name %>, play hard as you say, so let’s get started!</p>
+          </div>
         </div>
       </div>
-    <% if @vouchers.length == 0 %>
-      <%= link_to "BOOK MORE POINTS", teacher_path(@selected_timeslot.availability.teacher), class: "btn btn-warning btn-book-next-warning btn-book-next-warning-align" %>
-    <% else %>
-      <%= link_to "BOOK NEW LESSON", teacher_path(@selected_timeslot.availability.teacher), class: "btn btn-book-next btn-book-next-align" %>
-    <% end %>
-    </div>
-
-    <div class="col-sm-9 text-center" style="padding-left: 25px;">
-      <div class="flash-dashboard flash-success-dashboard alert-dashboard alert-dismissible fade show" role="alert-dashboard">
-        <span><strong>Yay!</strong> 🎉  You successfully signed up for a new lesson! Happy learning </span>
-        <a data-dismiss="alert-dashboard" aria-label="Close">
-        <i class="fas fa-times"></i>
-        </a>
-      </div>
-      <div class="tab-wrap-dashboard" style="height: 573px;">
-        <div class="teacher-information">
-          <div class="teacher-information-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= @teacher_avatar %>')">
-          </div>
-          <div class="teacher-information-text">
-            <div class="teacher-name">
-              <h6>Your teacher for <%= @timeslot_time %> is <%= @teacher %></h6>
-              <br>
-              <p>Ready to hit the tune? My name is <%= @selected_timeslot.availability.teacher.first_name %> and I’m your teacher for learning <%= @selected_timeslot.availability.teacher.instruments.first.name %>, play hard as you say, so let’s get started!</p>
+      <div class="homework">
+        <div class="w">
+          <h6>Your Homework</h6>
+          <p>Please learn learn the sheet music here. Pay attention in particular to the first five lines of Hallelujah.</p>
+           <%= link_to "Download Homework", download_homework_path, class: "btn btn-warning btn-book-next-download btn-book-next-warning-align" %>
+        </div>
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <%= link_to image_tag("hallelujah.jpg"), download_homework_path, class:"homework-information" %>
+            </div>
+            <div class="carousel-item">
+              <%= link_to image_tag("faded.jpg"), download_homework_path, class:"homework-information" %>
             </div>
           </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
         </div>
-        <%= link_to "", download_homework_path,  html_options = {class:"homework-information", style: "background-image: url('#{image_path 'love-me-tender.jpg'}')" } %>
       </div>
     </div>
   </div>
+</div>
 </div>
