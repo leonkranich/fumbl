@@ -120,7 +120,8 @@ end
 
 description_array = ["I really enjoy sharing my experience with others. Looking forward to meeting you!", "Just a musician passionate about teaching and sharing knowledge.", "Really looking forward to meeting you!", "Let's discuss how I can help you getting better", "I'm a music geek always looking for ambitious students."]
 
-photo_array = FacesApi.fetch_faces(25, "male")
+# photo_array = FacesApi.fetch_faces(25, "male")
+photo_array = ['https://pbs.twimg.com/profile_images/974736784906248192/gPZwCbdS.jpg','https://pbs.twimg.com/profile_images/647526574120529920/T5rm0m7W.jpg']
 photo_array.each_with_index do |user_photo, index|
 
   email = Faker::Internet.email
@@ -140,7 +141,8 @@ end
 
 
 
-photo_array = FacesApi.fetch_faces(25, "female")
+# photo_array = FacesApi.fetch_faces(25, "female")
+photo_array = ['https://images.unsplash.com/photo-1510227272981-87123e259b17?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=3759e09a5b9fbe53088b23c615b6312e','https://i.imgur.com/gmKrdo1.jpg']
 photo_array.each_with_index do |user_photo, index|
 
   email = Faker::Internet.email
