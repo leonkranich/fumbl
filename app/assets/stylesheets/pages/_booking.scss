@@ -7,29 +7,43 @@
   display: none;
 }
 
+.container h4 {
+  padding-top: 20px;
+  padding-bottom: 15px;
+  margin-left: 21px;
+}
+
 // booking page container
 .booking-page {
   display: flex;
-  justify-content: center;
-  margin: 50px 0px 50px 0px;
+  justify-content: space-around;
+  margin: 0px 0px 50px 0px;
+  height: 70vh;
 }
 
 // left card on bookings page
+
 .calendar_card {
   margin: none;
   width: 350px;
   position: relative;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 5px;
   text-align: center;
   padding-top: 25px;
+  margin: 0px 20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.calendar_card h5 {
+  padding-bottom: 0px;
+  margin-bottom: 0px;
 }
 
 //calendar on left card
 
 .flatpickr-calendar {
   margin-bottom: 30px;
-  margin-left: 20px;
+  margin-left: 11px;
   box-shadow: none;
 }
 
@@ -37,7 +51,7 @@
 
 #selected-timeslot-dates {
   margin-bottom: 30px;
-  margin-left: 60px;
+  margin-left: 40px;
 }
 
 // open slots in left card
@@ -45,10 +59,10 @@
 .timeslot-selection p {
   justify-content: center;
   border: 1px solid gray;
-  width: 200px;
+  width: 220px;
   margin: 15px;
   border-radius: 4px;
-  padding: 5px 0px;
+  padding: 8px 0px;
 }
 
 .timeslot-selection p:hover {
@@ -58,15 +72,17 @@
   transform: scale(1.04);
 }
 
-//right form on bookings page
+//right card on bookings page
 
 .right_form {
   margin-left: 100px;
   text-align: center;
   padding-top: 25px;
   border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   width: 350px;
+  margin: 0px 20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
 }
 
 //selected times in right card
@@ -74,20 +90,25 @@
 .checked_times p {
   justify-content: center;
   border: 1px solid gray;
-  width: 200px;
+  width: 220px;
   margin: 15px;
   border-radius: 4px;
-  padding: 5px 0px;
-  margin-left: 75px;
+  padding: 8px 0px;
+  margin-left: 55px;
 }
 
 .booking-form.form-wrapper h5 {
   margin-bottom: 40px;
 }
 
-.booking-form.form-wrapper.btn.btn-flat {
+.booking-form.form-wrapper .btn.btn-flat {
   position: absolute;
-  top: 100px;
-  width: 200px;
+  top: 340px;
+  right: 55px;
+  width: 220px;
+}
+
+.right_form h5 {
+  margin-bottom: 40px;
 }
 
