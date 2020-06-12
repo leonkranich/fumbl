@@ -50,9 +50,12 @@
               <% end %>
             </div>
           </div>
+          <div class="book-form">
+          <h5>Book lessons with <%= @teacher.first_name %> now!</h5>
+          </div>
           <%= simple_form_for(:voucher, url:"/teachers/#{@teacher.id}/vouchers", method:"post") do |f| %>
           <%= hidden_field_tag "teacher_id", @teacher.id %>
-            <%= f.input :counter, prompt: "How many lessons..?", collection: 1..10, label: false %>
+            <%= f.input :counter, prompt: "Select up to 10 lessons..", collection: 1..10, label: false %>
             <%= f.submit "Book now", class: "btn btn-flat" %>
             <%= link_to "Back", teachers_path, class: "btn btn-ghost" %>
           <% end %>

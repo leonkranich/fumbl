@@ -30,7 +30,7 @@
 </div>
 <div class="container d-flex">
   <div class="cards-index">
-  <% @teachers.each do |teacher| %>
+  <% @teachers.shuffle.each do |teacher| %>
     <div id="login-container">
       <%= image_tag teacher.photo_url, class: "profile-img" %>
       <h2><%= teacher.first_name%></h2>
