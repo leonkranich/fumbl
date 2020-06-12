@@ -13,19 +13,22 @@
           <h6> <%= @vouchers.sum {|voucher| voucher.counter } %></h6>
           <hr>
           <h5>Upcoming lessons</h5>
+          <div class="timeslots">
           <% if @timeslots %>
-            <% @timeslots[0..2].each do |timeslot| %>
+            <% @timeslots.each do |timeslot| %>
               <%= link_to timeslot.availability.day.strftime("%B %d  |  ") + timeslot.start_time.in_time_zone("Berlin").strftime("%H:%M"), dashboards_path(selected_id: timeslot.id), class: "btn-appointment" %>
             <% end %>
           <% end %>
+          </div>
         </div>
       </div>
     <% if @vouchers.length == 0 %>
-      <%= link_to "BOOK MORE POINTS", teacher_path(@selected_timeslot.availability.teacher), class: "btn btn-warning btn-book-next-warning btn-book-next-warning-align" %>
+      <%= link_to "BUY MORE LESSONS", teacher_path(@selected_timeslot.availability.teacher), class: "btn btn-warning btn-book-next-warning btn-book-next-warning-align" %>
     <% else %>
-      <%= link_to "BOOK NEW LESSON", teacher_path(@selected_timeslot.availability.teacher), class: "btn btn-book-next btn-book-next-align" %>
+      <%= link_to "BOOK NEW LESSON", new_teacher_booking_path(@selected_timeslot.availability.teacher), class: "btn btn-book-next btn-book-next-align" %>
     <% end %>
     </div>
+
 
     <div class="col-sm-9 text-center" style="padding-left: 25px;">
       <div class="flash-dashboard flash-success-dashboard alert-dashboard alert-dismissible fade show" role="alert-dashboard">
