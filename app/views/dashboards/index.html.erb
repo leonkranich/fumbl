@@ -14,11 +14,13 @@
          <h6> <%= @vouchers.sum {|voucher| voucher.counter } %></h6>
          <hr>
          <h5>Upcoming lessons</h5>
+         <div class="timeslots" >
          <% if @timeslots %>
-         <% @timeslots.reverse[0..2].each do |timeslot| %>
+         <% @timeslots[0..2].each do |timeslot| %>
          <%= link_to timeslot.availability.day.strftime("%B %d  |  ") + timeslot.start_time.in_time_zone("Berlin").strftime("%H:%M"), dashboards_path(selected_id: timeslot.id), class: "btn-appointment" %>
          <% end %>
          <% end %>
+         </div>
        </div>
      </div>
      <% if @vouchers.length == 0 %>
@@ -51,7 +53,8 @@
       <div class="homework">
         <div class="w">
           <h6>Your Homework</h6>
-          <p>Please learn learn the sheet music here. Pay attention in particular to the first five lines of Hallelujah.</p>
+          <p>Please learn learn the sheet music here. Pay attention in particular to the first five lines of Hallelujah. </p>
+          <h6>And dont't forget your Flashcards!! ;) </h6>
            <%= link_to "Download Homework", download_homework_path, class: "btn btn-warning btn-book-next-download btn-book-next-warning-align" %>
         </div>
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">

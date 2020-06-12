@@ -6,7 +6,7 @@
 }
 
 #avatar-dashboard {
-  background-image: url('Leon.jpeg');
+  background-image: asset-url('Leon.jpeg');
   width: 120px;
   height: 120px;
   background-size: cover;
@@ -238,4 +238,9 @@
 
 .w {
   width: 250px;
+}
+
+.timeslots {
+  height: 148px;
+  overflow-y: scroll;
 }

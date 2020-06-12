@@ -2,7 +2,8 @@ class DashboardsController < ApplicationController
   def index
     @user = current_user
     if @user.timeslots_as_student.length.positive?
-      @timeslots = @user.timeslots_as_student.where(booked: true)
+      @timeslots_all = @user.timeslots_as_student.where(booked: true)
+      @timeslots = @timeslots_all.sort {|a, b| a.start_time <=> b.start_time}
       if params[:selected_id]
         @selected_timeslot = Timeslot.find(params[:selected_id])
       else
