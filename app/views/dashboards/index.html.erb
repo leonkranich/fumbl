@@ -6,6 +6,7 @@
         <div class="text-center">
          <div class="banner-dashboard" style="background-image: url('<%= image_path 'banner.jpg' %>');">
          </div>
+
          <h4 class="m-0 py-1">Welcome back!</h4>
          <h4 class="m-0 py-1"><%= @user.first_name %></h4>
          <hr>
@@ -21,9 +22,9 @@
        </div>
      </div>
      <% if @vouchers.length == 0 %>
-     <%= link_to "BOOK MORE CLASSES", teacher_path(@selected_timeslot.availability.teacher), class: "btn btn-warning btn-book-next-warning btn-book-next-warning-align" %>
+     <%= link_to "BUY MORE LESSONS", teacher_path(@selected_timeslot.availability.teacher), class: "btn btn-warning btn-book-next-warning btn-book-next-warning-align" %>
      <% else %>
-     <%= link_to "BOOK NEW LESSON", teacher_path(@selected_timeslot.availability.teacher), class: "btn btn-book-next btn-book-next-align" %>
+     <%= link_to "BOOK NEW LESSON", new_teacher_booking_path(@selected_timeslot.availability.teacher), class: "btn btn-book-next btn-book-next-align" %>
      <% end %>
    </div>
 
@@ -31,6 +32,7 @@
     <div class="flash-dashboard flash-success-dashboard alert-dashboard alert-dismissible fade show" role="alert-dashboard">
       <span><strong>Yay!</strong> 🎉  You successfully signed up for a new lesson! Happy learning </span>
       <a data-dismiss="alert-dashboard" aria-label="Close">
+
         <i class="fas fa-times"></i>
       </a>
     </div>

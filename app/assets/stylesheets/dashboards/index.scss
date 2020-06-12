@@ -221,6 +221,10 @@
   flex-grow: 1;
 }
 
+.timeslots {
+  height: 64px;
+  overflow-y: scroll;
+
 .btn-book-next-download {
   color: #1BCB7F;
   padding: 8px 30px;
