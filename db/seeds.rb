@@ -121,7 +121,34 @@ end
 description_array = ["I really enjoy sharing my experience with others. Looking forward to meeting you!", "Just a musician passionate about teaching and sharing knowledge.", "Really looking forward to meeting you!", "Let's discuss how I can help you getting better", "I'm a music geek always looking for ambitious students."]
 
 # photo_array = FacesApi.fetch_faces(25, "male")
-photo_array = ['https://pbs.twimg.com/profile_images/974736784906248192/gPZwCbdS.jpg','https://pbs.twimg.com/profile_images/647526574120529920/T5rm0m7W.jpg']
+photo_array = [
+'https://pbs.twimg.com/profile_images/974736784906248192/gPZwCbdS.jpg',
+'https://pbs.twimg.com/profile_images/1095548081892864000/toe7KWxm.jpg',
+'https://pbs.twimg.com/profile_images/1068504978464096259/BUjtazhF.jpg',
+'https://pbs.twimg.com/profile_images/1108475177468416000/5qGL6bdj.png',
+'https://pbs.twimg.com/profile_images/883458234685587456/KtCFjlD4.jpg',
+'https://pbs.twimg.com/profile_images/1054434556156162054/1H_7AxP0.jpg',
+'https://pbs.twimg.com/profile_images/652875667416219648/NY9hnAbp.jpg',
+'https://pbs.twimg.com/profile_images/1059532270577557506/6f6p85he.jpg',
+'https://pbs.twimg.com/profile_images/953000038967468033/n4Ngwvi7.jpg',
+'https://pbs.twimg.com/profile_images/601313917478940672/c8PSSH0i.jpg',
+'https://pbs.twimg.com/profile_images/1037560657627893760/eOGVwGvp.jpg',
+'https://pbs.twimg.com/profile_images/923300053053194240/LpiGpOEC.jpg',
+'https://pbs.twimg.com/profile_images/1101623813115064320/kWcZ2tLf.jpg',
+'https://images.unsplash.com/photo-1506803682981-6e718a9dd3ee?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=c3a31eeb7efb4d533647e3cad1de9257',
+'https://pbs.twimg.com/profile_images/946958436830285824/M21pui0V.jpg',
+'https://pbs.twimg.com/profile_images/1153966095444992000/1lpIyHaQ.jpg',
+'https://i.imgur.com/mY3XJj9.jpg',
+'https://pbs.twimg.com/profile_images/1059758505954025474/FsxfqDBR.jpg',
+'https://pbs.twimg.com/profile_images/1098814780767457281/VUMBKh1U.jpg',
+'https://images.unsplash.com/photo-1502980426475-b83966705988?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=ddcb7ec744fc63472f2d9e19362aa387',
+'https://pbs.twimg.com/profile_images/1254766009681981440/NKDbBJKd.jpg',
+'https://images.pexels.com/photos/412840/pexels-photo-412840.jpeg?h=350&auto=compress&cs=tinysrgb',
+'https://pbs.twimg.com/profile_images/1157046181698011136/xZ4wg2Xj.jpg',
+'https://pbs.twimg.com/profile_images/702865642295152641/tXpSCC2T.jpg',
+'https://pbs.twimg.com/profile_images/647526574120529920/T5rm0m7W.jpg'
+]
+
 photo_array.each_with_index do |user_photo, index|
 
   email = Faker::Internet.email
@@ -132,7 +159,7 @@ photo_array.each_with_index do |user_photo, index|
   address = addresses_array[index]
   teacher = true
   price_per_hour = [30, 35, 40, 45, 50].sample
-  photo_url = user_photo["photo"]
+  photo_url = photo_array[index]
   description = description_array.sample
 
   user = User.create(email: email, password: password, password_confirmation: password_confirmation, first_name: first_name, last_name: last_name, address: address, teacher: teacher, price_per_hour: price_per_hour, description: description, photo_url: photo_url)
@@ -142,7 +169,34 @@ end
 
 
 # photo_array = FacesApi.fetch_faces(25, "female")
-photo_array = ['https://images.unsplash.com/photo-1510227272981-87123e259b17?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=3759e09a5b9fbe53088b23c615b6312e','https://i.imgur.com/gmKrdo1.jpg']
+photo_array = [
+'https://images.unsplash.com/photo-1510227272981-87123e259b17?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=3759e09a5b9fbe53088b23c615b6312e',
+'https://images.unsplash.com/photo-1496081081095-d32308dd6206?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=dd302358c7e18c27c4086e97caf85781',
+'https://images.unsplash.com/photo-1546539782-6fc531453083?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ',
+'https://images.unsplash.com/photo-1513732822839-24f03a92f633?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ',
+'https://images.unsplash.com/photo-1541271696563-3be2f555fc4e?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ',
+'https://i.imgur.com/a2awzVm.jpg',
+'https://images.unsplash.com/photo-1551069613-1904dbdcda11?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ',
+'https://i.imgur.com/7zouSDh.jpg',
+'https://i.imgur.com/qCISpY5.jpg',
+'https://images.generated.photos/S33NsFrpPAcSAXZBFjQlHGjbfIqzIDMa-qxQLjM0_g4/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzA5/Mjk0MDIuanBn.jpg',
+'https://images.generated.photos/u04DBYtGAFWHCSJobPZUYbYwkTjrB6_95DMYKMS1o2E/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zL3Yy/XzAwMDU0NjcuanBn.jpg',
+'https://images.generated.photos/_aYKz7bCHV1O1blBe8A_v-khAtevIfunaxpLTTP4_gI/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zL3Yy/XzAzNTI2NzkuanBn.jpg',
+'https://i.imgur.com/n4PL5Ns.jpg',
+'https://images.generated.photos/rF3Ir6Y3AZiiqNshk_D1rTEAUsgYz4wv_CLWd0EJZmM/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zL3Yy/XzA1NzM2MTUuanBn.jpg',
+'https://i.imgur.com/U0ND4TC.jpg',
+'https://pbs.twimg.com/profile_images/641632366683914240/UZ0VIIh3.png',
+'https://images.pexels.com/photos/1181519/pexels-photo-1181519.jpeg?auto=compress&cs=tinysrgb&h=350',
+'https://images.pexels.com/photos/1065084/pexels-photo-1065084.jpeg?auto=compress&cs=tinysrgb&h=350',
+'https://images.generated.photos/G2HJBUfjWVwlvlCYckRY2mk_rC1g8Z0y0QsBaNqwONI/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zL3Yy/XzA0NDI1NjIuanBn.jpg',
+'https://images.generated.photos/XmunIXY-sb4NfNX_JA7vz0WpVLZ8i8x96nZB_idk0Fo/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zL3Yy/XzAyMjQyOTMuanBn.jpg',
+'https://i.imgur.com/UWMzCwM.jpg',
+'https://images.generated.photos/qmdENySIv23bkva-PxTHsoxVbZQdB1Wka0ZPcH5shHY/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zL3Yy/XzAzMDE4MzAuanBn.jpg',
+'https://i.imgur.com/CdD60W6.jpg',
+'https://i.imgur.com/tl4edXX.jpg',
+'https://i.imgur.com/gmKrdo1.jpg']
+
+
 photo_array.each_with_index do |user_photo, index|
 
   email = Faker::Internet.email
@@ -153,7 +207,7 @@ photo_array.each_with_index do |user_photo, index|
   address = addresses_array[index]
   teacher = true
   price_per_hour = [30, 35, 40, 45, 50].sample
-  photo_url = user_photo["photo"]
+  photo_url = photo_array[index]
   description = description_array.sample
 
   user = User.create(email: email, password: password, password_confirmation: password_confirmation, first_name: first_name, last_name: last_name, address: address, teacher: teacher, price_per_hour: price_per_hour, description: description, photo_url: photo_url)
@@ -205,7 +259,7 @@ email = Faker::Internet.email
 
 teachers_array = User.where(teacher: true)
 teachers_array.each do |teacher|
-  (Date.today..Date.today + 14).to_a.each do |day|
+  (Date.today..Date.today + 30).to_a.each do |day|
     teacher_availability = Availability.create(teacher_id: teacher.id, day: day)
     # start_time = Time.new(teacher_availability.day.year, teacher_availability.day.month, teacher_availability.day.day,9,00,00)
     timeslots_array = [[DateTime.new(day.year,day.month,day.day,9,00,00),DateTime.new(day.year,day.month,day.day,10,00,00)], [DateTime.new(day.year,day.month,day.day,10,00,00),DateTime.new(day.year,day.month,day.day,11,00,00)], [DateTime.new(day.year,day.month,day.day,11,00,00),DateTime.new(day.year,day.month,day.day,12,00,00)], [DateTime.new(day.year,day.month,day.day,13,00,00),DateTime.new(day.year,day.month,day.day,14,00,00)], [DateTime.new(day.year,day.month,day.day,14,00,00),DateTime.new(day.year,day.month,day.day,15,00,00)], [DateTime.new(day.year,day.month,day.day,15,00,00),DateTime.new(day.year,day.month,day.day,16,00,00)], [DateTime.new(day.year,day.month,day.day,16,00,00),DateTime.new(day.year,day.month,day.day,17,00,00)], [DateTime.new(day.year,day.month,day.day,17,00,00),DateTime.new(day.year,day.month,day.day,18,00,00)]]
@@ -285,5 +339,7 @@ timeslot1.booked = true
 timeslot1.save
 description1 = "Have a look at the music sheets. We will cover them in together in class"
 homework1 = Homework.create(timeslot_id: timeslot1.id, description: description1)
+
+
 
 
