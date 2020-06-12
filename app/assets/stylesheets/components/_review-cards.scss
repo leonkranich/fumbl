@@ -14,7 +14,7 @@
     position: relative;
 }
 .testimonial-bg:before{
-    content: "\f10d";
+    background-image: asset-url('muuseek-logo.png');
     font-family: "fontawesome";
     width: 75px;
     height: 75px;
