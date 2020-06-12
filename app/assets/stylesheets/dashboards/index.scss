@@ -165,8 +165,6 @@
   border: 2px solid #1BCB7F;
 }
 
-
-
 .teacher-information {
   display: flex;
   width: 100%;
@@ -215,7 +213,6 @@
   background-size: cover;
 }
 
-
 .homework-information-text {
   padding: 3%;
   flex-grow: 1;
@@ -224,6 +221,7 @@
 .timeslots {
   height: 64px;
   overflow-y: scroll;
+}
 
 .btn-book-next-download {
   color: #1BCB7F;
@@ -232,7 +230,6 @@
   background: $white;
   transition: background 0.3s ease;
   width: 100%;
-
 }
 
 .carousel-inner {
