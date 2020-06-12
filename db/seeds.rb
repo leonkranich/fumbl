@@ -101,7 +101,7 @@ end
 
 
 # ------ Teachers seed ------
-  
+
 
 addresses_array = []
 url = "https://www.dasoertliche.de/?kgs=11000000&choose=true&page=0&context=0&action=43&buc=2239&topKw=0&form_name=search_nat&kw=supermarkt&ci=Berlin"
@@ -196,7 +196,7 @@ email = Faker::Internet.email
   eric = User.create(email: email, password: password, password_confirmation: password_confirmation, first_name: first_name, last_name: last_name, address: address, teacher: teacher, price_per_hour: price_per_hour, description: description, photo_url: photo_url)
   genre = Genre.create(name: "Blues-Rock", user_id: eric.id)
   instrument = Instrument.create(name: "Guitar", experience: "Played in different bands and some solo-gigs for some time...", years_of_experience: 40, user_id: eric.id)
-  
+
   puts "Eric created"
   # ------- Availability & Timeslots seeds --------
 
@@ -238,7 +238,7 @@ end
 review_counter = [1, 2, 3, 4, 5]
 
 User.all.where(teacher: true).each do |teacher|
-  content_array = [ "#{teacher.first_name} is one hell of a teacher!!! I am so happy that I found him. Thank you FUMBL!",
+  content_array = [ "#{teacher.first_name} is one hell of a teacher!!! I am so happy that I found him. Thank you MUUSEEK!",
   "Great teacher. Could not be happier!", "Despite the short time I have already learned a lot! Amazing teacher!",
   "Very inspiring teacher. We had a few very nice jam sessions 🤙",
   "#{teacher.first_name} is super cool! I really enjoy our weekly sessions.",
